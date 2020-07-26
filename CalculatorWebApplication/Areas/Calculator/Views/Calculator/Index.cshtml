@@ -1,0 +1,20 @@
+﻿@model List<string>
+
+@using (Ajax.BeginForm("Add", "Calculator", new AjaxOptions() { LoadingElementId = "spinnerLoader", UpdateTargetId = "resultContainer" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="firstNumber">First Number</label>
+        <input id="firstNumber" name="firstNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="secondNumber">Second Number</label>
+        <input id="secondNumber" name="secondNumber" class="form-control" />
+    </div>
+    <button class="btn btn-primary">Add</button>
+}
+
+<div id="resultContainer">
+    @Html.Partial("_RecentCalculations", Model)
+</div>

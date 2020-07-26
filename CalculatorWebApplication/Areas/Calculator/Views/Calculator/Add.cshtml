@@ -1,0 +1,16 @@
+﻿@model AddViewModel
+
+@using CalculatorWebApplication.Areas.Calculator.Data.ViewModels
+
+<div>Result = <strong>@Model.Result</strong></div>
+
+@Html.Partial("_RecentCalculations", Model.RecentCalculations)
+@*<table class="table table-bordered table-hover">
+    <thead class="thead-dark">Recent calculations</thead>
+    @foreach (var item in @Model.RecentCalculations)
+    {
+        <tr>
+            <td>@item</td>
+        </tr>
+    }
+</table>*@

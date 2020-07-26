@@ -1,4 +1,5 @@
-﻿using System.Web.Services;
+﻿using System.Collections.Generic;
+using System.Web.Services;
 
 namespace WebApplication
 {
@@ -13,10 +14,50 @@ namespace WebApplication
     public class CalculatorWebService : System.Web.Services.WebService
     {
 
-        [WebMethod]
+        [WebMethod] // Client wont see method without this decorator
         public string HelloWorld()
         {
             return "Hello World";
+        }
+
+        // To use sessions we need include
+        //<binding name="CalculatorWebServiceSoap" allowCookies="true">
+        //in client appliaction web.config file.
+        [WebMethod(EnableSession = true)] 
+        public int Add(int firstNumber, int secondNumber)
+        {
+            List<string> calculations;
+
+            if(Session["calculations"] == null)
+            {
+                calculations = new List<string>();
+            }
+            else
+            {
+                calculations = (List<string>)Session["calculations"];
+            }
+
+            string strRecentCalculation = $"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}";
+            calculations.Add(strRecentCalculation);
+            Session["calculations"] = calculations;
+
+            return firstNumber + secondNumber;
+        }
+
+        [WebMethod(EnableSession = true)]
+        public List<string> GetCalculations()
+        {
+            if(Session["calculations"] == null)
+            {
+                List<string> calculations = new List<string>();
+                calculations.Add("You do not performed any calculations");
+
+                return calculations;
+            }
+            else
+            {
+                return (List<string>)Session["calculations"];
+            }
         }
     }
 }
