@@ -1,0 +1,7 @@
+﻿@model AddViewModel
+
+@using CalculatorWebApplication.Areas.WebService.Data.ViewModels
+
+<div>Result = <strong>@Model.Result</strong></div>
+
+@Html.Partial("_RecentCalculations", Model.RecentCalculations)

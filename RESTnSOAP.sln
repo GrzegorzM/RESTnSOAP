@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorWebApplication", 
 		{17122C75-5706-46FF-A302-71AA97BBF0E9} = {17122C75-5706-46FF-A302-71AA97BBF0E9}
 	EndProjectSection
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseObjects", "DatabaseObjects\DatabaseObjects.sqlproj", "{E85AFB8F-8DCA-4248-B794-367B8943C4AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,12 @@ Global
 		{6B07179B-4F61-4B44-BFEC-B6A90192CE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B07179B-4F61-4B44-BFEC-B6A90192CE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B07179B-4F61-4B44-BFEC-B6A90192CE31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E85AFB8F-8DCA-4248-B794-367B8943C4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E85AFB8F-8DCA-4248-B794-367B8943C4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E85AFB8F-8DCA-4248-B794-367B8943C4AA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E85AFB8F-8DCA-4248-B794-367B8943C4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E85AFB8F-8DCA-4248-B794-367B8943C4AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E85AFB8F-8DCA-4248-B794-367B8943C4AA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

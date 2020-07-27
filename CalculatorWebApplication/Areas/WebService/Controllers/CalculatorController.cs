@@ -1,9 +1,8 @@
-﻿using CalculatorWebApplication.Areas.Calculator.Data.ViewModels;
+﻿using CalculatorWebApplication.Areas.WebService.Data.ViewModels;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Web.Mvc;
 
-namespace CalculatorWebApplication.Areas.Calculator.Controllers
+namespace CalculatorWebApplication.Areas.WebService.Controllers
 {
     public class CalculatorController : Controller
     {
@@ -15,7 +14,6 @@ namespace CalculatorWebApplication.Areas.Calculator.Controllers
             return View(model);
         }
 
-        [ValidateAntiForgeryToken]
         public PartialViewResult Add(int firstNumber, int secondNumber)
         {
             CalculatorService.CalculatorWebServiceSoapClient client = new CalculatorService.CalculatorWebServiceSoapClient();

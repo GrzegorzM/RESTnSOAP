@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CalculatorWebApplication.Areas.Calculator.Data.ViewModels
+namespace CalculatorWebApplication.Areas.WebService.Data.ViewModels
 {
     public class AddViewModel
     {

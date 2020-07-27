@@ -1,0 +1,31 @@
+﻿@model WeatherReturn
+
+@using CalculatorWebApplication.WeatherService
+
+@if (Model != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(x => x.City)</td>
+                <td>@Html.DisplayNameFor(x => x.State)</td>
+                <td>@Html.DisplayNameFor(x => x.WeatherStationCity)</td>
+                <td>@Html.DisplayNameFor(x => x.Temperature)</td>
+                <td>@Html.DisplayNameFor(x => x.Wind)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(x => x.City)</td>
+                <td>@Html.DisplayFor(x => x.State)</td>
+                <td>@Html.DisplayFor(x => x.WeatherStationCity)</td>
+                <td>@Html.DisplayFor(x => x.Temperature)</td>
+                <td>@Html.DisplayFor(x => x.Wind)</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert-info">There are no rows to be shown.</div>
+}

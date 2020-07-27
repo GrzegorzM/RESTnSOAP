@@ -1,0 +1,12 @@
+﻿@using (Ajax.BeginForm("GetStudentById", "Student", null, new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "studentSelectedById", LoadingElementId = "spinnerLoader" }, new { @class = "form-inline" }))
+{
+    <div class="form-group col-sm-1">
+        <label for="Id" class="col-form-label">Id</label>
+    </div>
+    <div class="form-group col-sm-3">
+        <input id="Id" name="Id" class="form-control" />
+    </div>
+    <button class="btn btn-primary">Get Student</button>
+}
+
+<div id="studentSelectedById"></div>

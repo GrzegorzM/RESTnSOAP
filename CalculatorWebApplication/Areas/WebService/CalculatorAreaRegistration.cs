@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace CalculatorWebApplication.Areas.Calculator
+namespace CalculatorWebApplication.Areas.WebService
 {
-    public class CalculatorAreaRegistration : AreaRegistration 
+    public class WebServiceAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Calculator";
+                return "WebService";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Calculator_default",
-                "Calculator/{controller}/{action}/{id}",
+                "WebService_default",
+                "WebService/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

@@ -1,0 +1,29 @@
+﻿@model Student
+
+@using CalculatorWebApplication.StudentService
+
+@if (Model != null)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(x => x.Id)</th>
+                <th>@Html.DisplayNameFor(x => x.Name)</th>
+                <th>@Html.DisplayNameFor(x => x.Gender)</th>
+                <th>@Html.DisplayNameFor(x => x.TotalMarks)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.Gender</td>
+                <td>@Model.TotalMarks</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert-info">There are no rows to be shown.</div>
+}
