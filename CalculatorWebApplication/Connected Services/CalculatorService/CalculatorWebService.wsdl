@@ -27,6 +27,22 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="AddThreeNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="secondNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="thirdNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddThreeNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddThreeNumbersResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetCalculations">
         <s:complexType />
       </s:element>
@@ -56,6 +72,12 @@
   <wsdl:message name="AddSoapOut">
     <wsdl:part name="parameters" element="tns:AddResponse" />
   </wsdl:message>
+  <wsdl:message name="AddThreeNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:AddThreeNumbers" />
+  </wsdl:message>
+  <wsdl:message name="AddThreeNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:AddThreeNumbersResponse" />
+  </wsdl:message>
   <wsdl:message name="GetCalculationsSoapIn">
     <wsdl:part name="parameters" element="tns:GetCalculations" />
   </wsdl:message>
@@ -68,8 +90,13 @@
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method adds two numbers</wsdl:documentation>
       <wsdl:input message="tns:AddSoapIn" />
       <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:input name="AddThreeNumbers" message="tns:AddThreeNumbersSoapIn" />
+      <wsdl:output name="AddThreeNumbers" message="tns:AddThreeNumbersSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCalculations">
       <wsdl:input message="tns:GetCalculationsSoapIn" />
@@ -93,6 +120,15 @@
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://tempuri.org/AddThreeNumbers" style="document" />
+      <wsdl:input name="AddThreeNumbers">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddThreeNumbers">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -123,6 +159,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://tempuri.org/AddThreeNumbers" style="document" />
+      <wsdl:input name="AddThreeNumbers">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddThreeNumbers">
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

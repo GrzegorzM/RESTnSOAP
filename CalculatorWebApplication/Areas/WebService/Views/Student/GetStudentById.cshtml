@@ -1,11 +1,11 @@
 ﻿@model Student
 
-@using CalculatorWebApplication.StudentService
+@using ClientWebApplication.StudentService
 
 @if (Model != null)
 {
     <table class="table table-bordered table-hover">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>@Html.DisplayNameFor(x => x.Id)</th>
                 <th>@Html.DisplayNameFor(x => x.Name)</th>

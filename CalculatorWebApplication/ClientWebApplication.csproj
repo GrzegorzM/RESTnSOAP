@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CalculatorWebApplication</RootNamespace>
-    <AssemblyName>CalculatorWebApplication</AssemblyName>
+    <RootNamespace>ClientWebApplication</RootNamespace>
+    <AssemblyName>ClientWebApplication</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -126,10 +126,29 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\WebService\CalculatorAreaRegistration.cs" />
     <Compile Include="Areas\WebService\Controllers\CalculatorController.cs" />
+    <Compile Include="Areas\WebService\Controllers\CompanyController.cs" />
+    <Compile Include="Areas\WebService\Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\WebService\Controllers\HelloController.cs" />
     <Compile Include="Areas\WebService\Controllers\StudentController.cs" />
     <Compile Include="Areas\WebService\Controllers\WeatherController.cs" />
     <Compile Include="Areas\WebService\Data\ViewModels\AddViewModel.cs" />
     <Compile Include="Connected Services\CalculatorService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CompanyService\Reference.cs" />
+    <Compile Include="Connected Services\CompanyService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\EmployeeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\HelloService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -151,53 +170,112 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\CalculatorService\CalculatorWebApplication.CalculatorService.HelloWorldResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Areas\WebService\Views\web.config" />
     <Content Include="Areas\WebService\Views\_ViewStart.cshtml" />
     <Content Include="Areas\WebService\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\WebService\Views\Calculator\Index.cshtml" />
     <Content Include="Areas\WebService\Views\Calculator\Add.cshtml" />
-    <Content Include="Connected Services\CalculatorService\CalculatorWebApplication.CalculatorService.ArrayOfString.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CalculatorService\CalculatorWebApplication.CalculatorService.GetCalculationsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Areas\WebService\Views\Calculator\_RecentCalculations.cshtml" />
     <Content Include="Areas\WebService\Views\Student\Index.cshtml" />
     <Content Include="Areas\WebService\Views\Student\GetStudentById.cshtml" />
     <Content Include="Areas\WebService\Views\Weather\Index.cshtml" />
     <Content Include="Areas\WebService\Views\Weather\GetWeatherByZipCode.cshtml" />
+    <Content Include="Connected Services\CalculatorService\ClientWebApplication.CalculatorService.AddThreeNumbers1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CalculatorService\ClientWebApplication.CalculatorService.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CalculatorService\ClientWebApplication.CalculatorService.GetCalculationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CalculatorService\ClientWebApplication.CalculatorService.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\WebService\Views\Company\GetConfidentialInformation.cshtml" />
+    <Content Include="Areas\WebService\Views\Company\GetPublicInformation.cshtml" />
+    <Content Include="Areas\WebService\Views\Company\Index.cshtml" />
+    <Content Include="Areas\WebService\Views\Hello\Index.cshtml" />
+    <Content Include="Areas\WebService\Views\Hello\GetMessage.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\Index.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\GetEmployee.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\SaveEmployee.cshtml" />
     <None Include="Connected Services\CalculatorService\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorService\configuration.svcinfo" />
     <None Include="Connected Services\CalculatorService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Connected Services\StudentService\CalculatorWebApplication.StudentService.GetStudentByIdResponse.datasource">
+    <None Include="Connected Services\CompanyService\CompanyService.wsdl" />
+    <None Include="Connected Services\CompanyService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CompanyService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\EmployeeService\ClientWebApplication.EmployeeService.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\StudentService\CalculatorWebApplication.StudentService.Student.datasource">
+    <None Include="Connected Services\EmployeeService\EmployeeService.wsdl" />
+    <None Include="Connected Services\EmployeeService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmployeeService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmployeeService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HelloService\HelloService.wsdl" />
+    <None Include="Connected Services\HelloService\item.disco" />
+    <None Include="Connected Services\HelloService\configuration91.svcinfo" />
+    <None Include="Connected Services\HelloService\configuration.svcinfo" />
+    <None Include="Connected Services\HelloService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CompanyService\configuration.svcinfo" />
+    <None Include="Connected Services\CompanyService\configuration91.svcinfo" />
+    <None Include="Connected Services\CompanyService\item.disco" />
+    <None Include="Connected Services\CompanyService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\EmployeeService\item.disco" />
+    <None Include="Connected Services\EmployeeService\configuration91.svcinfo" />
+    <None Include="Connected Services\EmployeeService\configuration.svcinfo" />
+    <None Include="Connected Services\EmployeeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\StudentService\ClientWebApplication.StudentService.GetStudentByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\StudentService\ClientWebApplication.StudentService.Student.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\HelloService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HelloService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\StudentService\configuration91.svcinfo" />
     <None Include="Connected Services\StudentService\configuration.svcinfo" />
     <None Include="Connected Services\StudentService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Connected Services\WeatherService\CalculatorWebApplication.WeatherService.ForecastReturn.datasource">
+    <Content Include="Connected Services\WeatherService\ClientWebApplication.WeatherService.ForecastReturn.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\WeatherService\CalculatorWebApplication.WeatherService.GetWeatherInformationResponse.datasource">
+    <Content Include="Connected Services\WeatherService\ClientWebApplication.WeatherService.GetWeatherInformationResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\WeatherService\CalculatorWebApplication.WeatherService.WeatherDescription.datasource">
+    <Content Include="Connected Services\WeatherService\ClientWebApplication.WeatherService.WeatherDescription.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\WeatherService\CalculatorWebApplication.WeatherService.WeatherReturn.datasource">
+    <Content Include="Connected Services\WeatherService\ClientWebApplication.WeatherService.WeatherReturn.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\WeatherService\Weather.disco" />
@@ -365,6 +443,8 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CalculatorService\" />
+    <WCFMetadataStorage Include="Connected Services\EmployeeService\" />
+    <WCFMetadataStorage Include="Connected Services\HelloService\" />
     <WCFMetadataStorage Include="Connected Services\StudentService\" />
     <WCFMetadataStorage Include="Connected Services\WeatherService\" />
   </ItemGroup>

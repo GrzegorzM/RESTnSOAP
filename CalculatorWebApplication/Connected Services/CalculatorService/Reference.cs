@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CalculatorWebApplication.CalculatorService {
+namespace ClientWebApplication.CalculatorService {
     using System.Runtime.Serialization;
     using System;
     
@@ -26,10 +26,10 @@ namespace CalculatorWebApplication.CalculatorService {
         
         // CODEGEN: Generating message contract since element name HelloWorldResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        CalculatorWebApplication.CalculatorService.HelloWorldResponse HelloWorld(CalculatorWebApplication.CalculatorService.HelloWorldRequest request);
+        ClientWebApplication.CalculatorService.HelloWorldResponse HelloWorld(ClientWebApplication.CalculatorService.HelloWorldRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.HelloWorldResponse> HelloWorldAsync(CalculatorWebApplication.CalculatorService.HelloWorldRequest request);
+        System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.HelloWorldResponse> HelloWorldAsync(ClientWebApplication.CalculatorService.HelloWorldRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Add", ReplyAction="*")]
         int Add(int firstNumber, int secondNumber);
@@ -37,12 +37,19 @@ namespace CalculatorWebApplication.CalculatorService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Add", ReplyAction="*")]
         System.Threading.Tasks.Task<int> AddAsync(int firstNumber, int secondNumber);
         
+        // CODEGEN: Generating message contract since the wrapper name (AddThreeNumbers) of message AddThreeNumbers does not match the default value (Add1)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddThreeNumbers", ReplyAction="*")]
+        ClientWebApplication.CalculatorService.AddThreeNumbers1 Add1(ClientWebApplication.CalculatorService.AddThreeNumbers request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddThreeNumbers", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.AddThreeNumbers1> Add1Async(ClientWebApplication.CalculatorService.AddThreeNumbers request);
+        
         // CODEGEN: Generating message contract since element name GetCalculationsResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCalculations", ReplyAction="*")]
-        CalculatorWebApplication.CalculatorService.GetCalculationsResponse GetCalculations(CalculatorWebApplication.CalculatorService.GetCalculationsRequest request);
+        ClientWebApplication.CalculatorService.GetCalculationsResponse GetCalculations(ClientWebApplication.CalculatorService.GetCalculationsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCalculations", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.GetCalculationsResponse> GetCalculationsAsync(CalculatorWebApplication.CalculatorService.GetCalculationsRequest request);
+        System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.GetCalculationsResponse> GetCalculationsAsync(ClientWebApplication.CalculatorService.GetCalculationsRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -52,12 +59,12 @@ namespace CalculatorWebApplication.CalculatorService {
     public partial class HelloWorldRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public CalculatorWebApplication.CalculatorService.HelloWorldRequestBody Body;
+        public ClientWebApplication.CalculatorService.HelloWorldRequestBody Body;
         
         public HelloWorldRequest() {
         }
         
-        public HelloWorldRequest(CalculatorWebApplication.CalculatorService.HelloWorldRequestBody Body) {
+        public HelloWorldRequest(ClientWebApplication.CalculatorService.HelloWorldRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -79,12 +86,12 @@ namespace CalculatorWebApplication.CalculatorService {
     public partial class HelloWorldResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public CalculatorWebApplication.CalculatorService.HelloWorldResponseBody Body;
+        public ClientWebApplication.CalculatorService.HelloWorldResponseBody Body;
         
         public HelloWorldResponse() {
         }
         
-        public HelloWorldResponse(CalculatorWebApplication.CalculatorService.HelloWorldResponseBody Body) {
+        public HelloWorldResponse(ClientWebApplication.CalculatorService.HelloWorldResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -109,16 +116,58 @@ namespace CalculatorWebApplication.CalculatorService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddThreeNumbers", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AddThreeNumbers {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int firstNumber;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int secondNumber;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public int thirdNumber;
+        
+        public AddThreeNumbers() {
+        }
+        
+        public AddThreeNumbers(int firstNumber, int secondNumber, int thirdNumber) {
+            this.firstNumber = firstNumber;
+            this.secondNumber = secondNumber;
+            this.thirdNumber = thirdNumber;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddThreeNumbersResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AddThreeNumbers1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int AddThreeNumbersResult;
+        
+        public AddThreeNumbers1() {
+        }
+        
+        public AddThreeNumbers1(int AddThreeNumbersResult) {
+            this.AddThreeNumbersResult = AddThreeNumbersResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetCalculationsRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="GetCalculations", Namespace="http://tempuri.org/", Order=0)]
-        public CalculatorWebApplication.CalculatorService.GetCalculationsRequestBody Body;
+        public ClientWebApplication.CalculatorService.GetCalculationsRequestBody Body;
         
         public GetCalculationsRequest() {
         }
         
-        public GetCalculationsRequest(CalculatorWebApplication.CalculatorService.GetCalculationsRequestBody Body) {
+        public GetCalculationsRequest(ClientWebApplication.CalculatorService.GetCalculationsRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -140,12 +189,12 @@ namespace CalculatorWebApplication.CalculatorService {
     public partial class GetCalculationsResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="GetCalculationsResponse", Namespace="http://tempuri.org/", Order=0)]
-        public CalculatorWebApplication.CalculatorService.GetCalculationsResponseBody Body;
+        public ClientWebApplication.CalculatorService.GetCalculationsResponseBody Body;
         
         public GetCalculationsResponse() {
         }
         
-        public GetCalculationsResponse(CalculatorWebApplication.CalculatorService.GetCalculationsResponseBody Body) {
+        public GetCalculationsResponse(ClientWebApplication.CalculatorService.GetCalculationsResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -157,23 +206,23 @@ namespace CalculatorWebApplication.CalculatorService {
     public partial class GetCalculationsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public CalculatorWebApplication.CalculatorService.ArrayOfString GetCalculationsResult;
+        public ClientWebApplication.CalculatorService.ArrayOfString GetCalculationsResult;
         
         public GetCalculationsResponseBody() {
         }
         
-        public GetCalculationsResponseBody(CalculatorWebApplication.CalculatorService.ArrayOfString GetCalculationsResult) {
+        public GetCalculationsResponseBody(ClientWebApplication.CalculatorService.ArrayOfString GetCalculationsResult) {
             this.GetCalculationsResult = GetCalculationsResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface CalculatorWebServiceSoapChannel : CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap, System.ServiceModel.IClientChannel {
+    public interface CalculatorWebServiceSoapChannel : ClientWebApplication.CalculatorService.CalculatorWebServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CalculatorWebServiceSoapClient : System.ServiceModel.ClientBase<CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap>, CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap {
+    public partial class CalculatorWebServiceSoapClient : System.ServiceModel.ClientBase<ClientWebApplication.CalculatorService.CalculatorWebServiceSoap>, ClientWebApplication.CalculatorService.CalculatorWebServiceSoap {
         
         public CalculatorWebServiceSoapClient() {
         }
@@ -195,26 +244,26 @@ namespace CalculatorWebApplication.CalculatorService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CalculatorWebApplication.CalculatorService.HelloWorldResponse CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap.HelloWorld(CalculatorWebApplication.CalculatorService.HelloWorldRequest request) {
+        ClientWebApplication.CalculatorService.HelloWorldResponse ClientWebApplication.CalculatorService.CalculatorWebServiceSoap.HelloWorld(ClientWebApplication.CalculatorService.HelloWorldRequest request) {
             return base.Channel.HelloWorld(request);
         }
         
         public string HelloWorld() {
-            CalculatorWebApplication.CalculatorService.HelloWorldRequest inValue = new CalculatorWebApplication.CalculatorService.HelloWorldRequest();
-            inValue.Body = new CalculatorWebApplication.CalculatorService.HelloWorldRequestBody();
-            CalculatorWebApplication.CalculatorService.HelloWorldResponse retVal = ((CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).HelloWorld(inValue);
+            ClientWebApplication.CalculatorService.HelloWorldRequest inValue = new ClientWebApplication.CalculatorService.HelloWorldRequest();
+            inValue.Body = new ClientWebApplication.CalculatorService.HelloWorldRequestBody();
+            ClientWebApplication.CalculatorService.HelloWorldResponse retVal = ((ClientWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).HelloWorld(inValue);
             return retVal.Body.HelloWorldResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.HelloWorldResponse> CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap.HelloWorldAsync(CalculatorWebApplication.CalculatorService.HelloWorldRequest request) {
+        System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.HelloWorldResponse> ClientWebApplication.CalculatorService.CalculatorWebServiceSoap.HelloWorldAsync(ClientWebApplication.CalculatorService.HelloWorldRequest request) {
             return base.Channel.HelloWorldAsync(request);
         }
         
-        public System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.HelloWorldResponse> HelloWorldAsync() {
-            CalculatorWebApplication.CalculatorService.HelloWorldRequest inValue = new CalculatorWebApplication.CalculatorService.HelloWorldRequest();
-            inValue.Body = new CalculatorWebApplication.CalculatorService.HelloWorldRequestBody();
-            return ((CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).HelloWorldAsync(inValue);
+        public System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.HelloWorldResponse> HelloWorldAsync() {
+            ClientWebApplication.CalculatorService.HelloWorldRequest inValue = new ClientWebApplication.CalculatorService.HelloWorldRequest();
+            inValue.Body = new ClientWebApplication.CalculatorService.HelloWorldRequestBody();
+            return ((ClientWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).HelloWorldAsync(inValue);
         }
         
         public int Add(int firstNumber, int secondNumber) {
@@ -226,26 +275,53 @@ namespace CalculatorWebApplication.CalculatorService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CalculatorWebApplication.CalculatorService.GetCalculationsResponse CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap.GetCalculations(CalculatorWebApplication.CalculatorService.GetCalculationsRequest request) {
+        ClientWebApplication.CalculatorService.AddThreeNumbers1 ClientWebApplication.CalculatorService.CalculatorWebServiceSoap.Add1(ClientWebApplication.CalculatorService.AddThreeNumbers request) {
+            return base.Channel.Add1(request);
+        }
+        
+        public int Add1(int firstNumber, int secondNumber, int thirdNumber) {
+            ClientWebApplication.CalculatorService.AddThreeNumbers inValue = new ClientWebApplication.CalculatorService.AddThreeNumbers();
+            inValue.firstNumber = firstNumber;
+            inValue.secondNumber = secondNumber;
+            inValue.thirdNumber = thirdNumber;
+            ClientWebApplication.CalculatorService.AddThreeNumbers1 retVal = ((ClientWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).Add1(inValue);
+            return retVal.AddThreeNumbersResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.AddThreeNumbers1> ClientWebApplication.CalculatorService.CalculatorWebServiceSoap.Add1Async(ClientWebApplication.CalculatorService.AddThreeNumbers request) {
+            return base.Channel.Add1Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.AddThreeNumbers1> Add1Async(int firstNumber, int secondNumber, int thirdNumber) {
+            ClientWebApplication.CalculatorService.AddThreeNumbers inValue = new ClientWebApplication.CalculatorService.AddThreeNumbers();
+            inValue.firstNumber = firstNumber;
+            inValue.secondNumber = secondNumber;
+            inValue.thirdNumber = thirdNumber;
+            return ((ClientWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).Add1Async(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientWebApplication.CalculatorService.GetCalculationsResponse ClientWebApplication.CalculatorService.CalculatorWebServiceSoap.GetCalculations(ClientWebApplication.CalculatorService.GetCalculationsRequest request) {
             return base.Channel.GetCalculations(request);
         }
         
-        public CalculatorWebApplication.CalculatorService.ArrayOfString GetCalculations() {
-            CalculatorWebApplication.CalculatorService.GetCalculationsRequest inValue = new CalculatorWebApplication.CalculatorService.GetCalculationsRequest();
-            inValue.Body = new CalculatorWebApplication.CalculatorService.GetCalculationsRequestBody();
-            CalculatorWebApplication.CalculatorService.GetCalculationsResponse retVal = ((CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).GetCalculations(inValue);
+        public ClientWebApplication.CalculatorService.ArrayOfString GetCalculations() {
+            ClientWebApplication.CalculatorService.GetCalculationsRequest inValue = new ClientWebApplication.CalculatorService.GetCalculationsRequest();
+            inValue.Body = new ClientWebApplication.CalculatorService.GetCalculationsRequestBody();
+            ClientWebApplication.CalculatorService.GetCalculationsResponse retVal = ((ClientWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).GetCalculations(inValue);
             return retVal.Body.GetCalculationsResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.GetCalculationsResponse> CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap.GetCalculationsAsync(CalculatorWebApplication.CalculatorService.GetCalculationsRequest request) {
+        System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.GetCalculationsResponse> ClientWebApplication.CalculatorService.CalculatorWebServiceSoap.GetCalculationsAsync(ClientWebApplication.CalculatorService.GetCalculationsRequest request) {
             return base.Channel.GetCalculationsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.GetCalculationsResponse> GetCalculationsAsync() {
-            CalculatorWebApplication.CalculatorService.GetCalculationsRequest inValue = new CalculatorWebApplication.CalculatorService.GetCalculationsRequest();
-            inValue.Body = new CalculatorWebApplication.CalculatorService.GetCalculationsRequestBody();
-            return ((CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).GetCalculationsAsync(inValue);
+        public System.Threading.Tasks.Task<ClientWebApplication.CalculatorService.GetCalculationsResponse> GetCalculationsAsync() {
+            ClientWebApplication.CalculatorService.GetCalculationsRequest inValue = new ClientWebApplication.CalculatorService.GetCalculationsRequest();
+            inValue.Body = new ClientWebApplication.CalculatorService.GetCalculationsRequestBody();
+            return ((ClientWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).GetCalculationsAsync(inValue);
         }
     }
 }

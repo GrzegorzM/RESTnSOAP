@@ -1,0 +1,30 @@
+﻿@model Employee
+
+@using ClientWebApplication.EmployeeService
+
+@if (Model != null)
+{
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(x => x.Id)</th>
+                <th>@Html.DisplayNameFor(x => x.Name)</th>
+                <th>@Html.DisplayNameFor(x => x.Gender)</th>
+                <th>@Html.DisplayNameFor(x => x.DateOfBirth)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>@Model.Id</th>
+                <th>@Model.Name</th>
+                <th>@Model.Gender</th>
+                <th>@Model.DateOfBirth</th>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert-info">There are no rows to be shown.</div>
+}
+

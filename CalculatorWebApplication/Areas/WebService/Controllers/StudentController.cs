@@ -1,7 +1,7 @@
-﻿using CalculatorWebApplication.StudentService;
+﻿using ClientWebApplication.StudentService;
 using System.Web.Mvc;
 
-namespace CalculatorWebApplication.Areas.WebService.Controllers
+namespace ClientWebApplication.Areas.WebService.Controllers
 {
     public class StudentController : Controller
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace CalculatorWebApplication.Areas.WebService
+namespace ClientWebApplication.Areas.WebService
 {
     public class WebServiceAreaRegistration : AreaRegistration 
     {

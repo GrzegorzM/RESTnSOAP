@@ -1,0 +1,24 @@
+﻿@model Employee
+
+@using ClientWebApplication.EmployeeService
+
+@using (Ajax.BeginForm("GetEmployee", "Employee", null, new AjaxOptions() { LoadingElementId = "spinnerLoader", UpdateTargetId = "employee", HttpMethod = "GET" }, null))
+{
+    <input id="id" name="id" />
+    <button class="btn btn-primary">Get Employee</button>
+}
+
+
+@using (Ajax.BeginForm("SaveEmployee", "Employee", null, new AjaxOptions() { LoadingElementId = "spinnerLoader", UpdateTargetId = "employeeSavedMessage", HttpMethod = "GET" }, null))
+{
+    @Html.DisplayNameFor(x => x.Name)
+    @Html.EditorFor(x => x.Name)
+    @Html.DisplayNameFor(x => x.Gender)
+    @Html.EditorFor(x => x.Gender)
+    @Html.DisplayNameFor(x => x.DateOfBirth)
+    @Html.EditorFor(x => x.DateOfBirth)
+    <button class="btn btn-primary">Save Employee</button>
+}
+
+<div id="employee"></div>
+<div id="employeeSavedMessage"></div>

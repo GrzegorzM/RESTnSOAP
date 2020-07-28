@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CalculatorWebApplication.WeatherService {
+namespace ClientWebApplication.WeatherService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -18,24 +18,24 @@ namespace CalculatorWebApplication.WeatherService {
         // CODEGEN: Parameter 'GetWeatherInformationResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayItemAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cdyne.com/WeatherWS/GetWeatherInformation", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        CalculatorWebApplication.WeatherService.GetWeatherInformationResponse GetWeatherInformation(CalculatorWebApplication.WeatherService.GetWeatherInformationRequest request);
+        ClientWebApplication.WeatherService.GetWeatherInformationResponse GetWeatherInformation(ClientWebApplication.WeatherService.GetWeatherInformationRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cdyne.com/WeatherWS/GetWeatherInformation", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculatorWebApplication.WeatherService.GetWeatherInformationResponse> GetWeatherInformationAsync(CalculatorWebApplication.WeatherService.GetWeatherInformationRequest request);
+        System.Threading.Tasks.Task<ClientWebApplication.WeatherService.GetWeatherInformationResponse> GetWeatherInformationAsync(ClientWebApplication.WeatherService.GetWeatherInformationRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cdyne.com/WeatherWS/GetCityForecastByZIP", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        CalculatorWebApplication.WeatherService.ForecastReturn GetCityForecastByZIP(string ZIP);
+        ClientWebApplication.WeatherService.ForecastReturn GetCityForecastByZIP(string ZIP);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cdyne.com/WeatherWS/GetCityForecastByZIP", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculatorWebApplication.WeatherService.ForecastReturn> GetCityForecastByZIPAsync(string ZIP);
+        System.Threading.Tasks.Task<ClientWebApplication.WeatherService.ForecastReturn> GetCityForecastByZIPAsync(string ZIP);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cdyne.com/WeatherWS/GetCityWeatherByZIP", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        CalculatorWebApplication.WeatherService.WeatherReturn GetCityWeatherByZIP(string ZIP);
+        ClientWebApplication.WeatherService.WeatherReturn GetCityWeatherByZIP(string ZIP);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cdyne.com/WeatherWS/GetCityWeatherByZIP", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculatorWebApplication.WeatherService.WeatherReturn> GetCityWeatherByZIPAsync(string ZIP);
+        System.Threading.Tasks.Task<ClientWebApplication.WeatherService.WeatherReturn> GetCityWeatherByZIPAsync(string ZIP);
     }
     
     /// <remarks/>
@@ -612,23 +612,23 @@ namespace CalculatorWebApplication.WeatherService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cdyne.com/WeatherWS/", Order=0)]
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public CalculatorWebApplication.WeatherService.WeatherDescription[] GetWeatherInformationResult;
+        public ClientWebApplication.WeatherService.WeatherDescription[] GetWeatherInformationResult;
         
         public GetWeatherInformationResponse() {
         }
         
-        public GetWeatherInformationResponse(CalculatorWebApplication.WeatherService.WeatherDescription[] GetWeatherInformationResult) {
+        public GetWeatherInformationResponse(ClientWebApplication.WeatherService.WeatherDescription[] GetWeatherInformationResult) {
             this.GetWeatherInformationResult = GetWeatherInformationResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WeatherSoapChannel : CalculatorWebApplication.WeatherService.WeatherSoap, System.ServiceModel.IClientChannel {
+    public interface WeatherSoapChannel : ClientWebApplication.WeatherService.WeatherSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WeatherSoapClient : System.ServiceModel.ClientBase<CalculatorWebApplication.WeatherService.WeatherSoap>, CalculatorWebApplication.WeatherService.WeatherSoap {
+    public partial class WeatherSoapClient : System.ServiceModel.ClientBase<ClientWebApplication.WeatherService.WeatherSoap>, ClientWebApplication.WeatherService.WeatherSoap {
         
         public WeatherSoapClient() {
         }
@@ -650,39 +650,39 @@ namespace CalculatorWebApplication.WeatherService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CalculatorWebApplication.WeatherService.GetWeatherInformationResponse CalculatorWebApplication.WeatherService.WeatherSoap.GetWeatherInformation(CalculatorWebApplication.WeatherService.GetWeatherInformationRequest request) {
+        ClientWebApplication.WeatherService.GetWeatherInformationResponse ClientWebApplication.WeatherService.WeatherSoap.GetWeatherInformation(ClientWebApplication.WeatherService.GetWeatherInformationRequest request) {
             return base.Channel.GetWeatherInformation(request);
         }
         
-        public CalculatorWebApplication.WeatherService.WeatherDescription[] GetWeatherInformation() {
-            CalculatorWebApplication.WeatherService.GetWeatherInformationRequest inValue = new CalculatorWebApplication.WeatherService.GetWeatherInformationRequest();
-            CalculatorWebApplication.WeatherService.GetWeatherInformationResponse retVal = ((CalculatorWebApplication.WeatherService.WeatherSoap)(this)).GetWeatherInformation(inValue);
+        public ClientWebApplication.WeatherService.WeatherDescription[] GetWeatherInformation() {
+            ClientWebApplication.WeatherService.GetWeatherInformationRequest inValue = new ClientWebApplication.WeatherService.GetWeatherInformationRequest();
+            ClientWebApplication.WeatherService.GetWeatherInformationResponse retVal = ((ClientWebApplication.WeatherService.WeatherSoap)(this)).GetWeatherInformation(inValue);
             return retVal.GetWeatherInformationResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CalculatorWebApplication.WeatherService.GetWeatherInformationResponse> CalculatorWebApplication.WeatherService.WeatherSoap.GetWeatherInformationAsync(CalculatorWebApplication.WeatherService.GetWeatherInformationRequest request) {
+        System.Threading.Tasks.Task<ClientWebApplication.WeatherService.GetWeatherInformationResponse> ClientWebApplication.WeatherService.WeatherSoap.GetWeatherInformationAsync(ClientWebApplication.WeatherService.GetWeatherInformationRequest request) {
             return base.Channel.GetWeatherInformationAsync(request);
         }
         
-        public System.Threading.Tasks.Task<CalculatorWebApplication.WeatherService.GetWeatherInformationResponse> GetWeatherInformationAsync() {
-            CalculatorWebApplication.WeatherService.GetWeatherInformationRequest inValue = new CalculatorWebApplication.WeatherService.GetWeatherInformationRequest();
-            return ((CalculatorWebApplication.WeatherService.WeatherSoap)(this)).GetWeatherInformationAsync(inValue);
+        public System.Threading.Tasks.Task<ClientWebApplication.WeatherService.GetWeatherInformationResponse> GetWeatherInformationAsync() {
+            ClientWebApplication.WeatherService.GetWeatherInformationRequest inValue = new ClientWebApplication.WeatherService.GetWeatherInformationRequest();
+            return ((ClientWebApplication.WeatherService.WeatherSoap)(this)).GetWeatherInformationAsync(inValue);
         }
         
-        public CalculatorWebApplication.WeatherService.ForecastReturn GetCityForecastByZIP(string ZIP) {
+        public ClientWebApplication.WeatherService.ForecastReturn GetCityForecastByZIP(string ZIP) {
             return base.Channel.GetCityForecastByZIP(ZIP);
         }
         
-        public System.Threading.Tasks.Task<CalculatorWebApplication.WeatherService.ForecastReturn> GetCityForecastByZIPAsync(string ZIP) {
+        public System.Threading.Tasks.Task<ClientWebApplication.WeatherService.ForecastReturn> GetCityForecastByZIPAsync(string ZIP) {
             return base.Channel.GetCityForecastByZIPAsync(ZIP);
         }
         
-        public CalculatorWebApplication.WeatherService.WeatherReturn GetCityWeatherByZIP(string ZIP) {
+        public ClientWebApplication.WeatherService.WeatherReturn GetCityWeatherByZIP(string ZIP) {
             return base.Channel.GetCityWeatherByZIP(ZIP);
         }
         
-        public System.Threading.Tasks.Task<CalculatorWebApplication.WeatherService.WeatherReturn> GetCityWeatherByZIPAsync(string ZIP) {
+        public System.Threading.Tasks.Task<ClientWebApplication.WeatherService.WeatherReturn> GetCityWeatherByZIPAsync(string ZIP) {
             return base.Channel.GetCityWeatherByZIPAsync(ZIP);
         }
     }

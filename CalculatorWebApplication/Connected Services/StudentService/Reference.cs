@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CalculatorWebApplication.StudentService {
+namespace ClientWebApplication.StudentService {
     using System.Runtime.Serialization;
     using System;
     
@@ -110,10 +110,10 @@ namespace CalculatorWebApplication.StudentService {
         
         // CODEGEN: Generating message contract since element name GetStudentByIdResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStudentById", ReplyAction="*")]
-        CalculatorWebApplication.StudentService.GetStudentByIdResponse GetStudentById(CalculatorWebApplication.StudentService.GetStudentByIdRequest request);
+        ClientWebApplication.StudentService.GetStudentByIdResponse GetStudentById(ClientWebApplication.StudentService.GetStudentByIdRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStudentById", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculatorWebApplication.StudentService.GetStudentByIdResponse> GetStudentByIdAsync(CalculatorWebApplication.StudentService.GetStudentByIdRequest request);
+        System.Threading.Tasks.Task<ClientWebApplication.StudentService.GetStudentByIdResponse> GetStudentByIdAsync(ClientWebApplication.StudentService.GetStudentByIdRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -123,12 +123,12 @@ namespace CalculatorWebApplication.StudentService {
     public partial class GetStudentByIdRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStudentById", Namespace="http://tempuri.org/", Order=0)]
-        public CalculatorWebApplication.StudentService.GetStudentByIdRequestBody Body;
+        public ClientWebApplication.StudentService.GetStudentByIdRequestBody Body;
         
         public GetStudentByIdRequest() {
         }
         
-        public GetStudentByIdRequest(CalculatorWebApplication.StudentService.GetStudentByIdRequestBody Body) {
+        public GetStudentByIdRequest(ClientWebApplication.StudentService.GetStudentByIdRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -157,12 +157,12 @@ namespace CalculatorWebApplication.StudentService {
     public partial class GetStudentByIdResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStudentByIdResponse", Namespace="http://tempuri.org/", Order=0)]
-        public CalculatorWebApplication.StudentService.GetStudentByIdResponseBody Body;
+        public ClientWebApplication.StudentService.GetStudentByIdResponseBody Body;
         
         public GetStudentByIdResponse() {
         }
         
-        public GetStudentByIdResponse(CalculatorWebApplication.StudentService.GetStudentByIdResponseBody Body) {
+        public GetStudentByIdResponse(ClientWebApplication.StudentService.GetStudentByIdResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -174,23 +174,23 @@ namespace CalculatorWebApplication.StudentService {
     public partial class GetStudentByIdResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public CalculatorWebApplication.StudentService.Student GetStudentByIdResult;
+        public ClientWebApplication.StudentService.Student GetStudentByIdResult;
         
         public GetStudentByIdResponseBody() {
         }
         
-        public GetStudentByIdResponseBody(CalculatorWebApplication.StudentService.Student GetStudentByIdResult) {
+        public GetStudentByIdResponseBody(ClientWebApplication.StudentService.Student GetStudentByIdResult) {
             this.GetStudentByIdResult = GetStudentByIdResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface StudentWebServiceSoapChannel : CalculatorWebApplication.StudentService.StudentWebServiceSoap, System.ServiceModel.IClientChannel {
+    public interface StudentWebServiceSoapChannel : ClientWebApplication.StudentService.StudentWebServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class StudentWebServiceSoapClient : System.ServiceModel.ClientBase<CalculatorWebApplication.StudentService.StudentWebServiceSoap>, CalculatorWebApplication.StudentService.StudentWebServiceSoap {
+    public partial class StudentWebServiceSoapClient : System.ServiceModel.ClientBase<ClientWebApplication.StudentService.StudentWebServiceSoap>, ClientWebApplication.StudentService.StudentWebServiceSoap {
         
         public StudentWebServiceSoapClient() {
         }
@@ -212,28 +212,28 @@ namespace CalculatorWebApplication.StudentService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CalculatorWebApplication.StudentService.GetStudentByIdResponse CalculatorWebApplication.StudentService.StudentWebServiceSoap.GetStudentById(CalculatorWebApplication.StudentService.GetStudentByIdRequest request) {
+        ClientWebApplication.StudentService.GetStudentByIdResponse ClientWebApplication.StudentService.StudentWebServiceSoap.GetStudentById(ClientWebApplication.StudentService.GetStudentByIdRequest request) {
             return base.Channel.GetStudentById(request);
         }
         
-        public CalculatorWebApplication.StudentService.Student GetStudentById(int id) {
-            CalculatorWebApplication.StudentService.GetStudentByIdRequest inValue = new CalculatorWebApplication.StudentService.GetStudentByIdRequest();
-            inValue.Body = new CalculatorWebApplication.StudentService.GetStudentByIdRequestBody();
+        public ClientWebApplication.StudentService.Student GetStudentById(int id) {
+            ClientWebApplication.StudentService.GetStudentByIdRequest inValue = new ClientWebApplication.StudentService.GetStudentByIdRequest();
+            inValue.Body = new ClientWebApplication.StudentService.GetStudentByIdRequestBody();
             inValue.Body.id = id;
-            CalculatorWebApplication.StudentService.GetStudentByIdResponse retVal = ((CalculatorWebApplication.StudentService.StudentWebServiceSoap)(this)).GetStudentById(inValue);
+            ClientWebApplication.StudentService.GetStudentByIdResponse retVal = ((ClientWebApplication.StudentService.StudentWebServiceSoap)(this)).GetStudentById(inValue);
             return retVal.Body.GetStudentByIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CalculatorWebApplication.StudentService.GetStudentByIdResponse> CalculatorWebApplication.StudentService.StudentWebServiceSoap.GetStudentByIdAsync(CalculatorWebApplication.StudentService.GetStudentByIdRequest request) {
+        System.Threading.Tasks.Task<ClientWebApplication.StudentService.GetStudentByIdResponse> ClientWebApplication.StudentService.StudentWebServiceSoap.GetStudentByIdAsync(ClientWebApplication.StudentService.GetStudentByIdRequest request) {
             return base.Channel.GetStudentByIdAsync(request);
         }
         
-        public System.Threading.Tasks.Task<CalculatorWebApplication.StudentService.GetStudentByIdResponse> GetStudentByIdAsync(int id) {
-            CalculatorWebApplication.StudentService.GetStudentByIdRequest inValue = new CalculatorWebApplication.StudentService.GetStudentByIdRequest();
-            inValue.Body = new CalculatorWebApplication.StudentService.GetStudentByIdRequestBody();
+        public System.Threading.Tasks.Task<ClientWebApplication.StudentService.GetStudentByIdResponse> GetStudentByIdAsync(int id) {
+            ClientWebApplication.StudentService.GetStudentByIdRequest inValue = new ClientWebApplication.StudentService.GetStudentByIdRequest();
+            inValue.Body = new ClientWebApplication.StudentService.GetStudentByIdRequestBody();
             inValue.Body.id = id;
-            return ((CalculatorWebApplication.StudentService.StudentWebServiceSoap)(this)).GetStudentByIdAsync(inValue);
+            return ((ClientWebApplication.StudentService.StudentWebServiceSoap)(this)).GetStudentByIdAsync(inValue);
         }
     }
 }

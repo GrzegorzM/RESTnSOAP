@@ -1,0 +1,14 @@
+﻿@using (Ajax.BeginForm("GetPublicInformation", "Company", null, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "spinnerLoader", UpdateTargetId = "publicInformation" }, null))
+{
+    <button class="btn btn-primary">Get Public Information</button>
+}
+@using (Ajax.BeginForm("GetConfidentialInformation", "Company", null, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "spinnerLoader", UpdateTargetId = "confidentialInformation" }, null))
+{
+    <button class="btn btn-primary">Get Confidential Information</button>
+}
+
+<h3>Public information</h3>
+<div id="publicInformation"></div>
+
+<h3>Confidential information</h3>
+<div id="confidentialInformation"></div>

@@ -1,0 +1,8 @@
+﻿@using (Ajax.BeginForm("GetMessage", "Hello", null, new AjaxOptions() { LoadingElementId = "spinnerLoader", HttpMethod = "GET", UpdateTargetId = "messageContainer" }, null))
+{
+    <label for="name">Name</label>
+    <input id="name" name="name" />
+    <button class="btn btn-primary">Get Message</button>
+}
+
+<div id="messageContainer"></div>

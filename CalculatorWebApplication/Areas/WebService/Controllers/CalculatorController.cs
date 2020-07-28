@@ -1,8 +1,8 @@
-﻿using CalculatorWebApplication.Areas.WebService.Data.ViewModels;
+﻿using ClientWebApplication.Areas.WebService.Data.ViewModels;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace CalculatorWebApplication.Areas.WebService.Controllers
+namespace ClientWebApplication.Areas.WebService.Controllers
 {
     public class CalculatorController : Controller
     {

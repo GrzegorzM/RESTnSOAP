@@ -64,6 +64,9 @@
   <ItemGroup>
     <Build Include="Procedures\spGetStudentById.sql" />
     <Build Include="Tables\tblStudents.sql" />
+    <Build Include="Tables\tblEmployee.sql" />
+    <Build Include="Procedures\spGetEmployee.sql" />
+    <Build Include="Procedures\spSaveEmployee.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\SeedTables_PostDeployment.sql" />
