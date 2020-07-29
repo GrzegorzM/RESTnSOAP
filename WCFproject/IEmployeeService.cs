@@ -12,5 +12,11 @@ namespace WCFproject
 
         [OperationContract]
         void SaveEmployee(Employee employee);
+
+        [OperationContract]
+        EmployeeKnownType GetEmployeeKnownType(int Id);
+
+        [OperationContract]
+        void SaveEmployeeKnownType(EmployeeKnownType employee);
     }
 }

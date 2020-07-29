@@ -1,0 +1,8 @@
+﻿@model EmployeeKnownType
+
+@using ClientWebApplication.EmployeeService
+
+<div class="form-group">
+    @Html.LabelFor(x => x.EmployeeType)
+    @Html.EnumDropDownListFor(x => x.EmployeeType, new { @class = "form-control" })
+</div>

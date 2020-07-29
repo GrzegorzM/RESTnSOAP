@@ -1,0 +1,15 @@
+﻿@model FullTimeEmployee
+
+@using ClientWebApplication.EmployeeService
+
+@Html.Partial("DisplayTemplates/EmployeeKnownType")
+@if (ViewData.Values.Count > 0 && ViewData.Values.First().Equals("tableHeader"))
+{
+    <th>
+        @Html.DisplayNameFor(x => x.AnnualSalary)
+    </th>
+}
+else
+{
+    <td>@Html.DisplayFor(x => x.AnnualSalary)</td>
+}

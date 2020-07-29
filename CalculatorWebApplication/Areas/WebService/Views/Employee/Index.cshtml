@@ -4,7 +4,7 @@
 
 @using (Ajax.BeginForm("GetEmployee", "Employee", null, new AjaxOptions() { LoadingElementId = "spinnerLoader", UpdateTargetId = "employee", HttpMethod = "GET" }, null))
 {
-    <input id="id" name="id" />
+    @Html.EditorFor(x => x.Id)
     <button class="btn btn-primary">Get Employee</button>
 }
 
@@ -22,3 +22,66 @@
 
 <div id="employee"></div>
 <div id="employeeSavedMessage"></div>
+
+
+
+
+
+<div class="card">
+    <div class="card-header">
+        Employee KnownType
+    </div>
+    <div class="card-body">
+        @using (Ajax.BeginForm("GetEmployeeKnownType", "Employee", null, new AjaxOptions() { LoadingElementId = "spinnerLoader", UpdateTargetId = "employeeKnownType", HttpMethod = "POST" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.Id)
+                @Html.EditorFor(x => x.Id, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <button class="btn btn-primary">Get Employee KnownType</button>
+        }
+
+        @using (Ajax.BeginForm("SaveEmployeeKnownType", "Employee", null, new AjaxOptions() { LoadingElementId = "spinnerLoader", UpdateTargetId = "employeeSavedMessageKnownType", HttpMethod = "POST" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.Name)
+                @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Gender)
+                @Html.EditorFor(x => x.Gender, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.DateOfBirth)
+                @Html.EditorFor(x => x.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            @Html.Partial("_EmployeeKnownType")
+            @Html.Partial("_FullTimeEmployee")
+            @Html.Partial("_PartTimeEmployee")
+            @*@Html.EditorForModel()*@
+            <button class="btn btn-primary">Save Employee KnownType</button>
+        }
+
+        <div id="employeeKnownType"></div>
+        <div id="employeeSavedMessageKnownType"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#EmployeeType').on('change', function () {
+            var selectedValueEmployeeType = $('#EmployeeType').val();
+            console.log(selectedValueEmployeeType);
+            if (selectedValueEmployeeType == 1) { // Full
+                $('#fulltime-job-container').show();
+                $('#part-job-container').hide();
+            } else if (selectedValueEmployeeType == 2) { // Part
+                $('#part-job-container').show();
+                $('#fulltime-job-container').hide();
+            } else {
+                $('#part-job-container').hide();
+                $('#fulltime-job-container').hide();
+            }
+        });
+    });
+</script>

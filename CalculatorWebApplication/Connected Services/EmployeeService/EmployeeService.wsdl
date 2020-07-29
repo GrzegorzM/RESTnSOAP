@@ -19,6 +19,18 @@
   <wsdl:message name="IEmployeeService_SaveEmployee_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveEmployeeResponse" />
   </wsdl:message>
+  <wsdl:message name="IEmployeeService_GetEmployeeKnownType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeKnownType" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeService_GetEmployeeKnownType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeKnownTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeService_SaveEmployeeKnownType_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEmployeeKnownType" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeService_SaveEmployeeKnownType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEmployeeKnownTypeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IEmployeeService">
     <wsdl:operation name="GetEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/GetEmployee" message="tns:IEmployeeService_GetEmployee_InputMessage" />
@@ -27,6 +39,14 @@
     <wsdl:operation name="SaveEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/SaveEmployee" message="tns:IEmployeeService_SaveEmployee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeService/SaveEmployeeResponse" message="tns:IEmployeeService_SaveEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeKnownType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownType" message="tns:IEmployeeService_GetEmployeeKnownType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownTypeResponse" message="tns:IEmployeeService_GetEmployeeKnownType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmployeeKnownType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType" message="tns:IEmployeeService_SaveEmployeeKnownType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownTypeResponse" message="tns:IEmployeeService_SaveEmployeeKnownType_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IEmployeeService" type="tns:IEmployeeService">
@@ -42,6 +62,24 @@
     </wsdl:operation>
     <wsdl:operation name="SaveEmployee">
       <soap:operation soapAction="http://tempuri.org/IEmployeeService/SaveEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeKnownType">
+      <soap:operation soapAction="http://tempuri.org/IEmployeeService/GetEmployeeKnownType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmployeeKnownType">
+      <soap:operation soapAction="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -1,0 +1,9 @@
+﻿@model FullTimeEmployee
+
+@using ClientWebApplication.EmployeeService
+
+@Html.Partial("EditorTemplates/EmployeeKnownType")
+<div class="form-group">
+    @Html.LabelFor(x => x.AnnualSalary)
+    @Html.EditorFor(x => x.AnnualSalary, new { htmlAttributes = new { @class = "form-control" } })
+</div>

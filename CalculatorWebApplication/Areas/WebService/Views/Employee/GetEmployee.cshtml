@@ -11,14 +11,16 @@
                 <th>@Html.DisplayNameFor(x => x.Name)</th>
                 <th>@Html.DisplayNameFor(x => x.Gender)</th>
                 <th>@Html.DisplayNameFor(x => x.DateOfBirth)</th>
+                @Html.DisplayForModel(new { type = "tableHeader" })
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th>@Model.Id</th>
-                <th>@Model.Name</th>
-                <th>@Model.Gender</th>
-                <th>@Model.DateOfBirth</th>
+                <td>@Html.DisplayFor(x => x.Id)</td>
+                <td>@Html.DisplayFor(x => x.Name)</td>
+                <td>@Html.DisplayFor(x => x.Gender)</td>
+                <td>@Html.DisplayFor(x => x.DateOfBirth)</td>
+                @Html.DisplayForModel()
             </tr>
         </tbody>
     </table>

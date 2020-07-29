@@ -1,0 +1,16 @@
+﻿@model EmployeeKnownType
+
+@using ClientWebApplication.EmployeeService
+
+@if(ViewData.Values.Count > 0 && ViewData.Values.First().Equals("tableHeader"))
+{
+    <th>
+        @Html.DisplayNameFor(x => x.EmployeeType)
+    </th>
+}
+else
+{
+    <td>
+        @Html.DisplayFor(x => x.EmployeeType)
+    </td>
+}

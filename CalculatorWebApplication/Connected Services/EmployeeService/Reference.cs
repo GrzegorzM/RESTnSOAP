@@ -8,15 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClientWebApplication.EmployeeService {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+namespace ClientWebApplication.EmployeeService
+{
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/WCFproject.Models")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientWebApplication.EmployeeService.EmployeeKnownType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientWebApplication.EmployeeService.FullTimeEmployee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientWebApplication.EmployeeService.PartTimeEmployee))]
     public partial class Employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -106,6 +106,104 @@ namespace ClientWebApplication.EmployeeService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmployeeKnownType", Namespace="http://schemas.datacontract.org/2004/07/WCFproject.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientWebApplication.EmployeeService.FullTimeEmployee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientWebApplication.EmployeeService.PartTimeEmployee))]
+    public partial class EmployeeKnownType : ClientWebApplication.EmployeeService.Employee {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientWebApplication.EmployeeService.EmployeeType EmployeeTypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientWebApplication.EmployeeService.EmployeeType EmployeeType {
+            get {
+                return this.EmployeeTypeField;
+            }
+            set {
+                if ((this.EmployeeTypeField.Equals(value) != true)) {
+                    this.EmployeeTypeField = value;
+                    this.RaisePropertyChanged("EmployeeType");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FullTimeEmployee", Namespace="http://schemas.datacontract.org/2004/07/WCFproject.Models")]
+    [System.SerializableAttribute()]
+    public partial class FullTimeEmployee : ClientWebApplication.EmployeeService.EmployeeKnownType {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AnnualSalaryField;
+
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AnnualSalary {
+            get {
+                return this.AnnualSalaryField;
+            }
+            set {
+                if ((this.AnnualSalaryField.Equals(value) != true)) {
+                    this.AnnualSalaryField = value;
+                    this.RaisePropertyChanged("AnnualSalary");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PartTimeEmployee", Namespace="http://schemas.datacontract.org/2004/07/WCFproject.Models")]
+    [System.SerializableAttribute()]
+    public partial class PartTimeEmployee : ClientWebApplication.EmployeeService.EmployeeKnownType {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HourlyPayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HoursWorkedField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int HourlyPay {
+            get {
+                return this.HourlyPayField;
+            }
+            set {
+                if ((this.HourlyPayField.Equals(value) != true)) {
+                    this.HourlyPayField = value;
+                    this.RaisePropertyChanged("HourlyPay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int HoursWorked {
+            get {
+                return this.HoursWorkedField;
+            }
+            set {
+                if ((this.HoursWorkedField.Equals(value) != true)) {
+                    this.HoursWorkedField = value;
+                    this.RaisePropertyChanged("HoursWorked");
+                }
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmployeeType", Namespace="http://schemas.datacontract.org/2004/07/WCFproject.Models")]
+    public enum EmployeeType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FullTimeEmployee = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PartTimeEmployee = 2,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmployeeService.IEmployeeService")]
     public interface IEmployeeService {
@@ -121,6 +219,18 @@ namespace ClientWebApplication.EmployeeService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployee", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeResponse")]
         System.Threading.Tasks.Task SaveEmployeeAsync(ClientWebApplication.EmployeeService.Employee employee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeKnownTypeResponse")]
+        ClientWebApplication.EmployeeService.EmployeeKnownType GetEmployeeKnownType(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeKnownTypeResponse")]
+        System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.EmployeeKnownType> GetEmployeeKnownTypeAsync(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeKnownTypeResponse")]
+        void SaveEmployeeKnownType(ClientWebApplication.EmployeeService.EmployeeKnownType employee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeKnownTypeResponse")]
+        System.Threading.Tasks.Task SaveEmployeeKnownTypeAsync(ClientWebApplication.EmployeeService.EmployeeKnownType employee);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -164,6 +274,22 @@ namespace ClientWebApplication.EmployeeService {
         
         public System.Threading.Tasks.Task SaveEmployeeAsync(ClientWebApplication.EmployeeService.Employee employee) {
             return base.Channel.SaveEmployeeAsync(employee);
+        }
+        
+        public ClientWebApplication.EmployeeService.EmployeeKnownType GetEmployeeKnownType(int Id) {
+            return base.Channel.GetEmployeeKnownType(Id);
+        }
+        
+        public System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.EmployeeKnownType> GetEmployeeKnownTypeAsync(int Id) {
+            return base.Channel.GetEmployeeKnownTypeAsync(Id);
+        }
+        
+        public void SaveEmployeeKnownType(ClientWebApplication.EmployeeService.EmployeeKnownType employee) {
+            base.Channel.SaveEmployeeKnownType(employee);
+        }
+        
+        public System.Threading.Tasks.Task SaveEmployeeKnownTypeAsync(ClientWebApplication.EmployeeService.EmployeeKnownType employee) {
+            return base.Channel.SaveEmployeeKnownTypeAsync(employee);
         }
     }
 }

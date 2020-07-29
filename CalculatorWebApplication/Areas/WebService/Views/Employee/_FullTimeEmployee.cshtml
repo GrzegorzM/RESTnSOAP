@@ -1,0 +1,8 @@
+﻿@model FullTimeEmployee
+
+@using ClientWebApplication.EmployeeService
+
+<div id="fulltime-job-container" class="form-group" style="display: none;">
+    @Html.LabelFor(x => x.AnnualSalary)
+    @Html.EditorFor(x => x.AnnualSalary, new { htmlAttributes = new { @class = "form-control" } })
+</div>

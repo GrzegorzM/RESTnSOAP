@@ -200,6 +200,15 @@
     <Content Include="Areas\WebService\Views\Employee\Index.cshtml" />
     <Content Include="Areas\WebService\Views\Employee\GetEmployee.cshtml" />
     <Content Include="Areas\WebService\Views\Employee\SaveEmployee.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\DisplayTemplates\EmployeeKnownType.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\DisplayTemplates\FullTimeEmployee.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\DisplayTemplates\PartTimeEmployee.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\EditorTemplates\FullTimeEmployee.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\EditorTemplates\PartTimeEmployee.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\EditorTemplates\EmployeeKnownType.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\_EmployeeKnownType.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\_FullTimeEmployee.cshtml" />
+    <Content Include="Areas\WebService\Views\Employee\_PartTimeEmployee.cshtml" />
     <None Include="Connected Services\CalculatorService\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorService\configuration.svcinfo" />
     <None Include="Connected Services\CalculatorService\Reference.svcmap">
@@ -214,6 +223,9 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Connected Services\EmployeeService\ClientWebApplication.EmployeeService.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\EmployeeService\ClientWebApplication.EmployeeService.EmployeeKnownType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\EmployeeService\EmployeeService.wsdl" />
