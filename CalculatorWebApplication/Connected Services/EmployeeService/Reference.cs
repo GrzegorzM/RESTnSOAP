@@ -8,8 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClientWebApplication.EmployeeService
-{
+namespace ClientWebApplication.EmployeeService {
+    using System.Runtime.Serialization;
+    using System;
+    
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/WCFproject.Models")]
@@ -139,7 +142,7 @@ namespace ClientWebApplication.EmployeeService
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int AnnualSalaryField;
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int AnnualSalary {
             get {
@@ -198,6 +201,9 @@ namespace ClientWebApplication.EmployeeService
     public enum EmployeeType : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
+        Null = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
         FullTimeEmployee = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -215,22 +221,98 @@ namespace ClientWebApplication.EmployeeService
         System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.Employee> GetEmployeeAsync(int Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployee", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeResponse")]
-        void SaveEmployee(ClientWebApplication.EmployeeService.Employee employee);
+        void SaveEmployee(ClientWebApplication.EmployeeService.Employee employee, ClientWebApplication.EmployeeService.EmployeeKnownType e1, ClientWebApplication.EmployeeService.PartTimeEmployee e2, ClientWebApplication.EmployeeService.FullTimeEmployee e3);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployee", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeResponse")]
-        System.Threading.Tasks.Task SaveEmployeeAsync(ClientWebApplication.EmployeeService.Employee employee);
+        System.Threading.Tasks.Task SaveEmployeeAsync(ClientWebApplication.EmployeeService.Employee employee, ClientWebApplication.EmployeeService.EmployeeKnownType e1, ClientWebApplication.EmployeeService.PartTimeEmployee e2, ClientWebApplication.EmployeeService.FullTimeEmployee e3);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeKnownTypeResponse")]
-        ClientWebApplication.EmployeeService.EmployeeKnownType GetEmployeeKnownType(int Id);
+        ClientWebApplication.EmployeeService.EmployeeInfo GetEmployeeKnownType(ClientWebApplication.EmployeeService.EmployeeRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeKnownTypeResponse")]
-        System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.EmployeeKnownType> GetEmployeeKnownTypeAsync(int Id);
+        System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.EmployeeInfo> GetEmployeeKnownTypeAsync(ClientWebApplication.EmployeeService.EmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since the operation SaveEmployeeKnownType is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeKnownTypeResponse")]
+        ClientWebApplication.EmployeeService.SaveEmployeeKnownTypeResponse SaveEmployeeKnownType(ClientWebApplication.EmployeeService.EmployeeInfo request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeKnownTypeResponse")]
-        void SaveEmployeeKnownType(ClientWebApplication.EmployeeService.EmployeeKnownType employee);
+        System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.SaveEmployeeKnownTypeResponse> SaveEmployeeKnownTypeAsync(ClientWebApplication.EmployeeService.EmployeeInfo request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="EmployeeRequestObject", WrapperNamespace="http://MyCompany.com/Employee", IsWrapped=true)]
+    public partial class EmployeeRequest {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeKnownTypeResponse")]
-        System.Threading.Tasks.Task SaveEmployeeKnownTypeAsync(ClientWebApplication.EmployeeService.EmployeeKnownType employee);
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://MyCompany.com/Employee")]
+        public string LicenseKey;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=0)]
+        public int EmployeeId;
+        
+        public EmployeeRequest() {
+        }
+        
+        public EmployeeRequest(string LicenseKey, int EmployeeId) {
+            this.LicenseKey = LicenseKey;
+            this.EmployeeId = EmployeeId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="EmployeeInfoObject", WrapperNamespace="http://MyCompany.com/Employee", IsWrapped=true)]
+    public partial class EmployeeInfo {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=0)]
+        public int Id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=1)]
+        public string Name;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=2)]
+        public string Gender;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=3)]
+        public System.DateTime DOB;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=4)]
+        public ClientWebApplication.EmployeeService.EmployeeType EmployeeType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=5)]
+        public int AnnualSalary;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=6)]
+        public int HourlyPay;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=7)]
+        public int HoursWorked;
+        
+        public EmployeeInfo() {
+        }
+        
+        public EmployeeInfo(int Id, string Name, string Gender, System.DateTime DOB, ClientWebApplication.EmployeeService.EmployeeType EmployeeType, int AnnualSalary, int HourlyPay, int HoursWorked) {
+            this.Id = Id;
+            this.Name = Name;
+            this.Gender = Gender;
+            this.DOB = DOB;
+            this.EmployeeType = EmployeeType;
+            this.AnnualSalary = AnnualSalary;
+            this.HourlyPay = HourlyPay;
+            this.HoursWorked = HoursWorked;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SaveEmployeeKnownTypeResponse {
+        
+        public SaveEmployeeKnownTypeResponse() {
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -268,28 +350,72 @@ namespace ClientWebApplication.EmployeeService
             return base.Channel.GetEmployeeAsync(Id);
         }
         
-        public void SaveEmployee(ClientWebApplication.EmployeeService.Employee employee) {
-            base.Channel.SaveEmployee(employee);
+        public void SaveEmployee(ClientWebApplication.EmployeeService.Employee employee, ClientWebApplication.EmployeeService.EmployeeKnownType e1, ClientWebApplication.EmployeeService.PartTimeEmployee e2, ClientWebApplication.EmployeeService.FullTimeEmployee e3) {
+            base.Channel.SaveEmployee(employee, e1, e2, e3);
         }
         
-        public System.Threading.Tasks.Task SaveEmployeeAsync(ClientWebApplication.EmployeeService.Employee employee) {
-            return base.Channel.SaveEmployeeAsync(employee);
+        public System.Threading.Tasks.Task SaveEmployeeAsync(ClientWebApplication.EmployeeService.Employee employee, ClientWebApplication.EmployeeService.EmployeeKnownType e1, ClientWebApplication.EmployeeService.PartTimeEmployee e2, ClientWebApplication.EmployeeService.FullTimeEmployee e3) {
+            return base.Channel.SaveEmployeeAsync(employee, e1, e2, e3);
         }
         
-        public ClientWebApplication.EmployeeService.EmployeeKnownType GetEmployeeKnownType(int Id) {
-            return base.Channel.GetEmployeeKnownType(Id);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientWebApplication.EmployeeService.EmployeeInfo ClientWebApplication.EmployeeService.IEmployeeService.GetEmployeeKnownType(ClientWebApplication.EmployeeService.EmployeeRequest request) {
+            return base.Channel.GetEmployeeKnownType(request);
         }
         
-        public System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.EmployeeKnownType> GetEmployeeKnownTypeAsync(int Id) {
-            return base.Channel.GetEmployeeKnownTypeAsync(Id);
+        public int GetEmployeeKnownType(string LicenseKey, int EmployeeId, out string Name, out string Gender, out System.DateTime DOB, out ClientWebApplication.EmployeeService.EmployeeType EmployeeType, out int AnnualSalary, out int HourlyPay, out int HoursWorked) {
+            ClientWebApplication.EmployeeService.EmployeeRequest inValue = new ClientWebApplication.EmployeeService.EmployeeRequest();
+            inValue.LicenseKey = LicenseKey;
+            inValue.EmployeeId = EmployeeId;
+            ClientWebApplication.EmployeeService.EmployeeInfo retVal = ((ClientWebApplication.EmployeeService.IEmployeeService)(this)).GetEmployeeKnownType(inValue);
+            Name = retVal.Name;
+            Gender = retVal.Gender;
+            DOB = retVal.DOB;
+            EmployeeType = retVal.EmployeeType;
+            AnnualSalary = retVal.AnnualSalary;
+            HourlyPay = retVal.HourlyPay;
+            HoursWorked = retVal.HoursWorked;
+            return retVal.Id;
         }
         
-        public void SaveEmployeeKnownType(ClientWebApplication.EmployeeService.EmployeeKnownType employee) {
-            base.Channel.SaveEmployeeKnownType(employee);
+        public System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.EmployeeInfo> GetEmployeeKnownTypeAsync(ClientWebApplication.EmployeeService.EmployeeRequest request) {
+            return base.Channel.GetEmployeeKnownTypeAsync(request);
         }
         
-        public System.Threading.Tasks.Task SaveEmployeeKnownTypeAsync(ClientWebApplication.EmployeeService.EmployeeKnownType employee) {
-            return base.Channel.SaveEmployeeKnownTypeAsync(employee);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientWebApplication.EmployeeService.SaveEmployeeKnownTypeResponse ClientWebApplication.EmployeeService.IEmployeeService.SaveEmployeeKnownType(ClientWebApplication.EmployeeService.EmployeeInfo request) {
+            return base.Channel.SaveEmployeeKnownType(request);
+        }
+        
+        public void SaveEmployeeKnownType(int Id, string Name, string Gender, System.DateTime DOB, ClientWebApplication.EmployeeService.EmployeeType EmployeeType, int AnnualSalary, int HourlyPay, int HoursWorked) {
+            ClientWebApplication.EmployeeService.EmployeeInfo inValue = new ClientWebApplication.EmployeeService.EmployeeInfo();
+            inValue.Id = Id;
+            inValue.Name = Name;
+            inValue.Gender = Gender;
+            inValue.DOB = DOB;
+            inValue.EmployeeType = EmployeeType;
+            inValue.AnnualSalary = AnnualSalary;
+            inValue.HourlyPay = HourlyPay;
+            inValue.HoursWorked = HoursWorked;
+            ClientWebApplication.EmployeeService.SaveEmployeeKnownTypeResponse retVal = ((ClientWebApplication.EmployeeService.IEmployeeService)(this)).SaveEmployeeKnownType(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.SaveEmployeeKnownTypeResponse> ClientWebApplication.EmployeeService.IEmployeeService.SaveEmployeeKnownTypeAsync(ClientWebApplication.EmployeeService.EmployeeInfo request) {
+            return base.Channel.SaveEmployeeKnownTypeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientWebApplication.EmployeeService.SaveEmployeeKnownTypeResponse> SaveEmployeeKnownTypeAsync(int Id, string Name, string Gender, System.DateTime DOB, ClientWebApplication.EmployeeService.EmployeeType EmployeeType, int AnnualSalary, int HourlyPay, int HoursWorked) {
+            ClientWebApplication.EmployeeService.EmployeeInfo inValue = new ClientWebApplication.EmployeeService.EmployeeInfo();
+            inValue.Id = Id;
+            inValue.Name = Name;
+            inValue.Gender = Gender;
+            inValue.DOB = DOB;
+            inValue.EmployeeType = EmployeeType;
+            inValue.AnnualSalary = AnnualSalary;
+            inValue.HourlyPay = HourlyPay;
+            inValue.HoursWorked = HoursWorked;
+            return ((ClientWebApplication.EmployeeService.IEmployeeService)(this)).SaveEmployeeKnownTypeAsync(inValue);
         }
     }
 }

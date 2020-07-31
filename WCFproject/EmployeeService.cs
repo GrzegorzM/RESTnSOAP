@@ -38,7 +38,7 @@ namespace WCFproject
             return employee;
         }
 
-        public void SaveEmployee(Employee employee)
+        public void SaveEmployee(Employee employee, EmployeeKnownType e1 = null, PartTimeEmployee e2 = null, FullTimeEmployee e3 = null) // e1, e2, e3 - Parameters for compatibility reason with previous version of client app.
         {
             string cs = ConfigurationManager.ConnectionStrings["SampleWebService"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
@@ -78,7 +78,8 @@ namespace WCFproject
             }
         }
 
-        public EmployeeKnownType GetEmployeeKnownType(int Id)
+        //public EmployeeKnownType GetEmployeeKnownType(int Id)
+        public EmployeeInfo GetEmployeeKnownType(EmployeeRequest request)
         {
             EmployeeKnownType employee = null;
             string cs = ConfigurationManager.ConnectionStrings["SampleWebService"].ConnectionString;
@@ -88,13 +89,15 @@ namespace WCFproject
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter parameterId = new SqlParameter();
                 parameterId.ParameterName = "@Id";
-                parameterId.Value = Id;
+                //parameterId.Value = Id;
+                parameterId.Value = request.EmployeeId;
                 cmd.Parameters.Add(parameterId);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (!reader.HasRows)
-                    return null;
+                    return new EmployeeInfo();
+                    //return null;
 
                 while (reader.Read())
                 {
@@ -107,7 +110,7 @@ namespace WCFproject
                             Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             EmployeeType = EmployeeType.FullTimeEmployee,
-                            AnnualSalary = Convert.ToInt32(reader["AnnualSalary"])
+                            AnnualSalary = reader["AnnualSalary"] == null ? 0 : Convert.ToInt32(reader["AnnualSalary"])
                         };
                     }
                     else
@@ -119,16 +122,18 @@ namespace WCFproject
                             Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             EmployeeType = EmployeeType.PartTimeEmployee,
-                            HourlyPay = Convert.ToInt32(reader["HourlyPay"]),
-                            HoursWorked = Convert.ToInt32(reader["HoursWorked"]),
+                            HourlyPay = reader["HourlyPay"] == null ? 0 : Convert.ToInt32(reader["HourlyPay"]),
+                            HoursWorked = reader["HoursWorked"] == null ? 0 : Convert.ToInt32(reader["HoursWorked"])
                         };
                     }
                 }
             }
-            return employee;
+            //return employee;
+            return new EmployeeInfo(employee);
         }
 
-        public void SaveEmployeeKnownType(EmployeeKnownType employee)
+        //public void SaveEmployeeKnownType(EmployeeKnownType employee)
+        public void SaveEmployeeKnownType(EmployeeInfo employee)
         {
             string cs = ConfigurationManager.ConnectionStrings["SampleWebService"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
@@ -159,23 +164,27 @@ namespace WCFproject
                 SqlParameter parameterDateOfBirth = new SqlParameter
                 {
                     ParameterName = "@DateOfBirth",
-                    Value = employee.DateOfBirth
+                    //Value = employee.DateOfBirth
+                    Value = employee.DOB
                 };
                 cmd.Parameters.Add(parameterDateOfBirth);
 
                 SqlParameter parameterEmployeeType = new SqlParameter
                 {
                     ParameterName = "@EmployeeType",
+                    //Value = employee.EmployeeType
                     Value = employee.EmployeeType
                 };
                 cmd.Parameters.Add(parameterEmployeeType);
 
-                if (employee.GetType() == typeof(FullTimeEmployee))
+                //if (employee.GetType() == typeof(FullTimeEmployee))
+                if (employee.EmployeeType == EmployeeType.FullTimeEmployee)
                 {
                     SqlParameter parameterAnnualSalary = new SqlParameter
                     {
                         ParameterName = "@AnnualSalary",
-                        Value = ((FullTimeEmployee)employee).AnnualSalary
+                        //Value = ((FullTimeEmployee)employee).AnnualSalary
+                        Value = employee.AnnualSalary
                     };
                     cmd.Parameters.Add(parameterAnnualSalary);
                 }
@@ -184,14 +193,16 @@ namespace WCFproject
                     SqlParameter parameterHourlyPay = new SqlParameter
                     {
                         ParameterName = "@HourlyPay",
-                        Value = ((PartTimeEmployee)employee).HourlyPay,
+                        //Value = ((PartTimeEmployee)employee).HourlyPay,
+                        Value = employee.HourlyPay,
                     };
                     cmd.Parameters.Add(parameterHourlyPay);
 
                     SqlParameter parameterHoursWorked = new SqlParameter
                     {
                         ParameterName = "@HoursWorked",
-                        Value = ((PartTimeEmployee)employee).HoursWorked
+                        //Value = ((PartTimeEmployee)employee).HoursWorked
+                        Value = employee.HoursWorked
                     };
                     cmd.Parameters.Add(parameterHoursWorked);
                 }

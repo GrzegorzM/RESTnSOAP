@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFproject.Models" />
+      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd3" namespace="http://MyCompany.com/Employee" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IEmployeeService_GetEmployee_InputMessage">
@@ -19,18 +20,16 @@
   <wsdl:message name="IEmployeeService_SaveEmployee_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveEmployeeResponse" />
   </wsdl:message>
-  <wsdl:message name="IEmployeeService_GetEmployeeKnownType_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetEmployeeKnownType" />
+  <wsdl:message name="EmployeeRequest">
+    <wsdl:part xmlns:q1="http://MyCompany.com/Employee" name="parameters" element="q1:EmployeeRequestObject" />
   </wsdl:message>
-  <wsdl:message name="IEmployeeService_GetEmployeeKnownType_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetEmployeeKnownTypeResponse" />
+  <wsdl:message name="EmployeeRequest_Headers">
+    <wsdl:part xmlns:q2="http://MyCompany.com/Employee" name="LicenseKey" element="q2:LicenseKey" />
   </wsdl:message>
-  <wsdl:message name="IEmployeeService_SaveEmployeeKnownType_InputMessage">
-    <wsdl:part name="parameters" element="tns:SaveEmployeeKnownType" />
+  <wsdl:message name="EmployeeInfo">
+    <wsdl:part xmlns:q3="http://MyCompany.com/Employee" name="parameters" element="q3:EmployeeInfoObject" />
   </wsdl:message>
-  <wsdl:message name="IEmployeeService_SaveEmployeeKnownType_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SaveEmployeeKnownTypeResponse" />
-  </wsdl:message>
+  <wsdl:message name="IEmployeeService_SaveEmployeeKnownType_OutputMessage" />
   <wsdl:portType name="IEmployeeService">
     <wsdl:operation name="GetEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/GetEmployee" message="tns:IEmployeeService_GetEmployee_InputMessage" />
@@ -41,11 +40,11 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeService/SaveEmployeeResponse" message="tns:IEmployeeService_SaveEmployee_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeKnownType">
-      <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownType" message="tns:IEmployeeService_GetEmployeeKnownType_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownTypeResponse" message="tns:IEmployeeService_GetEmployeeKnownType_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownType" name="EmployeeRequest" message="tns:EmployeeRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeService/GetEmployeeKnownTypeResponse" name="EmployeeInfo" message="tns:EmployeeInfo" />
     </wsdl:operation>
     <wsdl:operation name="SaveEmployeeKnownType">
-      <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType" message="tns:IEmployeeService_SaveEmployeeKnownType_InputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType" name="EmployeeInfo" message="tns:EmployeeInfo" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeService/SaveEmployeeKnownTypeResponse" message="tns:IEmployeeService_SaveEmployeeKnownType_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
@@ -71,16 +70,17 @@
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeKnownType">
       <soap:operation soapAction="http://tempuri.org/IEmployeeService/GetEmployeeKnownType" style="document" />
-      <wsdl:input>
+      <wsdl:input name="EmployeeRequest">
+        <soap:header message="tns:EmployeeRequest_Headers" part="LicenseKey" use="literal" />
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
+      <wsdl:output name="EmployeeInfo">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SaveEmployeeKnownType">
       <soap:operation soapAction="http://tempuri.org/IEmployeeService/SaveEmployeeKnownType" style="document" />
-      <wsdl:input>
+      <wsdl:input name="EmployeeInfo">
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>

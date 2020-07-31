@@ -19,36 +19,13 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFproject.Models" minOccurs="0" name="employee" nillable="true" type="q2:Employee" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFproject.Models" minOccurs="0" name="e1" nillable="true" type="q3:EmployeeKnownType" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFproject.Models" minOccurs="0" name="e2" nillable="true" type="q4:PartTimeEmployee" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFproject.Models" minOccurs="0" name="e3" nillable="true" type="q5:FullTimeEmployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveEmployeeResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeeKnownType">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeeKnownTypeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFproject.Models" minOccurs="0" name="GetEmployeeKnownTypeResult" nillable="true" type="q3:EmployeeKnownType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveEmployeeKnownType">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFproject.Models" minOccurs="0" name="employee" nillable="true" type="q4:EmployeeKnownType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveEmployeeKnownTypeResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
