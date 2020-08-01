@@ -27,8 +27,10 @@ namespace ClientWindowsForms
                 lblResultDivide.Text = client.Divide(Convert.ToInt32(tbNumerator.Text), Convert.ToInt32(tbDenominator.Text)).ToString();
             }
             catch (FaultException ex)
+            //catch (FaultException<DivideByZeroFault> ex) // Strongly typed exception
             {
                 lblResultDivide.Text = $"{ex.Code} - {ex.Message}";
+                //lblResultDivide.Text = $"{ex.Detail.Error} - {ex.Detail.Details}";
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using System.ServiceModel.Description;
 using WCFproject;
 
 namespace WCFhost
@@ -10,6 +11,13 @@ namespace WCFhost
         {
             using (ServiceHost host = new ServiceHost(typeof(HelloService)))
             {
+                //ServiceMetadataBehavior serviceMetadataBehavior = new ServiceMetadataBehavior() // This behavior is already added
+                //{
+                //    HttpGetEnabled = true
+                //};
+                //host.Description.Behaviors.Add(serviceMetadataBehavior);
+                host.AddServiceEndpoint(typeof(IHelloService), new NetTcpBinding(), "HelloService");
+
                 host.Open();
                 Console.WriteLine($"Host started at {DateTime.Now}");
                 Console.ReadLine();

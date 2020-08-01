@@ -1,4 +1,5 @@
 ﻿using System.ServiceModel;
+using WCFproject.Models;
 
 namespace WCFproject
 {
@@ -6,6 +7,7 @@ namespace WCFproject
     [ServiceContract]
     public interface ICalculatorServiceWCF
     {
+        [FaultContract(typeof(DivideByZeroFault))]
         [OperationContract]
         int Divide(int numerator, int denominator);
     }

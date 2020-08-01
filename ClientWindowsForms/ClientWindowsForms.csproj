@@ -85,6 +85,9 @@
     <None Include="Connected Services\CalculatorService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\CalculatorService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\HelloService\HelloService.wsdl" />
     <None Include="Connected Services\HelloService\item.xsd">
       <SubType>Designer</SubType>

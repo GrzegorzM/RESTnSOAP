@@ -53,9 +53,12 @@
     <Compile Include="ICompanyService.cs" />
     <Compile Include="IEmployeeService.cs" />
     <Compile Include="IHelloService.cs" />
+    <Compile Include="Models\DivideByZeroFault.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeKnownType.cs" />
     <Compile Include="Models\FullTimeEmployee.cs" />
+    <Compile Include="Models\GlobalErrorHandler.cs" />
+    <Compile Include="Models\GlobalErrorHandlerBehaviorAttribute.cs" />
     <Compile Include="Models\PartTimeEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
