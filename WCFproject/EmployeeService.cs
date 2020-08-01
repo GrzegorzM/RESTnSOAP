@@ -2,13 +2,18 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.ServiceModel;
 using WCFproject.Models;
 
 namespace WCFproject
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, IgnoreExtensionDataObject = true)] // Turn Off ExtensionDataObject for current service
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EmployeeService" in both code and config file together.
     public class EmployeeService : IEmployeeService
     {
+        private EmployeeKnownType lastSavedEmployee;
+
         public Employee GetEmployee(int Id)
         {
             Employee employee = new Employee();
@@ -128,6 +133,12 @@ namespace WCFproject
                     }
                 }
             }
+
+            if (lastSavedEmployee != null && request.EmployeeId == lastSavedEmployee.Id)
+            {
+                employee.ExtensionData = lastSavedEmployee.ExtensionData;
+            }
+
             //return employee;
             return new EmployeeInfo(employee);
         }
@@ -206,6 +217,8 @@ namespace WCFproject
                     };
                     cmd.Parameters.Add(parameterHoursWorked);
                 }
+
+                lastSavedEmployee = employee.GetEmployeeObject();
 
                 con.Open();
                 cmd.ExecuteNonQuery();

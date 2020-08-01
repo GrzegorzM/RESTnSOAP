@@ -14,11 +14,12 @@ namespace WCFproject.Models
         //[DataMember] // Include this property for serialization ([DataContract] attribute is required)
         public int Id { get; set; }
 
-        //[DataMember(Name = "", Order = 1)] // Order - Sorting order, Name - Change name of property
+        //[DataMember(Order = 1)] // Order - Sorting order
         public string Name { get; set; }
 
         public string Gender { get; set; }
 
+        //[DataMember(Name = "DOB", IsRequired = true)] // Name - change name of property, IsRequired - field is required. adding properties with IsRequired=true w/o updating clients will breaks clients
         public DateTime DateOfBirth { get; set; }
     }
 }

@@ -17,6 +17,8 @@ namespace WCFproject.Models
     [MessageContract(IsWrapped = true, WrapperName = "EmployeeInfoObject", WrapperNamespace = "http://MyCompany.com/Employee")]
     public class EmployeeInfo
     {
+        private readonly EmployeeKnownType emp;
+
         public EmployeeInfo()
         {
             this.EmployeeType = EmployeeType.Null;
@@ -24,6 +26,8 @@ namespace WCFproject.Models
 
         public EmployeeInfo(EmployeeKnownType employee)
         {
+            emp = employee;
+
             this.Id = employee.Id;
             this.Name = employee.Name;
             this.Gender = employee.Gender;
@@ -63,14 +67,21 @@ namespace WCFproject.Models
 
         [MessageBodyMember(Order = 8, Namespace = "http://MyCompany.com/Employee")]
         public int HoursWorked { get; set; }
+
+        public EmployeeKnownType GetEmployeeObject()
+        {
+            return emp;
+        }
     }
 
 
     [KnownType(typeof(FullTimeEmployee))]
     [KnownType(typeof(PartTimeEmployee))]
-    public class EmployeeKnownType : Employee
+    public class EmployeeKnownType : Employee, IExtensibleDataObject
     {
         public EmployeeType EmployeeType { get; set; }
+
+        public ExtensionDataObject ExtensionData { get; set; }
     }
 
     public enum EmployeeType

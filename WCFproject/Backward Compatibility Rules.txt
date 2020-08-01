@@ -1,0 +1,17 @@
+﻿[SC] - Service Contract Changes
+[DC] - Data Contract Changes
+
+Clients unaffected
+	[SC] Adding new parameters to an operation signature - parameter wont be send by clients and will be initialized with a default value at the service
+	[SC] Removing parameters from an operation signature - parameter send by clients ignored(data lost)
+	[SC] Adding new operations - clients wont be able to invoke operations they dont know about
+	[DC] Add new non-required members - since they are not required they will be initialized with default value
+	[DC] Remove non-required members - parameter send by clients will be ignored(data lost) 
+
+An exception
+	[SC] Modifying parameter types - if types are compatible then conversion will happen if not then an exception will be thrown
+	[SC] Removing operations - service wont be able to understand what kind of operation clients want to invoke therefore service will throw an exception
+	[SC] Modifying return value types - if return types are compatible then conversion will happen on clients if not then an exception will be thrown
+	[DC] Add new required members - clients wont be able to pass value for required members
+	[DC] Remove required members - service wont be able to pass value for required members
+	[DC] Modify existing member data types - if types are compatible then conversion will happen if not then an exception will be thrown
