@@ -28,6 +28,13 @@ namespace WCFhost
                 Console.WriteLine($"Employee host started at {DateTime.Now}");
                 Console.ReadLine();
             }
+
+            using (ServiceHost calculatorHost = new ServiceHost(typeof(CalculatorServiceWCF)))
+            {
+                calculatorHost.Open();
+                Console.WriteLine($"Calculator host started at {DateTime.Now}");
+                Console.ReadLine();
+            }
         }
     }
 }

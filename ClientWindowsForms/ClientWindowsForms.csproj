@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\CalculatorService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\HelloService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,6 +78,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\CalculatorService\CalculatorServiceWCF.wsdl" />
+    <None Include="Connected Services\CalculatorService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CalculatorService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\HelloService\HelloService.wsdl" />
     <None Include="Connected Services\HelloService\item.xsd">
       <SubType>Designer</SubType>
@@ -97,6 +109,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CalculatorService\" />
     <WCFMetadataStorage Include="Connected Services\HelloService\" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +123,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\HelloService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CalculatorService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CalculatorService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CalculatorService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CalculatorService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

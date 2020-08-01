@@ -132,6 +132,11 @@
     <Compile Include="Areas\WebService\Controllers\StudentController.cs" />
     <Compile Include="Areas\WebService\Controllers\WeatherController.cs" />
     <Compile Include="Areas\WebService\Data\ViewModels\AddViewModel.cs" />
+    <Compile Include="Connected Services\CalculatorServiceWCF\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\CalculatorService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,6 +184,15 @@
     <Content Include="Areas\WebService\Views\Student\GetStudentById.cshtml" />
     <Content Include="Areas\WebService\Views\Weather\Index.cshtml" />
     <Content Include="Areas\WebService\Views\Weather\GetWeatherByZipCode.cshtml" />
+    <Content Include="Areas\WebService\Views\Calculator\Divide.cshtml" />
+    <Content Include="Areas\WebService\Views\Calculator\IndexWCF.cshtml" />
+    <None Include="Connected Services\CalculatorServiceWCF\item.disco" />
+    <None Include="Connected Services\CalculatorServiceWCF\configuration91.svcinfo" />
+    <None Include="Connected Services\CalculatorServiceWCF\configuration.svcinfo" />
+    <None Include="Connected Services\CalculatorServiceWCF\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\CalculatorService\ClientWebApplication.CalculatorService.AddThreeNumbers1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -208,6 +222,13 @@
     <Content Include="Areas\WebService\Views\Employee\_EmployeeKnownType.cshtml" />
     <Content Include="Areas\WebService\Views\Employee\_FullTimeEmployee.cshtml" />
     <Content Include="Areas\WebService\Views\Employee\_PartTimeEmployee.cshtml" />
+    <None Include="Connected Services\CalculatorServiceWCF\CalculatorServiceWCF.wsdl" />
+    <None Include="Connected Services\CalculatorServiceWCF\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CalculatorServiceWCF\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\CalculatorService\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorService\configuration.svcinfo" />
     <None Include="Connected Services\CalculatorService\Reference.svcmap">
@@ -462,6 +483,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CalculatorServiceWCF\" />
     <WCFMetadataStorage Include="Connected Services\CalculatorService\" />
     <WCFMetadataStorage Include="Connected Services\CompanyService\" />
     <WCFMetadataStorage Include="Connected Services\EmployeeService\" />

@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculatorServiceWCF.cs" />
     <Compile Include="CompanyService.cs" />
     <Compile Include="EmployeeService.cs" />
     <Compile Include="HelloService.cs" />
+    <Compile Include="ICalculatorServiceWCF.cs" />
     <Compile Include="ICompanyService.cs" />
     <Compile Include="IEmployeeService.cs" />
     <Compile Include="IHelloService.cs" />

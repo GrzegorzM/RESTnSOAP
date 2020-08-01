@@ -32,6 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblGetMessageResult = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnDivide = new System.Windows.Forms.Button();
+            this.tbNumerator = new System.Windows.Forms.TextBox();
+            this.tbDenominator = new System.Windows.Forms.TextBox();
+            this.lblResultDivide = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -69,11 +75,67 @@
             this.lblGetMessageResult.Size = new System.Drawing.Size(0, 13);
             this.lblGetMessageResult.TabIndex = 3;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(391, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Numerator:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(503, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Denominator:";
+            // 
+            // btnDivide
+            // 
+            this.btnDivide.Location = new System.Drawing.Point(394, 104);
+            this.btnDivide.Name = "btnDivide";
+            this.btnDivide.Size = new System.Drawing.Size(100, 23);
+            this.btnDivide.TabIndex = 6;
+            this.btnDivide.Text = "Divide";
+            this.btnDivide.UseVisualStyleBackColor = true;
+            this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
+            // 
+            // tbNumerator
+            // 
+            this.tbNumerator.Location = new System.Drawing.Point(394, 72);
+            this.tbNumerator.Name = "tbNumerator";
+            this.tbNumerator.Size = new System.Drawing.Size(100, 20);
+            this.tbNumerator.TabIndex = 7;
+            // 
+            // tbDenominator
+            // 
+            this.tbDenominator.Location = new System.Drawing.Point(506, 72);
+            this.tbDenominator.Name = "tbDenominator";
+            this.tbDenominator.Size = new System.Drawing.Size(100, 20);
+            this.tbDenominator.TabIndex = 8;
+            // 
+            // lblResultDivide
+            // 
+            this.lblResultDivide.AutoSize = true;
+            this.lblResultDivide.Location = new System.Drawing.Point(506, 104);
+            this.lblResultDivide.Name = "lblResultDivide";
+            this.lblResultDivide.Size = new System.Drawing.Size(0, 13);
+            this.lblResultDivide.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblResultDivide);
+            this.Controls.Add(this.tbDenominator);
+            this.Controls.Add(this.tbNumerator);
+            this.Controls.Add(this.btnDivide);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblGetMessageResult);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label1);
@@ -91,6 +153,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblGetMessageResult;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnDivide;
+        private System.Windows.Forms.TextBox tbNumerator;
+        private System.Windows.Forms.TextBox tbDenominator;
+        private System.Windows.Forms.Label lblResultDivide;
     }
 }
 

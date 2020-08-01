@@ -1,0 +1,11 @@
+﻿<h5>WCF service</h5>
+@using (Ajax.BeginForm("Divide", "Calculator", null, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "spinnerLoader", UpdateTargetId = "divideResult" }, null))
+{
+    <label for="numerator"> Numerator:</label>
+    <input id="numerator" name="numerator" />
+    <label for="denominator">Denominator:</label>
+    <input id="denominator" name="denominator" />
+    <button class="btn btn-primary">Divide</button>
+}
+
+<div id="divideResult"></div>
