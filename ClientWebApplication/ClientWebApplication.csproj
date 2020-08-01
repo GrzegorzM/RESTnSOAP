@@ -137,8 +137,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\CompanyService\Reference.cs" />
-    <Compile Include="Connected Services\CompanyService\Reference1.cs">
+    <Compile Include="Connected Services\CompanyService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -216,11 +215,12 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Connected Services\CompanyService\CompanyService.wsdl" />
-    <None Include="Connected Services\CompanyService\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CompanyService\item1.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Connected Services\CompanyService\item.disco" />
+    <None Include="Connected Services\CompanyService\configuration91.svcinfo" />
+    <None Include="Connected Services\CompanyService\configuration.svcinfo" />
+    <None Include="Connected Services\CompanyService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Connected Services\EmployeeService\ClientWebApplication.EmployeeService.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -234,6 +234,12 @@
     <Content Include="Connected Services\EmployeeService\ClientWebApplication.EmployeeService.SaveEmployeeKnownTypeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\CompanyService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CompanyService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\EmployeeService\EmployeeService.wsdl" />
     <None Include="Connected Services\EmployeeService\item.xsd">
       <SubType>Designer</SubType>
@@ -254,13 +260,6 @@
     <None Include="Connected Services\HelloService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\CompanyService\configuration.svcinfo" />
-    <None Include="Connected Services\CompanyService\configuration91.svcinfo" />
-    <None Include="Connected Services\CompanyService\item.disco" />
-    <None Include="Connected Services\CompanyService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference1.cs</LastGenOutput>
     </None>
     <None Include="Connected Services\EmployeeService\item.disco" />
     <None Include="Connected Services\EmployeeService\configuration91.svcinfo" />
@@ -464,6 +463,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CalculatorService\" />
+    <WCFMetadataStorage Include="Connected Services\CompanyService\" />
     <WCFMetadataStorage Include="Connected Services\EmployeeService\" />
     <WCFMetadataStorage Include="Connected Services\HelloService\" />
     <WCFMetadataStorage Include="Connected Services\StudentService\" />

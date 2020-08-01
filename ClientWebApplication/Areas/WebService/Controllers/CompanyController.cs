@@ -15,8 +15,6 @@ namespace ClientWebApplication.Areas.WebService.Controllers
             CompanyPublicServiceClient client = new CompanyPublicServiceClient("BasicHttpBinding_ICompanyPublicService");
             string information = client.GetPublicInformation();
 
-            information = null;
-
             return PartialView("GetPublicInformation", information);
         }
 
@@ -24,8 +22,6 @@ namespace ClientWebApplication.Areas.WebService.Controllers
         {
             CompanyConfidentalServiceClient client = new CompanyConfidentalServiceClient("NetTcpBinding_ICompanyConfidentalService");
             string information = client.GetConfidentalInformation();
-
-            information = string.Empty;
 
             return PartialView("GetConfidentialInformation", information);
         }

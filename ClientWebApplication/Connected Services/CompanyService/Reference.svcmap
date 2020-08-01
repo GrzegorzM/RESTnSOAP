@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c97573ec-d18b-42f8-96da-fba0a7bcfaa3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cbc03a7f-dbce-496e-a58a-4fab2983dda5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8081/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="aa23472b-966b-446f-b241-ff2d9e3c2e7b" SourceId="1" SourceUrl="http://localhost:8081/?xsd=xsd1" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="cc3c5d3d-9d94-4492-a6d7-2b6d14046493" SourceId="1" SourceUrl="http://localhost:8081/?xsd=xsd0" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="121c5a3d-7a4f-4727-aebf-6f1f245eabf7" SourceId="1" SourceUrl="http://localhost:8081/?disco" />
-    <MetadataFile FileName="CompanyService.wsdl" MetadataType="Wsdl" ID="5e5f942f-cff3-4388-a798-58a5f44d7c30" SourceId="1" SourceUrl="http://localhost:8081/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="b45d8062-b13f-4764-b606-ef186ac2d80d" SourceId="1" SourceUrl="http://localhost:8081/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="66d3fcfc-3a20-4d3f-ba2e-29bfad2bbd87" SourceId="1" SourceUrl="http://localhost:8081/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="653d3415-a6ea-4bb2-bea8-4b7058d1b028" SourceId="1" SourceUrl="http://localhost:8081/?disco" />
+    <MetadataFile FileName="CompanyService.wsdl" MetadataType="Wsdl" ID="0f86c23c-d440-4795-b0fe-da26c39644fb" SourceId="1" SourceUrl="http://localhost:8081/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
