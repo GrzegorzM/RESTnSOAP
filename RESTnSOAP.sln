@@ -20,6 +20,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWindowsForms", "Clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceHost", "WindowsServiceHost\WindowsServiceHost.csproj", "{B9B59ED3-87C9-4E67-BEAF-BA0A983B14FB}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HelloServiceIISHost", "HelloServiceIISHost\", "{388ED2D7-6B60-469C-858A-87BABA5285B6}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{7a13ac10-2cba-49b4-877a-137b3c921a24}|WCFproject.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55247"
+		Debug.AspNetCompiler.PhysicalPath = "HelloServiceIISHost\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55247\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55247"
+		Release.AspNetCompiler.PhysicalPath = "HelloServiceIISHost\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55247\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55247"
+		SlnRelativePath = "HelloServiceIISHost\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +79,10 @@ Global
 		{B9B59ED3-87C9-4E67-BEAF-BA0A983B14FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9B59ED3-87C9-4E67-BEAF-BA0A983B14FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9B59ED3-87C9-4E67-BEAF-BA0A983B14FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388ED2D7-6B60-469C-858A-87BABA5285B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388ED2D7-6B60-469C-858A-87BABA5285B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388ED2D7-6B60-469C-858A-87BABA5285B6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{388ED2D7-6B60-469C-858A-87BABA5285B6}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

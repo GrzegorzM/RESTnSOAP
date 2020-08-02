@@ -1,0 +1,12 @@
+﻿Adding Web Site to project
+1). Add -> New project -> Web-Web Site -> WCF Service
+2). Delete Services.cs files
+3). Add reference to WCF service project
+4). Rename and Edit .svc file so it will point on WCF service
+5). Add endpoints configuration in web.config file
+IIS
+6). Enable IIS in Control Panel - > Programs and Features -> Turn Windows Features on or off -> IIS
+7). Enable WCF Services on HTTP in Control Panel - > Programs and Features -> Turn Windows Features on or off -> .NET Framework x.x Advenced Services - > WCF Services -> HTTP Activation
+8). Open IIS and add new web site - set: Site name, Physical path, Port
+9). Test by right clicking on web site and click "Switch uo Content View" option. Than right click on .svc file and choose "browse" option
+10). If everything is OK run client application
