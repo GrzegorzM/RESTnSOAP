@@ -8,5 +8,10 @@ IIS
 6). Enable IIS in Control Panel - > Programs and Features -> Turn Windows Features on or off -> IIS
 7). Enable WCF Services on HTTP in Control Panel - > Programs and Features -> Turn Windows Features on or off -> .NET Framework x.x Advenced Services - > WCF Services -> HTTP Activation
 8). Open IIS and add new web site - set: Site name, Physical path, Port
+9). Right clicking on web site and choose option "Edit Bindings...". Add http binding with same port as in config file
 9). Test by right clicking on web site and click "Switch uo Content View" option. Than right click on .svc file and choose "browse" option
 10). If everything is OK run client application
+
+Support for TCP in IIS
+1). Enable IIS in Control Panel - > Programs and Features -> .NET Framework 3.X (includes .NET 2.0 and 3.0) -> Windows Comunication Foundation Non-HTTP Activation
+2). Enable Non-Http protocol in IIS. Right click web site -> Manage Website and choose option "Advanced Settings...". In textbox Enabled Protocols type "http, net.tcp"

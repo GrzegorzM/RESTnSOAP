@@ -16,7 +16,8 @@ namespace ClientWindowsForms
         private void btnMessage_Click(object sender, EventArgs e)
         {
             //HelloServiceClient client = new HelloServiceClient("NetTcpBinding_IHelloService"); // Invoke Hello Service via host APP
-            HelloServiceIIS.HelloServiceClient client = new HelloServiceIIS.HelloServiceClient("BasicHttpBinding_IHelloServiceIIS");// Invoke Hello Service via host IIS. IIS dont support TCP
+            //HelloServiceIIS.HelloServiceClient client = new HelloServiceIIS.HelloServiceClient("BasicHttpBinding_IHelloServiceIIS");// Invoke Hello Service via host IIS. IIS dont support TCP
+            HelloServiceIIS.HelloServiceClient client = new HelloServiceIIS.HelloServiceClient("NetTcpBinding_IHelloServiceIIS");// WAS hosting
             lblGetMessageResult.Text = client.GetMessage(tbName.Text);
         }
 
