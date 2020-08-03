@@ -43,6 +43,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HelloServiceIISHost", "Hell
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{A535698B-E3BD-4591-9880-350D920933AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{388ED2D7-6B60-469C-858A-87BABA5285B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{388ED2D7-6B60-469C-858A-87BABA5285B6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{388ED2D7-6B60-469C-858A-87BABA5285B6}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A535698B-E3BD-4591-9880-350D920933AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A535698B-E3BD-4591-9880-350D920933AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A535698B-E3BD-4591-9880-350D920933AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A535698B-E3BD-4591-9880-350D920933AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
