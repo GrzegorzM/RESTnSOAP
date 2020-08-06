@@ -68,5 +68,8 @@
   <ItemGroup>
     <Content Include="Backward Compatibility Rules.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

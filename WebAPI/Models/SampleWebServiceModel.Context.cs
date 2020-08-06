@@ -7,15 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAPI
+namespace WebAPI.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    using WebAPI.Models;
-
+    
     public partial class Entities : DbContext
     {
         public Entities()
@@ -30,8 +29,8 @@ namespace WebAPI
     
         public virtual DbSet<tblEmployee> tblEmployee { get; set; }
         public virtual DbSet<tblEmployeeKnownType> tblEmployeeKnownType { get; set; }
-        public virtual DbSet<tblEmployees> tblEmployees { get; set; }
         public virtual DbSet<tblStudents> tblStudents { get; set; }
+        public virtual DbSet<tblEmployees> tblEmployees { get; set; }
     
         public virtual ObjectResult<spGetEmployee_Result> spGetEmployee(Nullable<int> id)
         {

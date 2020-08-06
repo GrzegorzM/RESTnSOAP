@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
         {
             using (Entities db = new Entities())
             {
-                return db.tblEmployees.FirstOrDefault(x => x.ID == id);
+                return db.tblEmployees.FirstOrDefault(x => x.Id == id);
             }
         }
 
@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
         {
             using (Entities db = new Entities())
             {
-                tblEmployees employee = db.tblEmployees.Find(employeeModyfied.ID);
+                tblEmployees employee = db.tblEmployees.Find(employeeModyfied.Id);
                 employee.FirstName = employeeModyfied.FirstName;
                 employee.LastName = employeeModyfied.LastName;
                 employee.Gender = employeeModyfied.Gender;
@@ -46,6 +46,7 @@ namespace WebAPI.Controllers
             using (Entities db = new Entities())
             {
                 db.tblEmployees.Add(employee);
+                db.SaveChanges();
             }
         }
 
@@ -57,6 +58,7 @@ namespace WebAPI.Controllers
                 if (employee != null)
                 {
                     db.tblEmployees.Remove(employee);
+                    db.SaveChanges();
                 }
             }
         }

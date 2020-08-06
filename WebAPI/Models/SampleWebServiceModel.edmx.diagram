@@ -7,8 +7,8 @@
       <Diagram DiagramId="2da0bbea061a4f32ba8e93503929edeb" Name="Diagram1">
         <EntityTypeShape EntityType="SampleWebServiceModel.tblEmployee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SampleWebServiceModel.tblEmployeeKnownType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SampleWebServiceModel.tblEmployees" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SampleWebServiceModel.tblStudents" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleWebServiceModel.tblEmployees" Width="1.5" PointX="3.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SampleWebServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SampleWebServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblEmployee">
           <Key>
             <PropertyRef Name="Id" />
@@ -29,9 +29,9 @@
         </EntityType>
         <EntityType Name="tblEmployees">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="Gender" Type="nvarchar" MaxLength="50" />
@@ -75,8 +75,7 @@
           <EntitySet Name="tblEmployees" EntityType="Self.tblEmployees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblStudents" EntityType="Self.tblStudents" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SampleWebServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -102,16 +101,6 @@
           <Property Name="HourlyPay" Type="Int32" />
           <Property Name="HoursWorked" Type="Int32" />
         </EntityType>
-        <EntityType Name="tblEmployees">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Salary" Type="Int32" />
-        </EntityType>
         <EntityType Name="tblStudents">
           <Key>
             <PropertyRef Name="Id" />
@@ -124,16 +113,15 @@
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" />
           <EntitySet Name="tblEmployeeKnownType" EntityType="Self.tblEmployeeKnownType" />
-          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployees" />
           <EntitySet Name="tblStudents" EntityType="Self.tblStudents" />
           <FunctionImport Name="spGetEmployee" ReturnType="Collection(SampleWebServiceModel.spGetEmployee_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetEmployeeKnownType" ReturnType="Collection(SampleWebServiceModel.spGetEmployeeKnownType_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetStudentById" ReturnType="Collection(SampleWebServiceModel.spGetStudentById_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spSaveEmployee">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -149,6 +137,7 @@
             <Parameter Name="HourlyPay" Mode="In" Type="Int32" />
             <Parameter Name="HoursWorked" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="tblEmployees" EntityType="SampleWebServiceModel.tblEmployees" />
         </EntityContainer>
         <ComplexType Name="spGetEmployee_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -172,6 +161,16 @@
           <Property Type="String" Name="Gender" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="TotalMarks" Nullable="false" />
         </ComplexType>
+        <EntityType Name="tblEmployees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -199,17 +198,6 @@
                 <ScalarProperty Name="AnnualSalary" ColumnName="AnnualSalary" />
                 <ScalarProperty Name="HourlyPay" ColumnName="HourlyPay" />
                 <ScalarProperty Name="HoursWorked" ColumnName="HoursWorked" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblEmployees">
-            <EntityTypeMapping TypeName="SampleWebServiceModel.tblEmployees">
-              <MappingFragment StoreEntitySet="tblEmployees">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Salary" ColumnName="Salary" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -259,6 +247,17 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spSaveEmployee" FunctionName="SampleWebServiceModel.Store.spSaveEmployee" />
           <FunctionImportMapping FunctionImportName="spSaveEmployeeKnownType" FunctionName="SampleWebServiceModel.Store.spSaveEmployeeKnownType" />
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="SampleWebServiceModel.tblEmployees">
+              <MappingFragment StoreEntitySet="tblEmployees">
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
