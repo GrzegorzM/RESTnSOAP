@@ -1,2 +1,5 @@
 ﻿Key									Value
 Accept								application/xml;q=0.8,application/json;q=0.3
+Accept								text/csv;q=0.5,application/xml;q=0.2,application/json;q=0.3
+
+https://localhost:44306/api/employee?format=csv
