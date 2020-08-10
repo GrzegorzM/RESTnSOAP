@@ -11,19 +11,33 @@ namespace WebAPI.Controllers
 {
     public class EmployeeController : ApiController
     {
-        //public HttpResponseMessage Get()
-        //public HttpResponseMessage GetEmployees()
-        [HttpGet]
-        public HttpResponseMessage LoadAllEmployees()
+        //https://localhost:44306/api/employee?gender=female
+        public HttpResponseMessage Get(string gender = "All")
         {
             try
             {
                 List<tblEmployees> employees;
+                gender = gender.ToLower();
+
                 using (Entities db = new Entities())
                 {
-                    employees = db.tblEmployees.ToList();
+                    switch (gender)
+                    {
+                        case "all":
+                            employees = db.tblEmployees.ToList();
+                            break;
+                        case "male":
+                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
+                            break;
+                        case "female":
+                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
+                            break;
+                        default:
+                            return Request.CreateResponse(HttpStatusCode.BadRequest, $"Value for gender must be All, Male or Female. {gender} is invalid.");
+                    }
                 }
-                if(employees.Count > 0)
+
+                if (employees.Count > 0)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, employees);
                 }
@@ -31,14 +45,42 @@ namespace WebAPI.Controllers
                 {
                     return Request.CreateResponse(HttpStatusCode.NoContent, "No data to display");
                 }
-                
             }
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
-                //return Request.CreateResponse(HttpStatusCode.InternalServerError, ex);
             }
         }
+
+        ////public HttpResponseMessage Get()
+        ////public HttpResponseMessage GetEmployees()
+        //[HttpGet]
+        //public HttpResponseMessage LoadAllEmployees()
+        //{
+        //    try
+        //    {
+        //        List<tblEmployees> employees;
+        //        using (Entities db = new Entities())
+        //        {
+        //            employees = db.tblEmployees.ToList();
+        //        }
+        //        if(employees.Count > 0)
+        //        {
+        //            return Request.CreateResponse(HttpStatusCode.OK, employees);
+        //        }
+        //        else
+        //        {
+        //            return Request.CreateResponse(HttpStatusCode.NoContent, "No data to display");
+        //        }
+                
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+        //        //return Request.CreateResponse(HttpStatusCode.InternalServerError, ex);
+        //    }
+        //}
+
         //public List<tblEmployees> Get()
         //{
         //    List<tblEmployees> employees;
@@ -50,7 +92,7 @@ namespace WebAPI.Controllers
         //}
 
         [HttpGet]
-        public HttpResponseMessage LoadEMployeeById(int id)
+        public HttpResponseMessage LoadEmployeeById(int id)
         //public HttpResponseMessage Get(int id)
         {
             try
