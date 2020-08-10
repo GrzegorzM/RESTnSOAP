@@ -11,7 +11,10 @@ namespace WebAPI.Controllers
 {
     public class EmployeeController : ApiController
     {
-        public HttpResponseMessage Get()
+        //public HttpResponseMessage Get()
+        //public HttpResponseMessage GetEmployees()
+        [HttpGet]
+        public HttpResponseMessage LoadAllEmployees()
         {
             try
             {
@@ -46,7 +49,9 @@ namespace WebAPI.Controllers
         //    return employees;
         //}
 
-        public HttpResponseMessage Get(int id)
+        [HttpGet]
+        public HttpResponseMessage LoadEMployeeById(int id)
+        //public HttpResponseMessage Get(int id)
         {
             try
             {
