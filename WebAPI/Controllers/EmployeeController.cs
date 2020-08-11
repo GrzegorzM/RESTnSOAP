@@ -170,6 +170,9 @@ namespace WebAPI.Controllers
         //        }
         //}
 
+        //https://localhost:44306/api/employee?FirstName=uri&LastName=uriTest&Gender=Male&Salary=3000 (Body Content: add header "Content-Type:application/json", add body for id parameter "1")
+        // Default convention: [From Uri] - simple types, [FromBody] - complex types 
+        //public HttpResponseMessage Post([FromBody]int id, [FromUri]tblEmployees employee)
         public HttpResponseMessage Post([FromBody]tblEmployees employee)
         {
             try
