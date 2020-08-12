@@ -207,6 +207,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Areas\WebApiClientPages\Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\WebApiClientPages\WebApiClientPagesAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -308,12 +310,17 @@
     <Content Include="Models\SampleWebServiceModel.edmx.diagram">
       <DependentUpon>SampleWebServiceModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\WebApiClientPages\Views\web.config" />
+    <Content Include="Areas\WebApiClientPages\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\WebApiClientPages\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\WebApiClientPages\Views\Employee\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -336,6 +343,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\WebApiClientPages\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
