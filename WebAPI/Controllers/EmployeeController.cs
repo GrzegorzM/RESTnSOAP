@@ -5,12 +5,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+    //[EnableCorsAttribute("*", "*", "*")]
     public class EmployeeController : ApiController
     {
+        //[DisableCors]
         //https://localhost:44306/api/employee?gender=female
         public HttpResponseMessage Get(string gender = "All")
         {

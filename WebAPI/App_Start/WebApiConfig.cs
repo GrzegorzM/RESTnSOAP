@@ -4,6 +4,7 @@ using System;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebAPI.Custom;
 using WebApiContrib.Formatting.Jsonp;
 
@@ -44,6 +45,13 @@ namespace WebAPI
             // Allow using ajax in a cross domain
             JsonpMediaTypeFormatter jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             config.Formatters.Add(jsonpFormatter);
+
+            // Enables and activates CORS settings globally, * - all
+            EnableCorsAttribute enableCorsAttribute = new EnableCorsAttribute("*", "*", "GET, POST");
+            config.EnableCors(enableCorsAttribute);
+
+            //// Enables and does not activate CORS settings in the application. Use [EnableCorsAttribute] attributes on WebApi Controllers to activate.
+            //config.EnableCors();
         }
     }
 }
