@@ -1,0 +1,43 @@
+﻿@using (Ajax.BeginForm(new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "spinnerLoader", UpdateTargetId = "employee-list", Url = "https://localhost:44306/api/Employee", OnSuccess = "DisplayEmployeeList" }))
+{
+    <button class="btn btn-success">Get All Employees</button>
+}
+
+<button id="clear-employee-list" class="btn btn-warning">Clear</button>
+<div id="employee-list"></div>
+
+<button id="btnGetAllEmployees" class="btn btn-primary">Get All Employees using Jquery Ajax</button>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#clear-employee-list').on('click', function () {
+                $('#employee-list').html('');
+            });
+
+            $('#btnGetAllEmployees').on('click', function () {
+                $.ajax({
+                    method: "GET",
+                    url: "https://localhost:44306/api/Employee",
+                    dataType: "Jsonp",
+                    success: function (data) {
+                        var emlpoyeeListContainer = $('#employee-list');
+                        $.each(data, function (index, val) {
+                            var fullName = val.firstName + '' + val.lastName;
+                            emlpoyeeListContainer.append('<h5>' + fullName + '</h5>');
+                        });
+                    }
+                });
+            })
+        });
+
+        function DisplayEmployeeList(data) {
+            $.each(data, function (index, val) {
+                $('#employee-list').append('<h5>' + val.id + ' ' + val.firstName + ' ' + val.lastName + ' ' + val.gender + ' ' + val.salary + '</h5>');
+            });
+        }
+
+
+    </script>
+}
+

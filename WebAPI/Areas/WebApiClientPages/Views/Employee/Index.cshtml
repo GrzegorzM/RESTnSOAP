@@ -1,7 +1,8 @@
-﻿@using (Ajax.BeginForm(new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "spinnerLoader", UpdateTargetId = "employee-list", Url = "https://localhost:44306/api/employee", OnSuccess = "DisplayEmployeeList" }))
+﻿@using (Ajax.BeginForm(new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "spinnerLoader", UpdateTargetId = "employee-list", Url =  "https://localhost:44306/api/Employee", OnSuccess = "DisplayEmployeeList" }))
 {
     <button class="btn btn-success">Get All Employees</button>
 }
+
 <button id="clear-employee-list" class="btn btn-default">Clear</button>
 <div id="employee-list"></div>
 
@@ -15,7 +16,6 @@
 
         function DisplayEmployeeList(data) {
             $.each(data, function (index, val) {
-                console.log(val);
                 $('#employee-list').append('<h5>' + val.id + ' ' + val.firstName + ' ' + val.lastName + ' ' + val.gender + ' ' + val.salary +'</h5>');
             });
         }

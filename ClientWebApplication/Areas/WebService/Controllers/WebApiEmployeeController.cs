@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
 
-namespace WebAPI.Areas.WebApiClientPages.Controllers
+namespace ClientWebApplication.Areas.WebService.Controllers
 {
-    public class EmployeeController : Controller
+    public class WebApiEmployeeController : Controller
     {
         public ActionResult Index()
         {

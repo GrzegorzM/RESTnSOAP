@@ -5,6 +5,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using WebAPI.Custom;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace WebAPI
 {
@@ -39,6 +40,10 @@ namespace WebAPI
             // Setting camel case for Json response
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            // Allow using ajax in a cross domain
+            JsonpMediaTypeFormatter jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
+            config.Formatters.Add(jsonpFormatter);
         }
     }
 }

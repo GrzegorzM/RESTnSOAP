@@ -131,6 +131,7 @@
     <Compile Include="Areas\WebService\Controllers\HelloController.cs" />
     <Compile Include="Areas\WebService\Controllers\StudentController.cs" />
     <Compile Include="Areas\WebService\Controllers\WeatherController.cs" />
+    <Compile Include="Areas\WebService\Controllers\WebApiEmployeeController.cs" />
     <Compile Include="Areas\WebService\Data\ViewModels\AddViewModel.cs" />
     <Compile Include="Connected Services\CalculatorServiceWCF\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -186,6 +187,7 @@
     <Content Include="Areas\WebService\Views\Weather\GetWeatherByZipCode.cshtml" />
     <Content Include="Areas\WebService\Views\Calculator\Divide.cshtml" />
     <Content Include="Areas\WebService\Views\Calculator\IndexWCF.cshtml" />
+    <Content Include="Areas\WebService\Views\WebApiEmployee\Index.cshtml" />
     <None Include="Connected Services\CalculatorServiceWCF\item.disco" />
     <None Include="Connected Services\CalculatorServiceWCF\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorServiceWCF\configuration.svcinfo" />
