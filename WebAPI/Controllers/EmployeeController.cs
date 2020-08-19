@@ -6,11 +6,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using WebAPI.Custom;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
     //[EnableCorsAttribute("*", "*", "*")]
+    //[RequireHttps]
     public class EmployeeController : ApiController
     {
         //[DisableCors]

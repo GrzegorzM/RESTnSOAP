@@ -224,6 +224,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Custom\CSVMediaTypeFormatter.cs" />
     <Compile Include="Custom\CustomJsonFormatter.cs" />
+    <Compile Include="Custom\RequireHttpsAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

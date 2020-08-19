@@ -52,6 +52,8 @@ namespace WebAPI
 
             //// Enables and does not activate CORS settings in the application. Use [EnableCorsAttribute] attributes on WebApi Controllers to activate.
             //config.EnableCors();
+
+            config.Filters.Add(new RequireHttpsAttribute());
         }
     }
 }
