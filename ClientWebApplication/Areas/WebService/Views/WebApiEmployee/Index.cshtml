@@ -32,12 +32,10 @@
         });
 
         function DisplayEmployeeList(data) {
+            alert('test');
             $.each(data, function (index, val) {
                 $('#employee-list').append('<h5>' + val.id + ' ' + val.firstName + ' ' + val.lastName + ' ' + val.gender + ' ' + val.salary + '</h5>');
             });
         }
-
-
     </script>
 }
-

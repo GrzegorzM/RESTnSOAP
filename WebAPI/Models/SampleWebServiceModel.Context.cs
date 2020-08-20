@@ -31,6 +31,7 @@ namespace WebAPI.Models
         public virtual DbSet<tblEmployeeKnownType> tblEmployeeKnownType { get; set; }
         public virtual DbSet<tblStudents> tblStudents { get; set; }
         public virtual DbSet<tblEmployees> tblEmployees { get; set; }
+        public virtual DbSet<tblUsers> tblUsers { get; set; }
     
         public virtual ObjectResult<spGetEmployee_Result> spGetEmployee(Nullable<int> id)
         {

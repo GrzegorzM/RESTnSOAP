@@ -71,6 +71,7 @@
     <Build Include="Procedures\spGetEmployeeKnownType.sql" />
     <Build Include="Procedures\spSaveEmployeeKnownType.sql" />
     <Build Include="Tables\tblEmployees.sql" />
+    <Build Include="Tables\tblUsers.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\SeedTables_PostDeployment.sql" />

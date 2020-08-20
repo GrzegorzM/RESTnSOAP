@@ -32,3 +32,6 @@ Insert into tblEmployees values ('Philip', 'Hastings', 'Male', 45000)
 Insert into tblEmployees values ('Mary', 'Lambeth', 'Female', 30000)
 Insert into tblEmployees values ('Valarie', 'Vikings', 'Female', 35000)
 Insert into tblEmployees values ('John', 'Stanmore', 'Male', 80000)
+
+Insert into tblUsers values ('male','male')
+Insert into tblUsers values ('female','female')

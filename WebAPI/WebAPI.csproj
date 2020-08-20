@@ -222,8 +222,10 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Custom\BasicAuthenticationAttribute.cs" />
     <Compile Include="Custom\CSVMediaTypeFormatter.cs" />
     <Compile Include="Custom\CustomJsonFormatter.cs" />
+    <Compile Include="Custom\EmployeeSecurity.cs" />
     <Compile Include="Custom\RequireHttpsAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -265,6 +267,9 @@
       <DependentUpon>SampleWebServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblStudents.cs">
+      <DependentUpon>SampleWebServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUsers.cs">
       <DependentUpon>SampleWebServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

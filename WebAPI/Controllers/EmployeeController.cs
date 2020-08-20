@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebAPI.Custom;
@@ -17,6 +18,7 @@ namespace WebAPI.Controllers
     {
         //[DisableCors]
         //https://localhost:44306/api/employee?gender=female
+        [BasicAuthentication]
         public HttpResponseMessage Get(string gender = "All")
         {
             try
@@ -24,21 +26,27 @@ namespace WebAPI.Controllers
                 List<tblEmployees> employees;
                 gender = gender.ToLower();
 
+                string username = Thread.CurrentPrincipal.Identity.Name.ToLower();
+
                 using (Entities db = new Entities())
                 {
-                    switch (gender)
+                    //switch (gender)
+                    switch (username)
                     {
                         case "all":
                             employees = db.tblEmployees.ToList();
                             break;
                         case "male":
-                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
+                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == username).ToList();
+                            //employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
                             break;
                         case "female":
-                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
+                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == username).ToList();
+                            //employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
                             break;
                         default:
-                            return Request.CreateResponse(HttpStatusCode.BadRequest, $"Value for gender must be All, Male or Female. {gender} is invalid.");
+                            return Request.CreateResponse(HttpStatusCode.BadRequest);
+                            //return Request.CreateResponse(HttpStatusCode.BadRequest, $"Value for gender must be All, Male or Female. {gender} is invalid.");
                     }
                 }
 
