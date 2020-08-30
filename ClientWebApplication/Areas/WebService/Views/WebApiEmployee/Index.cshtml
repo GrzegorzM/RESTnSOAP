@@ -1,4 +1,5 @@
-﻿@using (Ajax.BeginForm(new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "spinnerLoader", UpdateTargetId = "employee-list", Url = "https://localhost:44306/api/Employee", OnSuccess = "DisplayEmployeeList" }))
+﻿@using (Ajax.BeginForm(new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "spinnerLoader", UpdateTargetId = "employee-list"
+    , Url = "https://localhost:44306/api/Employee", OnSuccess = "DisplayEmployeeList" }))
 {
     <button class="btn btn-success">Get All Employees</button>
 }
@@ -7,6 +8,25 @@
 <div id="employee-list"></div>
 
 <button id="btnGetAllEmployees" class="btn btn-primary">Get All Employees using Jquery Ajax</button>
+
+@using (Ajax.BeginForm("", null, new AjaxOptions() { HttpMethod = "POST", LoadingElementId = "spinnerLoader" }, new { @class = "mt-3", @id = "formAuthenticateAndGetEmployees" } ))
+{
+    <div class="form-group row">    
+        <label for="username" class="col-form-label col-sm-2">Username</label>
+        <div class="col-sm-10">
+            <input id="username" name="username" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">    
+        <label for="password" class="col-form-label col-sm-2">Password</label>
+        <div class="col-sm-10">
+            <input id="password" name="password" type="password" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <button type="submit" class="btn btn-success">Authenticate and Get Employees</button>
+    </div>
+}
 
 @section scripts {
     <script type="text/javascript">
@@ -21,18 +41,40 @@
                     url: "https://localhost:44306/api/Employee",
                     dataType: "Jsonp",
                     success: function (data) {
-                        var emlpoyeeListContainer = $('#employee-list');
+                        var employeeListContainer = $('#employee-list');
                         $.each(data, function (index, val) {
                             var fullName = val.firstName + '' + val.lastName;
-                            emlpoyeeListContainer.append('<h5>' + fullName + '</h5>');
+                            employeeListContainer.append('<h5>' + fullName + '</h5>');
                         });
                     }
                 });
-            })
+            });
+
+            $('#formAuthenticateAndGetEmployees').on('submit', function (event) {
+                event.preventDefault();
+                alert('test');
+                var username = $('#username').val();
+                var password = $('#password').val();
+                console.log(username + ':' + password);
+
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://localhost:44306/api/Employee',
+                    dataType: 'json',
+                    headers: { 'Authorization' : 'Basic ' + btoa(username + ':' + password) },
+                    success: function(data) {
+                        DisplayEmployeeList(data);
+                    },
+                    complete: function (jqXHR) {
+                        if (jqXHR.status == '401') {
+                            $('#employee-list').empty().append('<li class="text-danger">' + jqXHR.status + ' : ' + jqXHR.statusText + '</li>');
+                        }
+                    }
+                });
+            });
         });
 
         function DisplayEmployeeList(data) {
-            alert('test');
             $.each(data, function (index, val) {
                 $('#employee-list').append('<h5>' + val.id + ' ' + val.firstName + ' ' + val.lastName + ' ' + val.gender + ' ' + val.salary + '</h5>');
             });

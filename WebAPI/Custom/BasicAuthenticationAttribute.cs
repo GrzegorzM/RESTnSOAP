@@ -13,7 +13,7 @@ namespace WebAPI.Custom
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            // user sends credentials using the header: "Authentication: Basic bWFsZTptYWxl"
+            // user sends credentials using the header: "Authorization: Basic bWFsZTptYWxl"
             if (actionContext.Request.Headers.Authorization == null)
             {
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
