@@ -14,11 +14,12 @@ namespace WebAPI.Controllers
 {
     //[EnableCorsAttribute("*", "*", "*")]
     //[RequireHttps]
+    [Authorize]
     public class EmployeeController : ApiController
     {
         //[DisableCors]
         //https://localhost:44306/api/employee?gender=female
-        [BasicAuthentication]
+        //[BasicAuthentication]
         public HttpResponseMessage Get(string gender = "All")
         {
             try
