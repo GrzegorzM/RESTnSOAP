@@ -31,19 +31,19 @@ namespace WebAPI.Controllers
 
                 using (Entities db = new Entities())
                 {
-                    //switch (gender)
-                    switch (username)
+                    switch (gender)
+                    //switch (username)
                     {
                         case "all":
                             employees = db.tblEmployees.ToList();
                             break;
                         case "male":
-                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == username).ToList();
-                            //employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
+                            //employees = db.tblEmployees.Where(x => x.Gender.ToLower() == username).ToList();
+                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
                             break;
                         case "female":
-                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == username).ToList();
-                            //employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
+                            //employees = db.tblEmployees.Where(x => x.Gender.ToLower() == username).ToList();
+                            employees = db.tblEmployees.Where(x => x.Gender.ToLower() == gender).ToList();
                             break;
                         default:
                             return Request.CreateResponse(HttpStatusCode.BadRequest);
