@@ -18,5 +18,10 @@ namespace ClientWebApplication.Areas.WebService.Controllers
         {
             return View();
         }
+
+        public ViewResult Employees()
+        {
+            return View();
+        }
     }
 }

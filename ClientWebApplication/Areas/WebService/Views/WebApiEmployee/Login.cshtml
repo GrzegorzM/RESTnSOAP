@@ -6,7 +6,8 @@
                 <tr class="success">
                     <th colspan="2">
                         Existing User Login
-                        <a href="Register.html" class="btn btn-success pull-right">
+                        @*<button class="btn btn-success float-right">Register</button>*@
+                        <a href="@Url.Action("Register", "WebApiEmployee")" class="btn btn-success float-right">
                             Register
                         </a>
                     </th>
@@ -67,7 +68,7 @@
                     // EmployeeService project before running it
                     success: function (response) {
                         sessionStorage.setItem("accessToken", response.access_token);
-                        //window.location.href = "";
+                        window.location.href = "@Url.Action("Employees", "WebApiEmployee")";
                     },
                     // Display errors if any in the Bootstrap alert <div>
                     error: function (jqXHR) {

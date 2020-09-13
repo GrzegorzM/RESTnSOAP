@@ -190,6 +190,7 @@
     <Content Include="Areas\WebService\Views\WebApiEmployee\Index.cshtml" />
     <Content Include="Areas\WebService\Views\WebApiEmployee\Register.cshtml" />
     <Content Include="Areas\WebService\Views\WebApiEmployee\Login.cshtml" />
+    <Content Include="Areas\WebService\Views\WebApiEmployee\Employees.cshtml" />
     <None Include="Connected Services\CalculatorServiceWCF\item.disco" />
     <None Include="Connected Services\CalculatorServiceWCF\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorServiceWCF\configuration.svcinfo" />
