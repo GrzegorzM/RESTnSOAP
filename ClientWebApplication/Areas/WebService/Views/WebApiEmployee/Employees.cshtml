@@ -3,10 +3,10 @@
         <input id="btnLoadEmployees" class="btn btn-success"
                type="button" value="Load Employees" />
     </div>
-    <div id="divData" class="well hidden">
+    <div id="divData" class="well d-none">
         <table class="table table-bordered" id="tblData">
             <thead>
-                <tr class="success">
+                <tr class="table-success">
                     <td>ID</td>
                     <td>First Name</td>
                     <td>Last Name</td>
@@ -47,7 +47,8 @@
     </div>
 </div>
 
-<script type="text/javascript">
+@section scripts {
+    <script type="text/javascript">
         $(document).ready(function () {
             if (sessionStorage.getItem('accessToken') == null) {
                 window.location.href = "@Url.Action("Login", "WebApiEmployee")";
@@ -63,31 +64,33 @@
 
             $('#btnLoadEmployees').click(function () {
                 $.ajax({
-                    url: '/api/employees',
+                    url: 'https://localhost:44306/api/Employee',
                     method: 'GET',
                     headers: {
                         'Authorization': 'Bearer '
                             + sessionStorage.getItem("accessToken")
                     },
                     success: function (data) {
-                        $('#divData').removeClass('hidden');
+                        $('#divData').removeClass('d-none');
                         $('#tblBody').empty();
+                        console.log(data);
                         $.each(data, function (index, value) {
-                            var row = $('<tr><td>' + value.ID + '</td><td>'
-                                + value.FirstName + '</td><td>'
-                                + value.LastName + '</td><td>'
-                                + value.Gender + '</td><td>'
-                                + value.Salary + '</td></tr>');
+                            var row = $('<tr><td>' + value.id + '</td><td>'
+                                + value.firstName + '</td><td>'
+                                + value.lastName + '</td><td>'
+                                + value.gender + '</td><td>'
+                                + value.salary + '</td></tr>');
                             $('#tblData').append(row);
                         });
                     },
-                    error: function (jQXHR) {
+                    error: function (jqXHR) {
                         // If status code is 401, access token expired, so
                         // redirect the user to the login page
-                        if (jQXHR.status == "401") {
+                        if (jqXHR.status == "401") {
                             $('#errorModal').modal('show');
                         }
                         else {
+                            console.log(jqXHR);
                             $('#divErrorText').text(jqXHR.responseText);
                             $('#divError').show('fade');
                         }
@@ -95,4 +98,5 @@
                 });
             });
         });
-</script>
+    </script>
+}

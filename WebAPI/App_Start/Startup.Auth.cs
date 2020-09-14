@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using WebAPI.Providers;
 using WebAPI.Models;
+using Microsoft.Owin.Cors;
 
 namespace WebAPI
 {
@@ -22,6 +23,11 @@ namespace WebAPI
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            // Required for cross origin access to /token action
+            // Install Microsoft.Owin.Cors
+            // All other lines that contain CORS must be commented(web.config, WebApiConfig.cs)
+            app.UseCors(CorsOptions.AllowAll);
+
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);

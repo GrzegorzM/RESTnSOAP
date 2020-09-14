@@ -6,7 +6,6 @@
                 <tr class="success">
                     <th colspan="2">
                         Existing User Login
-                        @*<button class="btn btn-success float-right">Register</button>*@
                         <a href="@Url.Action("Register", "WebApiEmployee")" class="btn btn-success float-right">
                             Register
                         </a>
@@ -41,9 +40,8 @@
     </div>
 </div>
 
-<script src="Scripts/jquery-1.10.2.min.js"></script>
-
-<script type="text/javascript">
+@section scripts{
+    <script type="text/javascript">
         $(document).ready(function () {
 
             $('#linkClose').on('click', function () {
@@ -53,7 +51,7 @@
             $('#btnLogin').on('click', function () {
                 $.ajax({
                     // Post username, password & the grant type to /token
-                    url: '/token',
+                    url: 'https://localhost:44306/token',
                     method: 'POST',
                     contentType: 'application/json',
                     data: {
@@ -63,19 +61,20 @@
                     },
                     // When the request completes successfully, save the
                     // access token in the browser session storage and
-                    // redirect the user to Data.html page. We do not have
-                    // this page yet. So please add it to the
-                    // EmployeeService project before running it
+                    // redirect the user to list of employees.
                     success: function (response) {
+                        console.log(response.access_token);
                         sessionStorage.setItem("accessToken", response.access_token);
                         window.location.href = "@Url.Action("Employees", "WebApiEmployee")";
                     },
                     // Display errors if any in the Bootstrap alert <div>
                     error: function (jqXHR) {
+                        console.log(jqXHR);
                         $('#divErrorText').text(jqXHR.responseText);
                         $('#divError').show('fade');
                     }
                 });
             });
         });
-</script>
+    </script>
+}

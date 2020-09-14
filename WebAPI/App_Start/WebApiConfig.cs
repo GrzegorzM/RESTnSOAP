@@ -46,9 +46,10 @@ namespace WebAPI
             JsonpMediaTypeFormatter jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             config.Formatters.Add(jsonpFormatter);
 
-            // Enables and activates CORS settings globally, * - all
-            EnableCorsAttribute enableCorsAttribute = new EnableCorsAttribute("*", "*", "GET, POST");
-            config.EnableCors(enableCorsAttribute);
+            //// Enables and activates CORS settings globally, * - all
+            ////EnableCorsAttribute enableCorsAttribute = new EnableCorsAttribute("*", "*", "GET, POST");
+            //EnableCorsAttribute enableCorsAttribute = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(enableCorsAttribute);
 
             //// Enables and does not activate CORS settings in the application. Use [EnableCorsAttribute] attributes on WebApi Controllers to activate.
             //config.EnableCors();
