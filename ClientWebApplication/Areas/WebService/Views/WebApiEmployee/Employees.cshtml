@@ -2,6 +2,7 @@
     <div class="well">
         <input id="btnLoadEmployees" class="btn btn-success"
                type="button" value="Load Employees" />
+        <button id="btnLogoff" class="btn btn-primary">Log Off</button>
     </div>
     <div id="divData" class="well d-none">
         <table class="table table-bordered" id="tblData">
@@ -50,11 +51,18 @@
 @section scripts {
     <script type="text/javascript">
         $(document).ready(function () {
-            if (sessionStorage.getItem('accessToken') == null) {
+            //if (sessionStorage.getItem('accessToken') == null) {
+            if (localStorage.getItem('accessToken') == null) {
                 window.location.href = "@Url.Action("Login", "WebApiEmployee")";
             }
 
-            $('#linkClose').click(function () {
+            $('#btnLogoff').on('click', function () {
+                //sessionStorage.removeItem("accessToken");
+                localStorage.removeItem("accessToken");
+                window.location.href = "@Url.Action("Login", "WebApiEmployee")";
+            })
+
+            $('#linkClose').on('click', function () {
                 $('#divError').hide('fade');
             });
 
@@ -62,18 +70,19 @@
                 window.location.href = "@Url.Action("Login", "WebApiEmployee")";
             });
 
-            $('#btnLoadEmployees').click(function () {
+            $('#btnLoadEmployees').on('click', function () {
                 $.ajax({
                     url: 'https://localhost:44306/api/Employee',
                     method: 'GET',
                     headers: {
                         'Authorization': 'Bearer '
-                            + sessionStorage.getItem("accessToken")
+                            //+ sessionStorage.getItem("accessToken")
+                            + localStorage.getItem("accessToken")
                     },
                     success: function (data) {
                         $('#divData').removeClass('d-none');
                         $('#tblBody').empty();
-                        console.log(data);
+
                         $.each(data, function (index, value) {
                             var row = $('<tr><td>' + value.id + '</td><td>'
                                 + value.firstName + '</td><td>'
@@ -90,7 +99,6 @@
                             $('#errorModal').modal('show');
                         }
                         else {
-                            console.log(jqXHR);
                             $('#divErrorText').text(jqXHR.responseText);
                             $('#divError').show('fade');
                         }

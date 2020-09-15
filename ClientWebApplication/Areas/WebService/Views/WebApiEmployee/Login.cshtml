@@ -63,13 +63,12 @@
                     // access token in the browser session storage and
                     // redirect the user to list of employees.
                     success: function (response) {
-                        console.log(response.access_token);
-                        sessionStorage.setItem("accessToken", response.access_token);
+                        //sessionStorage.setItem("accessToken", response.access_token);
+                        localStorage.setItem("accessToken", response.access_token);
                         window.location.href = "@Url.Action("Employees", "WebApiEmployee")";
                     },
                     // Display errors if any in the Bootstrap alert <div>
                     error: function (jqXHR) {
-                        console.log(jqXHR);
                         $('#divErrorText').text(jqXHR.responseText);
                         $('#divError').show('fade');
                     }
