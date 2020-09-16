@@ -2,6 +2,7 @@
     <div class="well">
         <input id="btnLoadEmployees" class="btn btn-success"
                type="button" value="Load Employees" />
+        <span id="spanUsername" class="text-muted"></span>
         <button id="btnLogoff" class="btn btn-primary">Log Off</button>
     </div>
     <div id="divData" class="well d-none">
@@ -55,6 +56,8 @@
             if (localStorage.getItem('accessToken') == null) {
                 window.location.href = "@Url.Action("Login", "WebApiEmployee")";
             }
+
+            $('#spanUsername').text('Hello ' + localStorage.getItem());
 
             $('#btnLogoff').on('click', function () {
                 //sessionStorage.removeItem("accessToken");

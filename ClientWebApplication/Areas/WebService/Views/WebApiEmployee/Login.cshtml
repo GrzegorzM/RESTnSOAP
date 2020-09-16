@@ -65,6 +65,7 @@
                     success: function (response) {
                         //sessionStorage.setItem("accessToken", response.access_token);
                         localStorage.setItem("accessToken", response.access_token);
+                        localStorage.setItem("userName", response.userName);
                         window.location.href = "@Url.Action("Employees", "WebApiEmployee")";
                     },
                     // Display errors if any in the Bootstrap alert <div>
