@@ -3,7 +3,7 @@
         <!--Table to capture username and password-->
         <table class="table table-bordered">
             <thead>
-                <tr class="success">
+                <tr class="table-success">
                     <th colspan="2">
                         Existing User Login
                         <a href="@Url.Action("Register", "WebApiEmployee")" class="btn btn-success float-right">
@@ -25,7 +25,7 @@
                         <input type="password" id="txtPassword" placeholder="Password" class="form-control" />
                     </td>
                 </tr>
-                <tr class="success">
+                <tr class="table-success">
                     <td colspan="2">
                         <input id="btnLogin" class="btn btn-success" type="button" value="Login" />
                     </td>
@@ -37,12 +37,38 @@
             <a id="linkClose" href="#" class="close">&times;</a>
             <div id="divErrorText"></div>
         </div>
+
+        <table class="table table-bordered">
+            <thead class="table-success">
+                <tr class="success">
+                    <th>
+                        Social Logins
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="button" id="btnGoogleLogin"
+                               value="Login with Google" class="btn btn-success" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 </div>
 
-@section scripts{
+@section scripts {
+    <script src="~/Scripts/GoogleAuthentication.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('userName');
+
+            alert('$(document).ready');
+            GetAccessToken();
 
             $('#linkClose').on('click', function () {
                 $('#divError').hide('fade');
@@ -64,9 +90,9 @@
                     // redirect the user to list of employees.
                     success: function (response) {
                         //sessionStorage.setItem("accessToken", response.access_token);
-                        localStorage.setItem("accessToken", response.access_token);
-                        localStorage.setItem("userName", response.userName);
-                        window.location.href = "@Url.Action("Employees", "WebApiEmployee")";
+                        localStorage.setItem('accessToken', response.access_token);
+                        localStorage.setItem('userName', response.userName);
+                        window.location.href = '@Url.Action("Employees", "WebApiEmployee")';
                     },
                     // Display errors if any in the Bootstrap alert <div>
                     error: function (jqXHR) {
@@ -74,6 +100,14 @@
                         $('#divError').show('fade');
                     }
                 });
+            });
+            //https://localhost:44306
+            $('#btnGoogleLogin').on('click', function () {
+                //https%3A%2F%2Flocalhost%3A44306%2FWebApiEmployee%2FLogin
+                //window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https%3A%2F%2Flocalhost%3A44352%2FWebService%2FWebApiEmployee%2FLogin&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
+                //window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https%3A%2F%2Flocalhost%3A44306%2F&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
+                //window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https://localhost:44306/&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
+                window.location.href = 'https://localhost:44306/api/Account/ExternalLogins?returnUrl=https://localhost:44306/';
             });
         });
     </script>

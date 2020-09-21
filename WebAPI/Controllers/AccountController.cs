@@ -220,6 +220,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        // Method GetExternalLogins() returns links that will be executed by the following method
         // GET api/Account/ExternalLogin
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
@@ -277,6 +278,11 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        // Generates List of links for supported external logins so we can use them to implement our login functionality
+        // https://localhost:44306/api/Account/ExternalLogins?returnUrl=https://localhost:44306/&generateState=true
+        //[{  "name": "Google",
+        //    "url": "/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https%3A%2F%2Flocalhost%3A44306%2F&state=tGqGtFc5xniSsb9f_LgPI_yxzRRHM2raIMF7UlA_i1M1",
+        //    "state": "tGqGtFc5xniSsb9f_LgPI_yxzRRHM2raIMF7UlA_i1M1" }]
         // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
         [Route("ExternalLogins")]
