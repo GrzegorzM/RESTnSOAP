@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
+using System.Web.Http.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -228,6 +229,8 @@ namespace WebAPI.Controllers
         [Route("ExternalLogin", Name = "ExternalLogin")]
         public async Task<IHttpActionResult> GetExternalLogin(string provider, string error = null)
         {
+            string redirectUri = string.Empty;
+
             if (error != null)
             {
                 return Redirect(Url.Content("~/") + "#error=" + Uri.EscapeDataString(error));
@@ -274,6 +277,16 @@ namespace WebAPI.Controllers
                 ClaimsIdentity identity = new ClaimsIdentity(claims, OAuthDefaults.AuthenticationType);
                 Authentication.SignIn(identity);
             }
+
+            //redirectUri = string.Format("{0}#external_access_token={1}&provider={2}&haslocalaccount={3}&external_user_name={4}",
+            //                                redirectUri,
+            //                                //externalLogin.ExternalAccessToken,
+            //                                externalLogin.ProviderKey,
+            //                                externalLogin.LoginProvider,
+            //                                hasRegistered.ToString(),
+            //                                externalLogin.UserName);
+
+            //return Redirect(redirectUri);
 
             return Ok();
         }
@@ -350,12 +363,12 @@ namespace WebAPI.Controllers
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("RegisterExternal")]
-        public async Task<IHttpActionResult> RegisterExternal(RegisterExternalBindingModel model)
+        public async Task<IHttpActionResult> RegisterExternal()//(RegisterExternalBindingModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             var info = await Authentication.GetExternalLoginInfoAsync();
             if (info == null)
@@ -363,7 +376,8 @@ namespace WebAPI.Controllers
                 return InternalServerError();
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            //var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = info.Email, Email = info.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user);
             if (!result.Succeeded)
@@ -377,6 +391,13 @@ namespace WebAPI.Controllers
                 return GetErrorResult(result); 
             }
             return Ok();
+        }
+
+        [AllowAnonymous]
+        [Route("SignInGoogle")]
+        public RedirectResult GetSignInGoogle(string access_token, string token_type, string expires_in, string state)
+        {
+            return Redirect("https://localhost:44352/");
         }
 
         protected override void Dispose(bool disposing)

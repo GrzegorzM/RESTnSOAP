@@ -60,15 +60,27 @@
 </div>
 
 @section scripts {
-    <script src="~/Scripts/GoogleAuthentication.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
-            localStorage.removeItem('accessToken');
-            localStorage.removeItem('userName');
-
-            alert('$(document).ready');
             GetAccessToken();
+
+            function GetAccessToken() {
+                if (location.hash) {
+                    if (location.hash.split('access_token=')) {
+                        var accessToken = location.hash.split('access_token=')[1].split('&')[0];
+                        if (accessToken) {
+                            localStorage.setItem('accessToken', accessToken);
+                        }
+                    }
+                    if (location.hash.split('user_name=')) {
+                        var userName = location.hash.split('user_name=')[1].split('&')[0];
+                        if (userName) {
+                            localStorage.setItem('userName', userName);
+                        }
+                    }
+                    window.location.href = '@Url.Action("Employees", "WebApiEmployee")';
+                };
+            }
 
             $('#linkClose').on('click', function () {
                 $('#divError').hide('fade');
@@ -101,14 +113,10 @@
                     }
                 });
             });
-            //https://localhost:44306
+
             $('#btnGoogleLogin').on('click', function () {
-                //https%3A%2F%2Flocalhost%3A44306%2FWebApiEmployee%2FLogin
-                //window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https%3A%2F%2Flocalhost%3A44352%2FWebService%2FWebApiEmployee%2FLogin&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
-                //window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https%3A%2F%2Flocalhost%3A44306%2F&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
-                //window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https://localhost:44306/&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
-                window.location.href = 'https://localhost:44306/api/Account/ExternalLogins?returnUrl=https://localhost:44306/';
+                window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https://localhost:44306/&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
             });
-        });
+        }); 
     </script>
 }

@@ -77,7 +77,7 @@ namespace WebAPI.Providers
             {
                 Uri expectedRootUri = new Uri(context.Request.Uri, "/");
 
-                if (expectedRootUri.AbsoluteUri == context.RedirectUri || context.RedirectUri == "https://localhost:44352/")
+                if (expectedRootUri.AbsoluteUri == context.RedirectUri)
                 {
                     context.Validated();
                 }

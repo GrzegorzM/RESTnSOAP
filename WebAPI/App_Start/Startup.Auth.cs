@@ -61,14 +61,15 @@ namespace WebAPI
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //    appId: "",
-            //    appSecret: "");
-
+ 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                 //    ClientId = "xxx",
                 //    ClientSecret = "xxx"
+                //CallbackPath = new PathString("/api/Account/SignInGoogle"),
+                //CallbackPath = new PathString("/"),
+
+
             });
         }
     }
