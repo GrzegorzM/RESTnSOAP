@@ -393,13 +393,6 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        [AllowAnonymous]
-        [Route("SignInGoogle")]
-        public RedirectResult GetSignInGoogle(string access_token, string token_type, string expires_in, string state)
-        {
-            return Redirect("https://localhost:44352/");
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)

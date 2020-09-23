@@ -11,6 +11,7 @@ using Owin;
 using WebAPI.Providers;
 using WebAPI.Models;
 using Microsoft.Owin.Cors;
+using System.Configuration;
 
 namespace WebAPI
 {
@@ -61,11 +62,14 @@ namespace WebAPI
             //    consumerKey: "",
             //    consumerSecret: "");
 
- 
+            //app.UseFacebookAuthentication(
+            //    appId: "",
+            //    appSecret: "");
+
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                //    ClientId = "xxx",
-                //    ClientSecret = "xxx"
+                ClientId = ConfigurationManager.AppSettings["GoogleClientId"],
+                ClientSecret = ConfigurationManager.AppSettings["GoogleClientSecret"],
                 //CallbackPath = new PathString("/api/Account/SignInGoogle"),
                 //CallbackPath = new PathString("/"),
 

@@ -64,24 +64,6 @@
         $(document).ready(function () {
             GetAccessToken();
 
-            function GetAccessToken() {
-                if (location.hash) {
-                    if (location.hash.split('access_token=')) {
-                        var accessToken = location.hash.split('access_token=')[1].split('&')[0];
-                        if (accessToken) {
-                            localStorage.setItem('accessToken', accessToken);
-                        }
-                    }
-                    if (location.hash.split('user_name=')) {
-                        var userName = location.hash.split('user_name=')[1].split('&')[0];
-                        if (userName) {
-                            localStorage.setItem('userName', userName);
-                        }
-                    }
-                    window.location.href = '@Url.Action("Employees", "WebApiEmployee")';
-                };
-            }
-
             $('#linkClose').on('click', function () {
                 $('#divError').hide('fade');
             });
@@ -117,6 +99,24 @@
             $('#btnGoogleLogin').on('click', function () {
                 window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https://localhost:44306/&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
             });
-        }); 
+        });
+
+        function GetAccessToken() {
+            if (location.hash) {
+                SetLocalStorage('access_token=', 'accessToken');
+                SetLocalStorage('user_name=', 'userName');
+
+                window.location.href = '@Url.Action("Employees", "WebApiEmployee")';
+            };
+        }
+
+        function SetLocalStorage(paramName, localStorageName) {
+            if (location.hash.split(paramName)) {
+                var value = location.hash.split(paramName)[1].split('&')[0];
+                if (value) {
+                    localStorage.setItem(localStorageName, value);
+                }
+            }
+        }
     </script>
 }

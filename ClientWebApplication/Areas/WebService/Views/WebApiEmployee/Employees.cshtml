@@ -64,6 +64,7 @@
             $('#btnLogoff').on('click', function () {
                 //sessionStorage.removeItem("accessToken");
                 localStorage.removeItem("accessToken");
+                localStorage.removeItem("userName");
                 window.location.href = "@Url.Action("Login", "WebApiEmployee")";
             })
 

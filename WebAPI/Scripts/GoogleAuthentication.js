@@ -25,8 +25,6 @@ function isUserRegistered(accessToken) {
             if (response.hasRegistered) {
                 localStorage.setItem('accessToken', accessToken);
                 localStorage.setItem('userName', response.email);
-                console.log('AccessToken = ' + localStorage.getItem('accessToken'));
-                console.log('UserName = ' + localStorage.getItem('userName'));
 
                 window.location.href = 'https://localhost:44352/WebService/WebApiEmployee/Login#access_token=' + accessToken + '&user_name=' + response.email;
             } else {
