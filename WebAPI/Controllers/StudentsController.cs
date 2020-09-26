@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
 
@@ -21,8 +24,9 @@ namespace WebAPI.Controllers
         }
 
         //[Route("api/students/{id}")]
-        [Route("{id}")]
-        public Student Get(int id) {
+        [Route("{id}", Name = "GetStudentById")]
+        public Student Get(int id)
+        {
             return students.FirstOrDefault(x => x.Id == id);
         }
 
@@ -50,6 +54,18 @@ namespace WebAPI.Controllers
             };
 
             return teachers;
+        }
+
+        public HttpResponseMessage Post(Student student)
+        {
+            students.Add(student);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
+            //response.Headers.Location = new Uri($"{Request.RequestUri}{student.Id.ToString()}");
+
+            // Generates link using route name - solves the problem with / at the end of the url
+            response.Headers.Location = new Uri($"{Url.Link("GetStudentById", new { id = student.Id })}");
+
+            return response;
         }
     }
 }
