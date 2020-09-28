@@ -53,6 +53,12 @@
                                value="Login with Google" class="btn btn-success" />
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <input type="button" id="btnFacebookLogin"
+                               value="Login with Facebook" class="btn btn-success" />
+                    </td>
+                </tr>
             </tbody>
         </table>
 
@@ -97,6 +103,10 @@
             });
 
             $('#btnGoogleLogin').on('click', function () {
+                window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https://localhost:44306/&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
+            });
+
+            $('#btnFacebookLogin').on('click', function () {
                 window.location.href = 'https://localhost:44306/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https://localhost:44306/&state=VDR8_J8Waenc81WXn2loQ6Kl9Oa1O-K12wyWGl1Md8w1';
             });
         });

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using WebAPI.Models;
 
@@ -17,17 +18,48 @@ namespace WebAPI.Controllers
             new Student() { Id = 3, Name = "John" }
         };
 
-        //[Route("api/students")]
-        public IEnumerable<Student> Get()
+        ////[Route("api/students")]
+        //public IEnumerable<Student> Get()
+        //{
+        //    return students;
+        //}
+
+        //public HttpResponseMessage Get()
+        //{
+        //    return Request.CreateResponse(HttpStatusCode.OK, students);
+        //}
+
+        public IHttpActionResult Get()
         {
-            return students;
+            return Ok(students);
         }
 
-        //[Route("api/students/{id}")]
-        [Route("{id}", Name = "GetStudentById")]
-        public Student Get(int id)
+        ////[Route("api/students/{id}")]
+        //[Route("{id}", Name = "GetStudentById")]
+        //public Student Get(int id)
+        //{
+        //    return students.FirstOrDefault(x => x.Id == id);
+        //}
+
+        //public HttpResponseMessage Get(int id)
+        //{
+        //    Student student = students.FirstOrDefault(x => x.Id == id);
+        //    if (student == null)
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.NotFound, "Student not found");
+        //    }
+        //    return Request.CreateResponse(HttpStatusCode.OK, students.Find(id));
+        //}
+
+        public IHttpActionResult Get(int id)
         {
-            return students.FirstOrDefault(x => x.Id == id);
+            Student student = students.FirstOrDefault(x => x.Id == id);
+            if (student == null)
+            {
+                //return NotFound();
+                return Content(HttpStatusCode.NotFound, "Student not found");
+            }
+            return Ok(student);
         }
 
         //[Route("api/students/{id}/courses")]
