@@ -232,6 +232,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\StudentsV2Controller.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Custom\BasicAuthenticationAttribute.cs" />
     <Compile Include="Custom\CSVMediaTypeFormatter.cs" />
@@ -269,6 +270,7 @@
       <DependentUpon>SampleWebServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentV2.cs" />
     <Compile Include="Models\tblEmployee.cs">
       <DependentUpon>SampleWebServiceModel.tt</DependentUpon>
     </Compile>

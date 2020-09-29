@@ -22,6 +22,12 @@ namespace WebAPI
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            //config.Routes.MapHttpRoute(
+            //    name: "StudentV2Api",
+            //    routeTemplate: "api/v2/students/{id}",
+            //    defaults: new { id = RouteParameter.Optional, controller = "StudentsV2" }
+            //);
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -33,7 +39,7 @@ namespace WebAPI
 
             // Web browser send accept header as "text/html" thats why XML is returned. Changing default format returned by browsers to JSON but leaving accept header as "text/html" what is missleading.
             //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-            
+
             // Add custom JSON Formatter to handle dafault accept header "text/html" used by browsers
             //config.Formatters.Add(new CustomJsonFormatter());
             config.Formatters.Add(new CSVMediaTypeFormatter(new QueryStringMapping("format", "csv", "text/csv")));
