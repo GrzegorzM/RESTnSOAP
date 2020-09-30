@@ -236,6 +236,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Custom\BasicAuthenticationAttribute.cs" />
     <Compile Include="Custom\CSVMediaTypeFormatter.cs" />
+    <Compile Include="Custom\CustomControllerSelector.cs" />
     <Compile Include="Custom\CustomJsonFormatter.cs" />
     <Compile Include="Custom\EmployeeSecurity.cs" />
     <Compile Include="Custom\RequireHttpsAttribute.cs" />

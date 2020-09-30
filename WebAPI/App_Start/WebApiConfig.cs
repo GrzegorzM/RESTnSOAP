@@ -5,6 +5,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.Dispatcher;
 using WebAPI.Custom;
 using WebApiContrib.Formatting.Jsonp;
 
@@ -33,6 +34,8 @@ namespace WebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Services.Replace(typeof(IHttpControllerSelector), new CustomControllerSelector(config));
 
             // Removing Json respose format so API can support only XML
             //config.Formatters.Remove(config.Formatters.JsonFormatter);
