@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
@@ -21,10 +22,19 @@ namespace WebAPI.Custom
         public override HttpControllerDescriptor SelectController(HttpRequestMessage request)
         {
             string versionNumber = "1";
-            NameValueCollection versionQueryString = HttpUtility.ParseQueryString(request.RequestUri.Query);
-            if (versionQueryString["v"] != null)
+
+            // Querystring versioning - https://localhost:44306/api/students?v=2
+            //NameValueCollection versionQueryString = HttpUtility.ParseQueryString(request.RequestUri.Query);
+            //if (versionQueryString["v"] != null)
+            //{
+            //    versionNumber = versionQueryString["v"];
+            //}
+
+            // Header versioning - X-StudentService-Version: 1
+            string customHeader = "X-StudentService-Version";
+            if (request.Headers.Contains(customHeader))
             {
-                versionNumber = versionQueryString["v"];
+                versionNumber = request.Headers.GetValues(customHeader).FirstOrDefault();
             }
 
             IHttpRouteData routeData = request.GetRouteData();
