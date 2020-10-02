@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
@@ -37,13 +38,24 @@ namespace WebAPI.Custom
             //{
             //    versionNumber = request.Headers.GetValues(customHeader).FirstOrDefault();
             //}
-            
+
             // Accept Header versioning --> Accept: application/json; version=2 
             // It even works with multiple accepted headers or multiple version values --> application/json; version=2; version=1; version=-2)
-            IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaders = request.Headers.Accept.Where(x => x.Parameters.Count(y => y.Name.ToLower() == "version") > 0);
+            //IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaders = request.Headers.Accept.Where(x => x.Parameters.Count(y => y.Name.ToLower() == "version") > 0);
+            //if (acceptHeaders.Any())
+            //{
+            //    versionNumber = acceptHeaders.First().Parameters.First(x => x.Name.ToLower() == "version").Value;
+            //}
+
+            // Custom MediaType Accept Header versioning --> application/vnd.company_name.students.v1+json
+            //string regex = @"application\/vnd\.company_name\.([a-z]+)\.v([0-9]+)\+([a-z]+)";
+            string regex = @"application\/vnd\.company_name\.([a-z]+)\.v(?<version>[0-9]+)\+([a-z]+)";
+            IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaders = request.Headers.Accept.Where(x => Regex.IsMatch(x.MediaType, regex, RegexOptions.IgnoreCase));
             if (acceptHeaders.Any())
             {
-                versionNumber = acceptHeaders.First().Parameters.First(x => x.Name.ToLower() == "version").Value;
+                Match match = Regex.Match(acceptHeaders.First().MediaType, regex, RegexOptions.IgnoreCase);
+                versionNumber = match.Groups["version"].Value;
+                //versionNumber = match.Groups[2].Value;
             }
 
             IHttpRouteData routeData = request.GetRouteData();

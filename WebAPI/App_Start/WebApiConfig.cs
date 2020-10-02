@@ -51,6 +51,12 @@ namespace WebAPI
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
+            // Custom MediaType Accept Header versioning - enable xml and json
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/vnd.company_name.students.v1+json"));
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/vnd.company_name.students.v2+json"));
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/vnd.company_name.students.v1+xml"));
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/vnd.company_name.students.v2+xml"));
+
             // Allow using ajax in a cross domain
             JsonpMediaTypeFormatter jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             config.Formatters.Add(jsonpFormatter);
