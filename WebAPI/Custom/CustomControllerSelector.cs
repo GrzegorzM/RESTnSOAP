@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
@@ -23,18 +24,26 @@ namespace WebAPI.Custom
         {
             string versionNumber = "1";
 
-            // Querystring versioning - https://localhost:44306/api/students?v=2
+            // Querystring versioning --> https://localhost:44306/api/students?v=2
             //NameValueCollection versionQueryString = HttpUtility.ParseQueryString(request.RequestUri.Query);
             //if (versionQueryString["v"] != null)
             //{
             //    versionNumber = versionQueryString["v"];
             //}
 
-            // Header versioning - X-StudentService-Version: 1
-            string customHeader = "X-StudentService-Version";
-            if (request.Headers.Contains(customHeader))
+            // Custom header versioning --> X-StudentService-Version: 2
+            //string customHeader = "X-StudentService-Version";
+            //if (request.Headers.Contains(customHeader))
+            //{
+            //    versionNumber = request.Headers.GetValues(customHeader).FirstOrDefault();
+            //}
+            
+            // Accept Header versioning --> Accept: application/json; version=2 
+            // It even works with multiple accepted headers or multiple version values --> application/json; version=2; version=1; version=-2)
+            IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaders = request.Headers.Accept.Where(x => x.Parameters.Count(y => y.Name.ToLower() == "version") > 0);
+            if (acceptHeaders.Any())
             {
-                versionNumber = request.Headers.GetValues(customHeader).FirstOrDefault();
+                versionNumber = acceptHeaders.First().Parameters.First(x => x.Name.ToLower() == "version").Value;
             }
 
             IHttpRouteData routeData = request.GetRouteData();
