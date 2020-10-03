@@ -36,7 +36,7 @@ namespace ClientWebApplication.Areas.WebService.Controllers
             //EmployeeServiceClient client = new EmployeeServiceClient("BasicHttpBinding_IEmployeeService");
             //EmployeeKnownType employee = client.GetEmployeeKnownType(id);
             IEmployeeService client = new EmployeeServiceClient();
-            EmployeeRequest request = new EmployeeRequest("ASCX4534DXZC", id);
+            EmployeeRequest request = new EmployeeRequest(LicenseKey: "ASCX4534DXZC", EmployeeId: id);
             EmployeeInfo employeeInfo = client.GetEmployeeKnownType(request);
             EmployeeKnownType employee = null;
 

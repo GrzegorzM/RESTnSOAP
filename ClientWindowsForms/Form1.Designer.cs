@@ -38,6 +38,11 @@
             this.tbNumerator = new System.Windows.Forms.TextBox();
             this.tbDenominator = new System.Windows.Forms.TextBox();
             this.lblResultDivide = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.buttonRequestReplyOperation = new System.Windows.Forms.Button();
+            this.buttonRequestReplyOperationThrowException = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonRequestReplyOperationAsync = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -125,11 +130,64 @@
             this.lblResultDivide.Size = new System.Drawing.Size(0, 13);
             this.lblResultDivide.TabIndex = 9;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(56, 207);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(654, 147);
+            this.listBox1.TabIndex = 10;
+            // 
+            // buttonRequestReplyOperation
+            // 
+            this.buttonRequestReplyOperation.Location = new System.Drawing.Point(56, 357);
+            this.buttonRequestReplyOperation.Name = "buttonRequestReplyOperation";
+            this.buttonRequestReplyOperation.Size = new System.Drawing.Size(234, 23);
+            this.buttonRequestReplyOperation.TabIndex = 11;
+            this.buttonRequestReplyOperation.Text = "Request Reply Operation";
+            this.buttonRequestReplyOperation.UseVisualStyleBackColor = true;
+            this.buttonRequestReplyOperation.Click += new System.EventHandler(this.buttonRequestReplyOperation_Click);
+            // 
+            // buttonRequestReplyOperationThrowException
+            // 
+            this.buttonRequestReplyOperationThrowException.Location = new System.Drawing.Point(56, 386);
+            this.buttonRequestReplyOperationThrowException.Name = "buttonRequestReplyOperationThrowException";
+            this.buttonRequestReplyOperationThrowException.Size = new System.Drawing.Size(234, 23);
+            this.buttonRequestReplyOperationThrowException.TabIndex = 12;
+            this.buttonRequestReplyOperationThrowException.Text = "Request Reply Operation - Throw Exception";
+            this.buttonRequestReplyOperationThrowException.UseVisualStyleBackColor = true;
+            this.buttonRequestReplyOperationThrowException.Click += new System.EventHandler(this.buttonRequestReplyOperationThrowException_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(56, 415);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(234, 23);
+            this.buttonClear.TabIndex = 13;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonRequestReplyOperationAsync
+            // 
+            this.buttonRequestReplyOperationAsync.Location = new System.Drawing.Point(296, 357);
+            this.buttonRequestReplyOperationAsync.Name = "buttonRequestReplyOperationAsync";
+            this.buttonRequestReplyOperationAsync.Size = new System.Drawing.Size(210, 23);
+            this.buttonRequestReplyOperationAsync.TabIndex = 14;
+            this.buttonRequestReplyOperationAsync.Text = "Request Reply Operation Async";
+            this.buttonRequestReplyOperationAsync.UseVisualStyleBackColor = true;
+            this.buttonRequestReplyOperationAsync.Click += new System.EventHandler(this.buttonRequestReplyOperationAsync_ClickAsync);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonRequestReplyOperationAsync);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonRequestReplyOperationThrowException);
+            this.Controls.Add(this.buttonRequestReplyOperation);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lblResultDivide);
             this.Controls.Add(this.tbDenominator);
             this.Controls.Add(this.tbNumerator);
@@ -159,6 +217,11 @@
         private System.Windows.Forms.TextBox tbNumerator;
         private System.Windows.Forms.TextBox tbDenominator;
         private System.Windows.Forms.Label lblResultDivide;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button buttonRequestReplyOperation;
+        private System.Windows.Forms.Button buttonRequestReplyOperationThrowException;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonRequestReplyOperationAsync;
     }
 }
 

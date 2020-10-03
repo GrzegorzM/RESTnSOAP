@@ -1,0 +1,34 @@
+﻿@using (Ajax.BeginForm("RequestReplyOperation", "Sample", new AjaxOptions() { UpdateTargetId = "result-message-container", OnBegin = "SetStartMessage", InsertionMode = InsertionMode.InsertAfter }))
+{
+    <button class="btn btn-primary">Request Reply Operation</button>
+}
+
+@using (Ajax.BeginForm("RequestReplyOperation_ThrowsException", "Sample", new AjaxOptions() { UpdateTargetId = "result-message-container", OnBegin = "SetStartMessageException", InsertionMode = InsertionMode.InsertAfter }))
+{
+    <button class="btn btn-primary">Request Reply Operation - Throw Exception</button>
+}
+
+@using (Ajax.BeginForm("RequestReplyOperationAsync", "Sample", new AjaxOptions() { UpdateTargetId = "result-message-container", OnBegin = "SetStartMessage", InsertionMode = InsertionMode.InsertAfter }))
+{
+    <button class="btn btn-primary">Request Reply Operation Async</button>
+}
+
+@using (Ajax.BeginForm("RequestReplyOperation_ThrowsExceptionAsync", "Sample", new AjaxOptions() { UpdateTargetId = "result-message-container", OnBegin = "SetStartMessageException", InsertionMode = InsertionMode.InsertAfter }))
+{
+    <button class="btn btn-primary">Request Reply Operation - Throw Exception Async</button>
+}
+
+<div id="start-message-container"></div>
+<div id="result-message-container"></div>
+
+@section Scripts{
+    <script type="text/javascript">
+        function SetStartMessage() {
+            $('#start-message-container').append('<br>Request-Reply Operation Started @Html.Raw("@") ' + new Date());
+        }
+
+        function SetStartMessageException() {
+            $('#start-message-container').append('<br>Request-Reply Throws Exception Operation Started @Html.Raw("@") ' + new Date());
+        }
+    </script>
+}

@@ -129,6 +129,7 @@
     <Compile Include="Areas\WebService\Controllers\CompanyController.cs" />
     <Compile Include="Areas\WebService\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\WebService\Controllers\HelloController.cs" />
+    <Compile Include="Areas\WebService\Controllers\SampleController.cs" />
     <Compile Include="Areas\WebService\Controllers\StudentController.cs" />
     <Compile Include="Areas\WebService\Controllers\WeatherController.cs" />
     <Compile Include="Areas\WebService\Controllers\WebApiEmployeeController.cs" />
@@ -154,6 +155,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\HelloService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SampleService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -191,6 +197,9 @@
     <Content Include="Areas\WebService\Views\WebApiEmployee\Register.cshtml" />
     <Content Include="Areas\WebService\Views\WebApiEmployee\Login.cshtml" />
     <Content Include="Areas\WebService\Views\WebApiEmployee\Employees.cshtml" />
+    <Content Include="Areas\WebService\Views\Sample\Index.cshtml" />
+    <Content Include="Areas\WebService\Views\Sample\RequestReplyOperation.cshtml" />
+    <Content Include="Areas\WebService\Views\Sample\RequestReplyOperation_ThrowsException.cshtml" />
     <None Include="Connected Services\CalculatorServiceWCF\item.disco" />
     <None Include="Connected Services\CalculatorServiceWCF\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorServiceWCF\configuration.svcinfo" />
@@ -297,6 +306,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\SampleService\item.disco" />
+    <None Include="Connected Services\SampleService\configuration91.svcinfo" />
+    <None Include="Connected Services\SampleService\configuration.svcinfo" />
+    <None Include="Connected Services\SampleService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\StudentService\ClientWebApplication.StudentService.GetStudentByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -309,6 +325,13 @@
     <None Include="Connected Services\HelloService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SampleService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SampleService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SampleService\SampleService.wsdl" />
     <None Include="Connected Services\StudentService\configuration91.svcinfo" />
     <None Include="Connected Services\StudentService\configuration.svcinfo" />
     <None Include="Connected Services\StudentService\Reference.svcmap">
@@ -496,6 +519,7 @@
     <WCFMetadataStorage Include="Connected Services\CompanyService\" />
     <WCFMetadataStorage Include="Connected Services\EmployeeService\" />
     <WCFMetadataStorage Include="Connected Services\HelloService\" />
+    <WCFMetadataStorage Include="Connected Services\SampleService\" />
     <WCFMetadataStorage Include="Connected Services\StudentService\" />
     <WCFMetadataStorage Include="Connected Services\WeatherService\" />
   </ItemGroup>

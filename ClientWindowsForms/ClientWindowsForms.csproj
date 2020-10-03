@@ -63,6 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SampleService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +112,13 @@
     <None Include="Connected Services\HelloService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SampleService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SampleService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SampleService\SampleService.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -127,6 +139,7 @@
     <WCFMetadataStorage Include="Connected Services\CalculatorService\" />
     <WCFMetadataStorage Include="Connected Services\HelloServiceIIS\" />
     <WCFMetadataStorage Include="Connected Services\HelloService\" />
+    <WCFMetadataStorage Include="Connected Services\SampleService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\HelloService\item.disco" />
@@ -169,6 +182,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\HelloServiceIIS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SampleService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SampleService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SampleService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SampleService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

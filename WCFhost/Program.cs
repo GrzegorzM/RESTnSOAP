@@ -43,6 +43,13 @@ namespace WCFhost
                 Console.WriteLine($"Calculator host started at {DateTime.Now}");
                 Console.ReadLine();
             }
+
+            using (ServiceHost sampleHost = new ServiceHost(typeof(SampleService)))
+            {
+                sampleHost.Open();
+                Console.WriteLine($"Sample host started at {DateTime.Now}");
+                Console.ReadLine();
+            }
         }
     }
 }
