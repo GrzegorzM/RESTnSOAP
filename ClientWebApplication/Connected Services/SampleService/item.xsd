@@ -24,4 +24,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="OneWayOperation">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OneWayOperation_ThrowsException">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

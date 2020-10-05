@@ -43,6 +43,8 @@
             this.buttonRequestReplyOperationThrowException = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonRequestReplyOperationAsync = new System.Windows.Forms.Button();
+            this.buttonOneWayOperation = new System.Windows.Forms.Button();
+            this.buttonOneWayOperation_ThrowsException = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -178,11 +180,33 @@
             this.buttonRequestReplyOperationAsync.UseVisualStyleBackColor = true;
             this.buttonRequestReplyOperationAsync.Click += new System.EventHandler(this.buttonRequestReplyOperationAsync_ClickAsync);
             // 
+            // buttonOneWayOperation
+            // 
+            this.buttonOneWayOperation.Location = new System.Drawing.Point(296, 386);
+            this.buttonOneWayOperation.Name = "buttonOneWayOperation";
+            this.buttonOneWayOperation.Size = new System.Drawing.Size(210, 23);
+            this.buttonOneWayOperation.TabIndex = 15;
+            this.buttonOneWayOperation.Text = "One Way Operation";
+            this.buttonOneWayOperation.UseVisualStyleBackColor = true;
+            this.buttonOneWayOperation.Click += new System.EventHandler(this.buttonOneWayOperation_Click);
+            // 
+            // buttonOneWayOperation_ThrowsException
+            // 
+            this.buttonOneWayOperation_ThrowsException.Location = new System.Drawing.Point(296, 415);
+            this.buttonOneWayOperation_ThrowsException.Name = "buttonOneWayOperation_ThrowsException";
+            this.buttonOneWayOperation_ThrowsException.Size = new System.Drawing.Size(210, 23);
+            this.buttonOneWayOperation_ThrowsException.TabIndex = 16;
+            this.buttonOneWayOperation_ThrowsException.Text = "One Way Operation - Throws Exception";
+            this.buttonOneWayOperation_ThrowsException.UseVisualStyleBackColor = true;
+            this.buttonOneWayOperation_ThrowsException.Click += new System.EventHandler(this.buttonOneWayOperation_ThrowsException_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonOneWayOperation_ThrowsException);
+            this.Controls.Add(this.buttonOneWayOperation);
             this.Controls.Add(this.buttonRequestReplyOperationAsync);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonRequestReplyOperationThrowException);
@@ -222,6 +246,8 @@
         private System.Windows.Forms.Button buttonRequestReplyOperationThrowException;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonRequestReplyOperationAsync;
+        private System.Windows.Forms.Button buttonOneWayOperation;
+        private System.Windows.Forms.Button buttonOneWayOperation_ThrowsException;
     }
 }
 

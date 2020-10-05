@@ -100,5 +100,37 @@ namespace ClientWindowsForms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void buttonOneWayOperation_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listBox1.Items.Add($"One Way Operation Started @{DateTime.Now}");
+                buttonOneWayOperation.Enabled = false;
+                client.OneWayOperation();
+                buttonOneWayOperation.Enabled = true;
+                listBox1.Items.Add($"One Way Operation Completed @{DateTime.Now}");
+                listBox1.Items.Add(string.Empty);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void buttonOneWayOperation_ThrowsException_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listBox1.Items.Add($"One Way Operation Throw Exception Started @{DateTime.Now}");
+                client.OneWayOperation_ThrowsException();
+                listBox1.Items.Add($"One Way Operation Throw Exception Completed @{DateTime.Now}");
+                listBox1.Items.Add(string.Empty);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

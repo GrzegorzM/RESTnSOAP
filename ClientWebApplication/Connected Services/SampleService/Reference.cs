@@ -26,6 +26,18 @@ namespace ClientWebApplication.SampleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISampleService/RequestReplyOperation_ThrowsException", ReplyAction="http://tempuri.org/ISampleService/RequestReplyOperation_ThrowsExceptionResponse")]
         System.Threading.Tasks.Task<string> RequestReplyOperation_ThrowsExceptionAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISampleService/OneWayOperation")]
+        void OneWayOperation();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISampleService/OneWayOperation")]
+        System.Threading.Tasks.Task OneWayOperationAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISampleService/OneWayOperation_ThrowsException")]
+        void OneWayOperation_ThrowsException();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISampleService/OneWayOperation_ThrowsException")]
+        System.Threading.Tasks.Task OneWayOperation_ThrowsExceptionAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +81,22 @@ namespace ClientWebApplication.SampleService {
         
         public System.Threading.Tasks.Task<string> RequestReplyOperation_ThrowsExceptionAsync() {
             return base.Channel.RequestReplyOperation_ThrowsExceptionAsync();
+        }
+        
+        public void OneWayOperation() {
+            base.Channel.OneWayOperation();
+        }
+        
+        public System.Threading.Tasks.Task OneWayOperationAsync() {
+            return base.Channel.OneWayOperationAsync();
+        }
+        
+        public void OneWayOperation_ThrowsException() {
+            base.Channel.OneWayOperation_ThrowsException();
+        }
+        
+        public System.Threading.Tasks.Task OneWayOperation_ThrowsExceptionAsync() {
+            return base.Channel.OneWayOperation_ThrowsExceptionAsync();
         }
     }
 }

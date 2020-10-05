@@ -47,6 +47,12 @@
   <wsdl:message name="ISampleService_RequestReplyOperation_ThrowsException_OutputMessage">
     <wsdl:part name="parameters" element="tns:RequestReplyOperation_ThrowsExceptionResponse" />
   </wsdl:message>
+  <wsdl:message name="ISampleService_OneWayOperation_InputMessage">
+    <wsdl:part name="parameters" element="tns:OneWayOperation" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_OneWayOperation_ThrowsException_InputMessage">
+    <wsdl:part name="parameters" element="tns:OneWayOperation_ThrowsException" />
+  </wsdl:message>
   <wsdl:portType name="ISampleService">
     <wsdl:operation name="RequestReplyOperation">
       <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/RequestReplyOperation" message="tns:ISampleService_RequestReplyOperation_InputMessage" />
@@ -55,6 +61,12 @@
     <wsdl:operation name="RequestReplyOperation_ThrowsException">
       <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/RequestReplyOperation_ThrowsException" message="tns:ISampleService_RequestReplyOperation_ThrowsException_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISampleService/RequestReplyOperation_ThrowsExceptionResponse" message="tns:ISampleService_RequestReplyOperation_ThrowsException_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OneWayOperation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/OneWayOperation" message="tns:ISampleService_OneWayOperation_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OneWayOperation_ThrowsException">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/OneWayOperation_ThrowsException" message="tns:ISampleService_OneWayOperation_ThrowsException_InputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISampleService" type="tns:ISampleService">
@@ -77,6 +89,18 @@
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OneWayOperation">
+      <soap12:operation soapAction="http://tempuri.org/ISampleService/OneWayOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="OneWayOperation_ThrowsException">
+      <soap12:operation soapAction="http://tempuri.org/ISampleService/OneWayOperation_ThrowsException" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="SampleService">
