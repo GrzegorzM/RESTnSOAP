@@ -1,5 +1,6 @@
 ﻿using ClientWindowsForms.CalculatorService;
 using ClientWindowsForms.HelloService;
+using ClientWindowsForms.ReportService;
 using ClientWindowsForms.SampleService;
 using System;
 using System.ServiceModel;
@@ -7,13 +8,14 @@ using System.Windows.Forms;
 
 namespace ClientWindowsForms
 {
-    public partial class Form1 : Form
+    // [CallbackBehavior(UseSynchronizationContext = false)] // Not required if the specified OperationContract is set to "IsOneWay = true"
+    public partial class Form1 : Form, IReportServiceCallback
     {
         private readonly SampleServiceClient client;
 
         public Form1()
         {
-            client = new SampleServiceClient(); // Comment if not using SampleService
+            //client = new SampleServiceClient(); // Comment if not using SampleService
             InitializeComponent();
         }
 
@@ -39,6 +41,8 @@ namespace ClientWindowsForms
                 //lblResultDivide.Text = $"{ex.Detail.Error} - {ex.Detail.Details}";
             }
         }
+
+        #region SampleService
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
@@ -131,6 +135,21 @@ namespace ClientWindowsForms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        #endregion
+
+        private void buttonProcessReport_Click(object sender, EventArgs e)
+        {
+            InstanceContext instanceContext = new InstanceContext(this);
+            ReportServiceClient client = new ReportServiceClient(instanceContext);
+            client.ProcessReport();
+        }
+
+        public void Progress(int percentageCompleted)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+            textBoxProgress.Text = $"{percentageCompleted} % completed";
         }
     }
 }

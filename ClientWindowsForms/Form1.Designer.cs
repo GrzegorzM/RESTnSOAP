@@ -45,6 +45,8 @@
             this.buttonRequestReplyOperationAsync = new System.Windows.Forms.Button();
             this.buttonOneWayOperation = new System.Windows.Forms.Button();
             this.buttonOneWayOperation_ThrowsException = new System.Windows.Forms.Button();
+            this.buttonProcessReport = new System.Windows.Forms.Button();
+            this.textBoxProgress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -200,11 +202,30 @@
             this.buttonOneWayOperation_ThrowsException.UseVisualStyleBackColor = true;
             this.buttonOneWayOperation_ThrowsException.Click += new System.EventHandler(this.buttonOneWayOperation_ThrowsException_Click);
             // 
+            // buttonProcessReport
+            // 
+            this.buttonProcessReport.Location = new System.Drawing.Point(626, 72);
+            this.buttonProcessReport.Name = "buttonProcessReport";
+            this.buttonProcessReport.Size = new System.Drawing.Size(110, 23);
+            this.buttonProcessReport.TabIndex = 17;
+            this.buttonProcessReport.Text = "Process Report";
+            this.buttonProcessReport.UseVisualStyleBackColor = true;
+            this.buttonProcessReport.Click += new System.EventHandler(this.buttonProcessReport_Click);
+            // 
+            // textBoxProgress
+            // 
+            this.textBoxProgress.Location = new System.Drawing.Point(626, 101);
+            this.textBoxProgress.Name = "textBoxProgress";
+            this.textBoxProgress.Size = new System.Drawing.Size(100, 20);
+            this.textBoxProgress.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxProgress);
+            this.Controls.Add(this.buttonProcessReport);
             this.Controls.Add(this.buttonOneWayOperation_ThrowsException);
             this.Controls.Add(this.buttonOneWayOperation);
             this.Controls.Add(this.buttonRequestReplyOperationAsync);
@@ -248,6 +269,8 @@
         private System.Windows.Forms.Button buttonRequestReplyOperationAsync;
         private System.Windows.Forms.Button buttonOneWayOperation;
         private System.Windows.Forms.Button buttonOneWayOperation_ThrowsException;
+        private System.Windows.Forms.Button buttonProcessReport;
+        private System.Windows.Forms.TextBox textBoxProgress;
     }
 }
 

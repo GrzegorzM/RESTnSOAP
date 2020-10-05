@@ -63,6 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ReportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SampleService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,6 +117,13 @@
     <None Include="Connected Services\HelloService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ReportService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReportService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReportService\ReportService.wsdl" />
     <None Include="Connected Services\SampleService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -139,6 +151,7 @@
     <WCFMetadataStorage Include="Connected Services\CalculatorService\" />
     <WCFMetadataStorage Include="Connected Services\HelloServiceIIS\" />
     <WCFMetadataStorage Include="Connected Services\HelloService\" />
+    <WCFMetadataStorage Include="Connected Services\ReportService\" />
     <WCFMetadataStorage Include="Connected Services\SampleService\" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +210,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\SampleService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReportService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReportService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReportService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReportService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

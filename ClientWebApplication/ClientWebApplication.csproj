@@ -159,6 +159,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ReportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SampleService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -306,10 +311,24 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\ReportService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReportService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReportService\ReportService.wsdl" />
     <None Include="Connected Services\SampleService\item.disco" />
     <None Include="Connected Services\SampleService\configuration91.svcinfo" />
     <None Include="Connected Services\SampleService\configuration.svcinfo" />
     <None Include="Connected Services\SampleService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ReportService\item.disco" />
+    <None Include="Connected Services\ReportService\configuration91.svcinfo" />
+    <None Include="Connected Services\ReportService\configuration.svcinfo" />
+    <None Include="Connected Services\ReportService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -519,6 +538,7 @@
     <WCFMetadataStorage Include="Connected Services\CompanyService\" />
     <WCFMetadataStorage Include="Connected Services\EmployeeService\" />
     <WCFMetadataStorage Include="Connected Services\HelloService\" />
+    <WCFMetadataStorage Include="Connected Services\ReportService\" />
     <WCFMetadataStorage Include="Connected Services\SampleService\" />
     <WCFMetadataStorage Include="Connected Services\StudentService\" />
     <WCFMetadataStorage Include="Connected Services\WeatherService\" />
