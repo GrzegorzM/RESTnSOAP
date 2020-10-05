@@ -47,10 +47,12 @@
   <ItemGroup>
     <Compile Include="CalculatorServiceWCF.cs" />
     <Compile Include="CompanyService.cs" />
+    <Compile Include="DownloadService.cs" />
     <Compile Include="EmployeeService.cs" />
     <Compile Include="HelloService.cs" />
     <Compile Include="ICalculatorServiceWCF.cs" />
     <Compile Include="ICompanyService.cs" />
+    <Compile Include="IDownloadService.cs" />
     <Compile Include="IEmployeeService.cs" />
     <Compile Include="IHelloService.cs" />
     <Compile Include="IReportService.cs" />

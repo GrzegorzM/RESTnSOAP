@@ -47,6 +47,7 @@
             this.buttonOneWayOperation_ThrowsException = new System.Windows.Forms.Button();
             this.buttonProcessReport = new System.Windows.Forms.Button();
             this.textBoxProgress = new System.Windows.Forms.TextBox();
+            this.buttonDownloadFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -219,11 +220,22 @@
             this.textBoxProgress.Size = new System.Drawing.Size(100, 20);
             this.textBoxProgress.TabIndex = 18;
             // 
+            // buttonDownloadFile
+            // 
+            this.buttonDownloadFile.Location = new System.Drawing.Point(626, 151);
+            this.buttonDownloadFile.Name = "buttonDownloadFile";
+            this.buttonDownloadFile.Size = new System.Drawing.Size(110, 23);
+            this.buttonDownloadFile.TabIndex = 19;
+            this.buttonDownloadFile.Text = "Download File";
+            this.buttonDownloadFile.UseVisualStyleBackColor = true;
+            this.buttonDownloadFile.Click += new System.EventHandler(this.buttonDownloadFile_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonDownloadFile);
             this.Controls.Add(this.textBoxProgress);
             this.Controls.Add(this.buttonProcessReport);
             this.Controls.Add(this.buttonOneWayOperation_ThrowsException);
@@ -271,6 +283,7 @@
         private System.Windows.Forms.Button buttonOneWayOperation_ThrowsException;
         private System.Windows.Forms.Button buttonProcessReport;
         private System.Windows.Forms.TextBox textBoxProgress;
+        private System.Windows.Forms.Button buttonDownloadFile;
     }
 }
 

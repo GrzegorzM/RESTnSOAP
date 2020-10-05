@@ -1,4 +1,5 @@
 ﻿using ClientWindowsForms.CalculatorService;
+using ClientWindowsForms.DownloadService;
 using ClientWindowsForms.HelloService;
 using ClientWindowsForms.ReportService;
 using ClientWindowsForms.SampleService;
@@ -139,6 +140,8 @@ namespace ClientWindowsForms
 
         #endregion
 
+        #region ReportService
+
         private void buttonProcessReport_Click(object sender, EventArgs e)
         {
             InstanceContext instanceContext = new InstanceContext(this);
@@ -150,6 +153,16 @@ namespace ClientWindowsForms
         {
             CheckForIllegalCrossThreadCalls = false;
             textBoxProgress.Text = $"{percentageCompleted} % completed";
+        }
+
+        #endregion
+
+        private void buttonDownloadFile_Click(object sender, EventArgs e)
+        {
+            DownloadServiceClient client = new DownloadServiceClient();
+            File file = client.DownloadDocument();
+            System.IO.File.WriteAllBytes(@"C:\RESTnSOAP\" + file.Name, file.Content);
+            MessageBox.Show($"{file.Name} is downloaded");
         }
     }
 }
