@@ -3,6 +3,7 @@ using ClientWindowsForms.DownloadService;
 using ClientWindowsForms.HelloService;
 using ClientWindowsForms.ReportService;
 using ClientWindowsForms.SampleService;
+using ClientWindowsForms.SimpleService;
 using System;
 using System.ServiceModel;
 using System.Windows.Forms;
@@ -163,6 +164,14 @@ namespace ClientWindowsForms
             File file = client.DownloadDocument();
             System.IO.File.WriteAllBytes(@"C:\RESTnSOAP\" + file.Name, file.Content);
             MessageBox.Show($"{file.Name} is downloaded");
+        }
+
+        private void buttonPerCall_Click(object sender, EventArgs e)
+        {
+            SimpleServiceClient client = new SimpleServiceClient();
+            MessageBox.Show($"Number after first call = {client.IncrementNumber()}");
+            MessageBox.Show($"Number after second call = {client.IncrementNumber()}");
+            MessageBox.Show($"Number after third call = {client.IncrementNumber()}");
         }
     }
 }

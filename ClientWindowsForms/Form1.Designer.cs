@@ -48,6 +48,9 @@
             this.buttonProcessReport = new System.Windows.Forms.Button();
             this.textBoxProgress = new System.Windows.Forms.TextBox();
             this.buttonDownloadFile = new System.Windows.Forms.Button();
+            this.buttonPerCall = new System.Windows.Forms.Button();
+            this.buttonPerSession = new System.Windows.Forms.Button();
+            this.buttonSingle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -230,11 +233,42 @@
             this.buttonDownloadFile.UseVisualStyleBackColor = true;
             this.buttonDownloadFile.Click += new System.EventHandler(this.buttonDownloadFile_Click);
             // 
+            // buttonPerCall
+            // 
+            this.buttonPerCall.Location = new System.Drawing.Point(523, 357);
+            this.buttonPerCall.Name = "buttonPerCall";
+            this.buttonPerCall.Size = new System.Drawing.Size(75, 23);
+            this.buttonPerCall.TabIndex = 20;
+            this.buttonPerCall.Text = "Per Call";
+            this.buttonPerCall.UseVisualStyleBackColor = true;
+            this.buttonPerCall.Click += new System.EventHandler(this.buttonPerCall_Click);
+            // 
+            // buttonPerSession
+            // 
+            this.buttonPerSession.Location = new System.Drawing.Point(523, 386);
+            this.buttonPerSession.Name = "buttonPerSession";
+            this.buttonPerSession.Size = new System.Drawing.Size(75, 23);
+            this.buttonPerSession.TabIndex = 21;
+            this.buttonPerSession.Text = "Per Session";
+            this.buttonPerSession.UseVisualStyleBackColor = true;
+            // 
+            // buttonSingle
+            // 
+            this.buttonSingle.Location = new System.Drawing.Point(523, 415);
+            this.buttonSingle.Name = "buttonSingle";
+            this.buttonSingle.Size = new System.Drawing.Size(75, 23);
+            this.buttonSingle.TabIndex = 22;
+            this.buttonSingle.Text = "Single";
+            this.buttonSingle.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonSingle);
+            this.Controls.Add(this.buttonPerSession);
+            this.Controls.Add(this.buttonPerCall);
             this.Controls.Add(this.buttonDownloadFile);
             this.Controls.Add(this.textBoxProgress);
             this.Controls.Add(this.buttonProcessReport);
@@ -284,6 +318,9 @@
         private System.Windows.Forms.Button buttonProcessReport;
         private System.Windows.Forms.TextBox textBoxProgress;
         private System.Windows.Forms.Button buttonDownloadFile;
+        private System.Windows.Forms.Button buttonPerCall;
+        private System.Windows.Forms.Button buttonPerSession;
+        private System.Windows.Forms.Button buttonSingle;
     }
 }
 
