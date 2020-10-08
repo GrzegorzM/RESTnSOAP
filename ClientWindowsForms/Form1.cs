@@ -166,7 +166,7 @@ namespace ClientWindowsForms
             MessageBox.Show($"{file.Name} is downloaded");
         }
 
-        private void buttonPerCall_Click(object sender, EventArgs e)
+        private void buttonServiceBehavior_Click(object sender, EventArgs e)
         {
             SimpleServiceClient client = new SimpleServiceClient();
             MessageBox.Show($"Number after first call = {client.IncrementNumber()}");
