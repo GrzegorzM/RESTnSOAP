@@ -2,6 +2,8 @@
 
 namespace WCFproject
 {
+    // basicHttpBinding does not support sessions
+
     //Instance of the service will be created each time the service is invoked.
     //[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
 

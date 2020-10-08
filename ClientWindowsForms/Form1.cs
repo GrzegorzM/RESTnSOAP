@@ -172,6 +172,20 @@ namespace ClientWindowsForms
             MessageBox.Show($"Number after first call = {client.IncrementNumber()}");
             MessageBox.Show($"Number after second call = {client.IncrementNumber()}");
             MessageBox.Show($"Number after third call = {client.IncrementNumber()}");
+
+            //// Handling session timeout exception
+            //try
+            //{
+            //    MessageBox.Show($"Number = {client.IncrementNumber()}");
+            //}
+            //catch(CommunicationException)
+            //{
+            //    if (client.State == CommunicationState.Faulted)
+            //    {
+            //        MessageBox.Show($"Session timed out and existing session is lost. A new session will now be created.");
+            //        client = new SimpleServiceClient();
+            //    }
+            //}
         }
     }
 }
