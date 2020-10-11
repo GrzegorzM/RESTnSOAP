@@ -49,6 +49,7 @@
             this.textBoxProgress = new System.Windows.Forms.TextBox();
             this.buttonDownloadFile = new System.Windows.Forms.Button();
             this.buttonServiceBehavior = new System.Windows.Forms.Button();
+            this.buttonSessionId = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -241,11 +242,22 @@
             this.buttonServiceBehavior.UseVisualStyleBackColor = true;
             this.buttonServiceBehavior.Click += new System.EventHandler(this.buttonServiceBehavior_Click);
             // 
+            // buttonSessionId
+            // 
+            this.buttonSessionId.Location = new System.Drawing.Point(523, 386);
+            this.buttonSessionId.Name = "buttonSessionId";
+            this.buttonSessionId.Size = new System.Drawing.Size(187, 23);
+            this.buttonSessionId.TabIndex = 21;
+            this.buttonSessionId.Text = "Retrive SessionId";
+            this.buttonSessionId.UseVisualStyleBackColor = true;
+            this.buttonSessionId.Click += new System.EventHandler(this.buttonSessionId_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonSessionId);
             this.Controls.Add(this.buttonServiceBehavior);
             this.Controls.Add(this.buttonDownloadFile);
             this.Controls.Add(this.textBoxProgress);
@@ -297,6 +309,7 @@
         private System.Windows.Forms.TextBox textBoxProgress;
         private System.Windows.Forms.Button buttonDownloadFile;
         private System.Windows.Forms.Button buttonServiceBehavior;
+        private System.Windows.Forms.Button buttonSessionId;
     }
 }
 

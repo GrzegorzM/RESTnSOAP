@@ -7,5 +7,8 @@ namespace WCFproject
     {
         [OperationContract]
         int IncrementNumber();
+
+        [OperationContract]
+        void DisplaySessionId();
     }
 }

@@ -3,6 +3,10 @@
   <wsp:Policy wsu:Id="NetTcpBinding_ISimpleService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
         <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <wsp:Policy>
@@ -41,10 +45,20 @@
   <wsdl:message name="ISimpleService_IncrementNumber_OutputMessage">
     <wsdl:part name="parameters" element="tns:IncrementNumberResponse" />
   </wsdl:message>
+  <wsdl:message name="ISimpleService_DisplaySessionId_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisplaySessionId" />
+  </wsdl:message>
+  <wsdl:message name="ISimpleService_DisplaySessionId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisplaySessionIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISimpleService">
     <wsdl:operation name="IncrementNumber">
       <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/IncrementNumber" message="tns:ISimpleService_IncrementNumber_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISimpleService/IncrementNumberResponse" message="tns:ISimpleService_IncrementNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisplaySessionId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/DisplaySessionId" message="tns:ISimpleService_DisplaySessionId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimpleService/DisplaySessionIdResponse" message="tns:ISimpleService_DisplaySessionId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISimpleService" type="tns:ISimpleService">
@@ -52,6 +66,15 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="IncrementNumber">
       <soap12:operation soapAction="http://tempuri.org/ISimpleService/IncrementNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisplaySessionId">
+      <soap12:operation soapAction="http://tempuri.org/ISimpleService/DisplaySessionId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 
 namespace WCFproject
 {
@@ -17,6 +18,11 @@ namespace WCFproject
         {
             number = number + 1;
             return number;
+        }
+
+        public void DisplaySessionId()
+        {
+            Console.WriteLine($"Session Id: {OperationContext.Current.SessionId}");
         }
     }
 }

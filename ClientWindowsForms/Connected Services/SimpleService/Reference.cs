@@ -20,6 +20,12 @@ namespace ClientWindowsForms.SimpleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/IncrementNumber", ReplyAction="http://tempuri.org/ISimpleService/IncrementNumberResponse")]
         System.Threading.Tasks.Task<int> IncrementNumberAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/DisplaySessionId", ReplyAction="http://tempuri.org/ISimpleService/DisplaySessionIdResponse")]
+        void DisplaySessionId();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/DisplaySessionId", ReplyAction="http://tempuri.org/ISimpleService/DisplaySessionIdResponse")]
+        System.Threading.Tasks.Task DisplaySessionIdAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace ClientWindowsForms.SimpleService {
         
         public System.Threading.Tasks.Task<int> IncrementNumberAsync() {
             return base.Channel.IncrementNumberAsync();
+        }
+        
+        public void DisplaySessionId() {
+            base.Channel.DisplaySessionId();
+        }
+        
+        public System.Threading.Tasks.Task DisplaySessionIdAsync() {
+            return base.Channel.DisplaySessionIdAsync();
         }
     }
 }

@@ -187,5 +187,12 @@ namespace ClientWindowsForms
             //    }
             //}
         }
+
+        private void buttonSessionId_Click(object sender, EventArgs e)
+        {
+            SimpleServiceClient client = new SimpleServiceClient();
+            client.DisplaySessionId();
+            MessageBox.Show($"Session ID = {client.InnerChannel.SessionId}");
+        }
     }
 }

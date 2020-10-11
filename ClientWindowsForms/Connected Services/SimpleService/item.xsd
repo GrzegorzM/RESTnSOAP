@@ -12,4 +12,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DisplaySessionId">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisplaySessionIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
