@@ -9,7 +9,10 @@ namespace WCFproject
     //[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
 
     //Instance of the service will stay in memory for 10 minutes for the same user.
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+
+    //One instance of service for all clients
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class SimpleService : ISimpleService
     {
         private int number;
