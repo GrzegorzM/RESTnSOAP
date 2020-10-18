@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using System.ServiceModel;
 using System.Threading;
 
@@ -16,6 +17,9 @@ namespace WCFproject
     //One instance of service for all clients
     //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
 
+    /// <summary>
+    /// ConcurrencyMode.Single = Only one thread is allowed to access the service instance, once thread access service there is exclusive lock that is acquired. That means no other threads are allowed to access the service instance, they are locked and queued.
+    /// </summary>
     // If basicHttpBinding is used(not session support) - Positive throughput impact, two calls are processed asynchronously.
     // If a session support binding is used - Negative throughput impact, the two calls are not processed asynchronously, they are queued. 
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode = InstanceContextMode.PerCall)]
@@ -26,7 +30,12 @@ namespace WCFproject
 
     // If basicHttpBinding is used(not session support) - Negative throughput impact, a single service instance is used, leading to call queuing.
     // If a session support binding is used - Negative throughput impact, a single service instance is used, leading to call queuing.
-    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode = InstanceContextMode.Single)]
+    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode = InstanceContextMode.Single)]
+
+    /// <summary>
+    /// ConcurrencyMode.Multiple = No lock. All threads are allowed access regardless of the InstanceContextMode value or the binding used. Possitive throughput impact.
+    /// </summary>
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
     public class SimpleService : ISimpleService
     {
         private int number;
