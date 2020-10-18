@@ -58,16 +58,16 @@ namespace WCFhost
                 Console.ReadLine();
             }
 
-            using (ServiceHost reportHost = new ServiceHost(typeof(DownloadService)))
+            using (ServiceHost downloadHost = new ServiceHost(typeof(DownloadService)))
             {
-                reportHost.Open();
+                downloadHost.Open();
                 Console.WriteLine($"Download host started at {DateTime.Now}");
                 Console.ReadLine();
             }
 
-            using (ServiceHost reportHost = new ServiceHost(typeof(SimpleService)))
+            using (ServiceHost simpleHost = new ServiceHost(typeof(SimpleService)))
             {
-                reportHost.Open();
+                simpleHost.Open();
                 Console.WriteLine($"Simple host started at {DateTime.Now}");
                 Console.ReadLine();
             }

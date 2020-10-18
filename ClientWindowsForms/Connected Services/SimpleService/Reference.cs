@@ -26,6 +26,18 @@ namespace ClientWindowsForms.SimpleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/DisplaySessionId", ReplyAction="http://tempuri.org/ISimpleService/DisplaySessionIdResponse")]
         System.Threading.Tasks.Task DisplaySessionIdAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetEvenNumbers", ReplyAction="http://tempuri.org/ISimpleService/GetEvenNumbersResponse")]
+        int[] GetEvenNumbers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetEvenNumbers", ReplyAction="http://tempuri.org/ISimpleService/GetEvenNumbersResponse")]
+        System.Threading.Tasks.Task<int[]> GetEvenNumbersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetOddNumbers", ReplyAction="http://tempuri.org/ISimpleService/GetOddNumbersResponse")]
+        int[] GetOddNumbers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetOddNumbers", ReplyAction="http://tempuri.org/ISimpleService/GetOddNumbersResponse")]
+        System.Threading.Tasks.Task<int[]> GetOddNumbersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +81,22 @@ namespace ClientWindowsForms.SimpleService {
         
         public System.Threading.Tasks.Task DisplaySessionIdAsync() {
             return base.Channel.DisplaySessionIdAsync();
+        }
+        
+        public int[] GetEvenNumbers() {
+            return base.Channel.GetEvenNumbers();
+        }
+        
+        public System.Threading.Tasks.Task<int[]> GetEvenNumbersAsync() {
+            return base.Channel.GetEvenNumbersAsync();
+        }
+        
+        public int[] GetOddNumbers() {
+            return base.Channel.GetOddNumbers();
+        }
+        
+        public System.Threading.Tasks.Task<int[]> GetOddNumbersAsync() {
+            return base.Channel.GetOddNumbersAsync();
         }
     }
 }

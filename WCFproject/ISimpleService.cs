@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace WCFproject
 {
@@ -19,5 +20,11 @@ namespace WCFproject
 
         [OperationContract]
         void DisplaySessionId();
+
+        [OperationContract]
+        List<int> GetEvenNumbers();
+
+        [OperationContract]
+        List<int> GetOddNumbers();
     }
 }

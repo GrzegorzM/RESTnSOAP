@@ -14,10 +14,12 @@ namespace ClientWindowsForms
     public partial class Form1 : Form, IReportServiceCallback
     {
         private readonly SampleServiceClient client;
+        private readonly SimpleServiceClient simpleServiceClient;
 
         public Form1()
         {
             //client = new SampleServiceClient(); // Comment if not using SampleService
+            simpleServiceClient = new SimpleServiceClient();
             InitializeComponent();
         }
 
@@ -193,6 +195,42 @@ namespace ClientWindowsForms
             SimpleServiceClient client = new SimpleServiceClient();
             client.DisplaySessionId();
             MessageBox.Show($"Session ID = {client.InnerChannel.SessionId}");
+        }
+
+        private void buttonGetEvenNumbers_Click(object sender, EventArgs e)
+        {
+            backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void buttonOddNumbers_Click(object sender, EventArgs e)
+        {
+            backgroundWorker2.RunWorkerAsync();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            e.Result = simpleServiceClient.GetEvenNumbers();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            listBoxEvenNumbers.DataSource = (int[])e.Result;
+        }
+
+        private void backgroundWorker2_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            e.Result = simpleServiceClient.GetOddNumbers();
+        }
+
+        private void backgroundWorker2_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            listBoxOddNumbers.DataSource = (int[])e.Result;
+        }
+
+        private void buttonClearResults_Click(object sender, EventArgs e)
+        {
+            listBoxEvenNumbers.DataSource = null;
+            listBoxOddNumbers.DataSource = null;
         }
     }
 }

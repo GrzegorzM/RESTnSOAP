@@ -50,6 +50,13 @@
             this.buttonDownloadFile = new System.Windows.Forms.Button();
             this.buttonServiceBehavior = new System.Windows.Forms.Button();
             this.buttonSessionId = new System.Windows.Forms.Button();
+            this.buttonGetEvenNumbers = new System.Windows.Forms.Button();
+            this.buttonOddNumbers = new System.Windows.Forms.Button();
+            this.listBoxEvenNumbers = new System.Windows.Forms.ListBox();
+            this.listBoxOddNumbers = new System.Windows.Forms.ListBox();
+            this.buttonClearResults = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -90,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(391, 45);
+            this.label2.Location = new System.Drawing.Point(432, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 4;
@@ -99,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(503, 45);
+            this.label3.Location = new System.Drawing.Point(536, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 5;
@@ -107,7 +114,7 @@
             // 
             // btnDivide
             // 
-            this.btnDivide.Location = new System.Drawing.Point(394, 104);
+            this.btnDivide.Location = new System.Drawing.Point(484, 51);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(100, 23);
             this.btnDivide.TabIndex = 6;
@@ -117,14 +124,14 @@
             // 
             // tbNumerator
             // 
-            this.tbNumerator.Location = new System.Drawing.Point(394, 72);
+            this.tbNumerator.Location = new System.Drawing.Point(430, 25);
             this.tbNumerator.Name = "tbNumerator";
             this.tbNumerator.Size = new System.Drawing.Size(100, 20);
             this.tbNumerator.TabIndex = 7;
             // 
             // tbDenominator
             // 
-            this.tbDenominator.Location = new System.Drawing.Point(506, 72);
+            this.tbDenominator.Location = new System.Drawing.Point(539, 25);
             this.tbDenominator.Name = "tbDenominator";
             this.tbDenominator.Size = new System.Drawing.Size(100, 20);
             this.tbDenominator.TabIndex = 8;
@@ -252,11 +259,72 @@
             this.buttonSessionId.UseVisualStyleBackColor = true;
             this.buttonSessionId.Click += new System.EventHandler(this.buttonSessionId_Click);
             // 
+            // buttonGetEvenNumbers
+            // 
+            this.buttonGetEvenNumbers.Location = new System.Drawing.Point(216, 68);
+            this.buttonGetEvenNumbers.Name = "buttonGetEvenNumbers";
+            this.buttonGetEvenNumbers.Size = new System.Drawing.Size(117, 23);
+            this.buttonGetEvenNumbers.TabIndex = 22;
+            this.buttonGetEvenNumbers.Text = "Get Even Numbers";
+            this.buttonGetEvenNumbers.UseVisualStyleBackColor = true;
+            this.buttonGetEvenNumbers.Click += new System.EventHandler(this.buttonGetEvenNumbers_Click);
+            // 
+            // buttonOddNumbers
+            // 
+            this.buttonOddNumbers.Location = new System.Drawing.Point(339, 68);
+            this.buttonOddNumbers.Name = "buttonOddNumbers";
+            this.buttonOddNumbers.Size = new System.Drawing.Size(120, 23);
+            this.buttonOddNumbers.TabIndex = 23;
+            this.buttonOddNumbers.Text = "Get Odd Numbers";
+            this.buttonOddNumbers.UseVisualStyleBackColor = true;
+            this.buttonOddNumbers.Click += new System.EventHandler(this.buttonOddNumbers_Click);
+            // 
+            // listBoxEvenNumbers
+            // 
+            this.listBoxEvenNumbers.FormattingEnabled = true;
+            this.listBoxEvenNumbers.Location = new System.Drawing.Point(216, 97);
+            this.listBoxEvenNumbers.Name = "listBoxEvenNumbers";
+            this.listBoxEvenNumbers.Size = new System.Drawing.Size(117, 82);
+            this.listBoxEvenNumbers.TabIndex = 24;
+            // 
+            // listBoxOddNumbers
+            // 
+            this.listBoxOddNumbers.FormattingEnabled = true;
+            this.listBoxOddNumbers.Location = new System.Drawing.Point(339, 97);
+            this.listBoxOddNumbers.Name = "listBoxOddNumbers";
+            this.listBoxOddNumbers.Size = new System.Drawing.Size(120, 82);
+            this.listBoxOddNumbers.TabIndex = 25;
+            // 
+            // buttonClearResults
+            // 
+            this.buttonClearResults.Location = new System.Drawing.Point(216, 180);
+            this.buttonClearResults.Name = "buttonClearResults";
+            this.buttonClearResults.Size = new System.Drawing.Size(243, 21);
+            this.buttonClearResults.TabIndex = 26;
+            this.buttonClearResults.Text = "Clear Result";
+            this.buttonClearResults.UseVisualStyleBackColor = true;
+            this.buttonClearResults.Click += new System.EventHandler(this.buttonClearResults_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonClearResults);
+            this.Controls.Add(this.listBoxOddNumbers);
+            this.Controls.Add(this.listBoxEvenNumbers);
+            this.Controls.Add(this.buttonOddNumbers);
+            this.Controls.Add(this.buttonGetEvenNumbers);
             this.Controls.Add(this.buttonSessionId);
             this.Controls.Add(this.buttonServiceBehavior);
             this.Controls.Add(this.buttonDownloadFile);
@@ -310,6 +378,13 @@
         private System.Windows.Forms.Button buttonDownloadFile;
         private System.Windows.Forms.Button buttonServiceBehavior;
         private System.Windows.Forms.Button buttonSessionId;
+        private System.Windows.Forms.Button buttonGetEvenNumbers;
+        private System.Windows.Forms.Button buttonOddNumbers;
+        private System.Windows.Forms.ListBox listBoxEvenNumbers;
+        private System.Windows.Forms.ListBox listBoxOddNumbers;
+        private System.Windows.Forms.Button buttonClearResults;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 
