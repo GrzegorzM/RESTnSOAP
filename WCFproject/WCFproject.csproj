@@ -58,6 +58,7 @@
     <Compile Include="IReportService.cs" />
     <Compile Include="ISampleService.cs" />
     <Compile Include="ISimpleService.cs" />
+    <Compile Include="ISimpleServiceCallback.cs" />
     <Compile Include="Models\DivideByZeroFault.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeKnownType.cs" />

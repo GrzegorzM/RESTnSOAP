@@ -12,7 +12,7 @@ namespace ClientWindowsForms.SimpleService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SimpleService.ISimpleService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SimpleService.ISimpleService", CallbackContract=typeof(ClientWindowsForms.SimpleService.ISimpleServiceCallback))]
     public interface ISimpleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/IncrementNumber", ReplyAction="http://tempuri.org/ISimpleService/IncrementNumberResponse")]
@@ -38,6 +38,19 @@ namespace ClientWindowsForms.SimpleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetOddNumbers", ReplyAction="http://tempuri.org/ISimpleService/GetOddNumbersResponse")]
         System.Threading.Tasks.Task<int[]> GetOddNumbersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/ProgressReport", ReplyAction="http://tempuri.org/ISimpleService/ProgressReportResponse")]
+        void ProgressReport();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/ProgressReport", ReplyAction="http://tempuri.org/ISimpleService/ProgressReportResponse")]
+        System.Threading.Tasks.Task ProgressReportAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ISimpleServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/ReportProgress", ReplyAction="http://tempuri.org/ISimpleService/ReportProgressResponse")]
+        void ReportProgress(int percentageCompleted);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -46,25 +59,26 @@ namespace ClientWindowsForms.SimpleService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SimpleServiceClient : System.ServiceModel.ClientBase<ClientWindowsForms.SimpleService.ISimpleService>, ClientWindowsForms.SimpleService.ISimpleService {
+    public partial class SimpleServiceClient : System.ServiceModel.DuplexClientBase<ClientWindowsForms.SimpleService.ISimpleService>, ClientWindowsForms.SimpleService.ISimpleService {
         
-        public SimpleServiceClient() {
+        public SimpleServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public SimpleServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public SimpleServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public SimpleServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public SimpleServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public SimpleServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public SimpleServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public SimpleServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public SimpleServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public int IncrementNumber() {
@@ -97,6 +111,14 @@ namespace ClientWindowsForms.SimpleService {
         
         public System.Threading.Tasks.Task<int[]> GetOddNumbersAsync() {
             return base.Channel.GetOddNumbersAsync();
+        }
+        
+        public void ProgressReport() {
+            base.Channel.ProgressReport();
+        }
+        
+        public System.Threading.Tasks.Task ProgressReportAsync() {
+            return base.Channel.ProgressReportAsync();
         }
     }
 }

@@ -57,6 +57,8 @@
             this.buttonClearResults = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.buttonProcessReportReentrant = new System.Windows.Forms.Button();
+            this.textBoxProgressReentrant = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -226,7 +228,7 @@
             // 
             this.textBoxProgress.Location = new System.Drawing.Point(626, 101);
             this.textBoxProgress.Name = "textBoxProgress";
-            this.textBoxProgress.Size = new System.Drawing.Size(100, 20);
+            this.textBoxProgress.Size = new System.Drawing.Size(110, 20);
             this.textBoxProgress.TabIndex = 18;
             // 
             // buttonDownloadFile
@@ -315,11 +317,30 @@
             this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
             this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
             // 
+            // buttonProcessReportReentrant
+            // 
+            this.buttonProcessReportReentrant.Location = new System.Drawing.Point(771, 22);
+            this.buttonProcessReportReentrant.Name = "buttonProcessReportReentrant";
+            this.buttonProcessReportReentrant.Size = new System.Drawing.Size(141, 23);
+            this.buttonProcessReportReentrant.TabIndex = 27;
+            this.buttonProcessReportReentrant.Text = "Process Report Reentrant";
+            this.buttonProcessReportReentrant.UseVisualStyleBackColor = true;
+            this.buttonProcessReportReentrant.Click += new System.EventHandler(this.buttonProcessReportReentrant_Click);
+            // 
+            // textBoxProgressReentrant
+            // 
+            this.textBoxProgressReentrant.Location = new System.Drawing.Point(771, 51);
+            this.textBoxProgressReentrant.Name = "textBoxProgressReentrant";
+            this.textBoxProgressReentrant.Size = new System.Drawing.Size(141, 20);
+            this.textBoxProgressReentrant.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1120, 450);
+            this.Controls.Add(this.textBoxProgressReentrant);
+            this.Controls.Add(this.buttonProcessReportReentrant);
             this.Controls.Add(this.buttonClearResults);
             this.Controls.Add(this.listBoxOddNumbers);
             this.Controls.Add(this.listBoxEvenNumbers);
@@ -385,6 +406,8 @@
         private System.Windows.Forms.Button buttonClearResults;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.Button buttonProcessReportReentrant;
+        private System.Windows.Forms.TextBox textBoxProgressReentrant;
     }
 }
 

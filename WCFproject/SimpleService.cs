@@ -35,7 +35,9 @@ namespace WCFproject
     /// <summary>
     /// ConcurrencyMode.Multiple = No lock. All threads are allowed access regardless of the InstanceContextMode value or the binding used. Possitive throughput impact.
     /// </summary>
-    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
+    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
+
+    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)] Enables callback from service and callback response from client to service(Example: file percent processing). This can be done with Single InstanceContextMode by setting OneWay=true callback in OperationContract attribute of the service interface. 
     public class SimpleService : ISimpleService
     {
         private int number;
@@ -81,6 +83,15 @@ namespace WCFproject
             }
             Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} completed processing GetOddNumbers at {DateTime.Now}");
             return listOddNumbers;
+        }
+
+        public void ProgressReport()
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                Thread.Sleep(50);
+                OperationContext.Current.GetCallbackChannel<ISimpleServiceCallback>().ReportProgress(i);
+            }
         }
     }
 }

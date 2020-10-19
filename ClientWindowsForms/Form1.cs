@@ -10,8 +10,8 @@ using System.Windows.Forms;
 
 namespace ClientWindowsForms
 {
-    // [CallbackBehavior(UseSynchronizationContext = false)] // Not required if the specified OperationContract is set to "IsOneWay = true"
-    public partial class Form1 : Form, IReportServiceCallback
+    [CallbackBehavior(UseSynchronizationContext = false)] // Not required if the specified OperationContract is set to "IsOneWay = true"
+    public partial class Form1 : Form, IReportServiceCallback, ISimpleServiceCallback
     {
         private readonly SampleServiceClient client;
         private readonly SimpleServiceClient simpleServiceClient;
@@ -19,7 +19,7 @@ namespace ClientWindowsForms
         public Form1()
         {
             //client = new SampleServiceClient(); // Comment if not using SampleService
-            simpleServiceClient = new SimpleServiceClient();
+            //simpleServiceClient = new SimpleServiceClient();
             InitializeComponent();
         }
 
@@ -170,7 +170,9 @@ namespace ClientWindowsForms
 
         private void buttonServiceBehavior_Click(object sender, EventArgs e)
         {
-            SimpleServiceClient client = new SimpleServiceClient();
+            InstanceContext instanceContext = new InstanceContext(this);
+            SimpleServiceClient client = new SimpleServiceClient(instanceContext);
+            //SimpleServiceClient client = new SimpleServiceClient();
             MessageBox.Show($"Number after first call = {client.IncrementNumber()}");
             MessageBox.Show($"Number after second call = {client.IncrementNumber()}");
             MessageBox.Show($"Number after third call = {client.IncrementNumber()}");
@@ -192,7 +194,9 @@ namespace ClientWindowsForms
 
         private void buttonSessionId_Click(object sender, EventArgs e)
         {
-            SimpleServiceClient client = new SimpleServiceClient();
+            InstanceContext instanceContext = new InstanceContext(this);
+            SimpleServiceClient client = new SimpleServiceClient(instanceContext);
+            //SimpleServiceClient client = new SimpleServiceClient();
             client.DisplaySessionId();
             MessageBox.Show($"Session ID = {client.InnerChannel.SessionId}");
         }
@@ -231,6 +235,19 @@ namespace ClientWindowsForms
         {
             listBoxEvenNumbers.DataSource = null;
             listBoxOddNumbers.DataSource = null;
+        }
+
+        private void buttonProcessReportReentrant_Click(object sender, EventArgs e)
+        {
+            InstanceContext instanceContext = new InstanceContext(this);
+            SimpleServiceClient client = new SimpleServiceClient(instanceContext);
+            client.ProgressReport();
+        }
+
+        void ISimpleServiceCallback.ReportProgress(int percentageCompleted)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+            textBoxProgressReentrant.Text = $"{percentageCompleted}% completed";
         }
     }
 }

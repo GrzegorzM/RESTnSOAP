@@ -12,7 +12,9 @@ namespace WCFproject
     //[ServiceContract(SessionMode = SessionMode.Required)]
     
     //Service contract supports sessions if the binding supports them.
-    [ServiceContract(SessionMode = SessionMode.Allowed)]
+    //[ServiceContract(SessionMode = SessionMode.Allowed)]
+
+    [ServiceContract(CallbackContract = typeof(ISimpleServiceCallback))]
     public interface ISimpleService
     {
         [OperationContract]
@@ -26,5 +28,9 @@ namespace WCFproject
 
         [OperationContract]
         List<int> GetOddNumbers();
+
+        //[OperationContract] Works with Reentrand InstanceContextMode
+        [OperationContract(IsOneWay = true)] //Works with Single InstanceContextMode
+        void ProgressReport();
     }
 }
