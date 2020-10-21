@@ -52,7 +52,7 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="ProgressReportResponse">
+  <xs:element name="DoWork">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

@@ -32,5 +32,8 @@ namespace WCFproject
         //[OperationContract] Works with Reentrand InstanceContextMode
         [OperationContract(IsOneWay = true)] //Works with Single InstanceContextMode
         void ProgressReport();
+
+        [OperationContract(IsOneWay = true)]
+        void DoWork();
     }
 }

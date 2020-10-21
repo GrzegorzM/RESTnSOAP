@@ -67,6 +67,11 @@ namespace WCFhost
 
             using (ServiceHost simpleHost = new ServiceHost(typeof(SimpleService)))
             {
+                //ServiceThrottlingBehavior throttlingBehavior = new ServiceThrottlingBehavior() {
+                //    MaxConcurrentCalls = 3,
+                //    MaxConcurrentInstances = 3,
+                //    MaxConcurrentSessions = 10
+                //};
                 simpleHost.Open();
                 Console.WriteLine($"Simple host started at {DateTime.Now}");
                 Console.ReadLine();

@@ -6,6 +6,7 @@ using ClientWindowsForms.SampleService;
 using ClientWindowsForms.SimpleService;
 using System;
 using System.ServiceModel;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ClientWindowsForms
@@ -160,6 +161,8 @@ namespace ClientWindowsForms
 
         #endregion
 
+        #region SimpleService
+
         private void buttonDownloadFile_Click(object sender, EventArgs e)
         {
             DownloadServiceClient client = new DownloadServiceClient();
@@ -244,10 +247,23 @@ namespace ClientWindowsForms
             client.ProgressReport();
         }
 
-        void ISimpleServiceCallback.ReportProgress(int percentageCompleted)
+        public void ReportProgress(int percentageCompleted)
         {
             CheckForIllegalCrossThreadCalls = false;
             textBoxProgressReentrant.Text = $"{percentageCompleted}% completed";
         }
+
+        private void buttonDoWork_Click(object sender, EventArgs e)
+        {
+            InstanceContext instanceContext = new InstanceContext(this);
+            SimpleServiceClient client = new SimpleServiceClient(instanceContext);
+            for(int i = 1; i <= 100; i++)
+            {
+                Thread thread = new Thread(client.DoWork);
+                thread.Start();
+            }
+        }
+
+        #endregion
     }
 }

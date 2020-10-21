@@ -38,6 +38,8 @@ namespace WCFproject
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
 
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)] Enables callback from service and callback response from client to service(Example: file percent processing). This can be done with Single InstanceContextMode by setting OneWay=true callback in OperationContract attribute of the service interface. 
+
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class SimpleService : ISimpleService
     {
         private int number;
@@ -92,6 +94,12 @@ namespace WCFproject
                 Thread.Sleep(50);
                 OperationContext.Current.GetCallbackChannel<ISimpleServiceCallback>().ReportProgress(i);
             }
+        }
+
+        public void DoWork()
+        {
+            Thread.Sleep(1000);
+            Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} processing request @ {DateTime.Now}");
         }
     }
 }

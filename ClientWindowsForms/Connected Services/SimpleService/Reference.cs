@@ -39,11 +39,17 @@ namespace ClientWindowsForms.SimpleService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetOddNumbers", ReplyAction="http://tempuri.org/ISimpleService/GetOddNumbersResponse")]
         System.Threading.Tasks.Task<int[]> GetOddNumbersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/ProgressReport", ReplyAction="http://tempuri.org/ISimpleService/ProgressReportResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/ProgressReport")]
         void ProgressReport();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/ProgressReport", ReplyAction="http://tempuri.org/ISimpleService/ProgressReportResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/ProgressReport")]
         System.Threading.Tasks.Task ProgressReportAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/DoWork")]
+        void DoWork();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/DoWork")]
+        System.Threading.Tasks.Task DoWorkAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -119,6 +125,14 @@ namespace ClientWindowsForms.SimpleService {
         
         public System.Threading.Tasks.Task ProgressReportAsync() {
             return base.Channel.ProgressReportAsync();
+        }
+        
+        public void DoWork() {
+            base.Channel.DoWork();
+        }
+        
+        public System.Threading.Tasks.Task DoWorkAsync() {
+            return base.Channel.DoWorkAsync();
         }
     }
 }

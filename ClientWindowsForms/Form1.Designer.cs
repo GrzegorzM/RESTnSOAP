@@ -59,6 +59,7 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.buttonProcessReportReentrant = new System.Windows.Forms.Button();
             this.textBoxProgressReentrant = new System.Windows.Forms.TextBox();
+            this.buttonDoWork = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -334,11 +335,22 @@
             this.textBoxProgressReentrant.Size = new System.Drawing.Size(141, 20);
             this.textBoxProgressReentrant.TabIndex = 28;
             // 
+            // buttonDoWork
+            // 
+            this.buttonDoWork.Location = new System.Drawing.Point(771, 92);
+            this.buttonDoWork.Name = "buttonDoWork";
+            this.buttonDoWork.Size = new System.Drawing.Size(75, 23);
+            this.buttonDoWork.TabIndex = 29;
+            this.buttonDoWork.Text = "Do Work";
+            this.buttonDoWork.UseVisualStyleBackColor = true;
+            this.buttonDoWork.Click += new System.EventHandler(this.buttonDoWork_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 450);
+            this.Controls.Add(this.buttonDoWork);
             this.Controls.Add(this.textBoxProgressReentrant);
             this.Controls.Add(this.buttonProcessReportReentrant);
             this.Controls.Add(this.buttonClearResults);
@@ -408,6 +420,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Button buttonProcessReportReentrant;
         private System.Windows.Forms.TextBox textBoxProgressReentrant;
+        private System.Windows.Forms.Button buttonDoWork;
     }
 }
 
