@@ -11,12 +11,12 @@ namespace WCFhost
         {
             using (ServiceHost host = new ServiceHost(typeof(HelloService)))
             {
-                ServiceMetadataBehavior serviceMetadataBehavior = new ServiceMetadataBehavior() // This behavior is already added
-                {
-                    HttpGetEnabled = true
-                };
-                host.Description.Behaviors.Add(serviceMetadataBehavior);
-                host.AddServiceEndpoint(typeof(IHelloService), new NetTcpBinding(), "HelloService");
+                //ServiceMetadataBehavior serviceMetadataBehavior = new ServiceMetadataBehavior() // This behavior is already added
+                //{
+                //    HttpGetEnabled = true
+                //};
+                //host.Description.Behaviors.Add(serviceMetadataBehavior);
+                //host.AddServiceEndpoint(typeof(IHelloService), new NetTcpBinding(), "HelloService");
 
                 host.Open();
                 Console.WriteLine($"Host started at {DateTime.Now}");
@@ -74,7 +74,7 @@ namespace WCFhost
                 //};
                 simpleHost.Open();
                 Console.WriteLine($"Simple host started at {DateTime.Now}");
-                Console.ReadLine();
+                Console.ReadLine();  
             }
         }
     }

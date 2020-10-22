@@ -190,21 +190,6 @@
     <WCFMetadataStorage Include="Connected Services\SimpleService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\HelloService\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\HelloService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\HelloService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\HelloService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\CalculatorService\item.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -290,6 +275,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\SimpleService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HelloService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HelloService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HelloService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HelloService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -28,7 +28,8 @@ namespace ClientWindowsForms
         {
             //HelloServiceClient client = new HelloServiceClient("NetTcpBinding_IHelloService"); // Invoke Hello Service via host APP
             //HelloServiceIIS.HelloServiceClient client = new HelloServiceIIS.HelloServiceClient("BasicHttpBinding_IHelloServiceIIS");// Invoke Hello Service via host IIS. IIS dont support TCP
-            HelloServiceIIS.HelloServiceClient client = new HelloServiceIIS.HelloServiceClient("NetTcpBinding_IHelloServiceIIS");// WAS hosting
+            //HelloServiceIIS.HelloServiceClient client = new HelloServiceIIS.HelloServiceClient("NetTcpBinding_IHelloServiceIIS");// WAS hosting
+            HelloServiceClient client = new HelloServiceClient("WSHttpBinding_IHelloService");
             lblGetMessageResult.Text = client.GetMessage(tbName.Text);
         }
 
