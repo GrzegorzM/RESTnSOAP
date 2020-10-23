@@ -17,7 +17,7 @@ namespace WCFproject
         [OperationContract(ProtectionLevel = ProtectionLevel.None)]
         string GetMessageWithoutAnyProtection();
 
-        [OperationContract(ProtectionLevel = ProtectionLevel.Sign)]
+        [OperationContract(ProtectionLevel = ProtectionLevel.Sign)] // basicHttpBinding does not support security and the host application will throw an exception when ProtectionLevel is explicitly set.
         string GetSignedMessage();
 
         [OperationContract(ProtectionLevel = ProtectionLevel.EncryptAndSign)]
