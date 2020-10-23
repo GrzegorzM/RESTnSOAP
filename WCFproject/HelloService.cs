@@ -7,5 +7,19 @@
         {
             return $"Hello {Name}";
         }
+
+        public string GetMessageWithoutAnyProtection()
+        {
+            return "Message without signature and encryption";
+        }
+
+        public string GetSignedMessage()
+        {
+            return "Message with signature but without encryption";
+        }
+        public string GetSignedAndEncryptedMessage()
+        {
+            return "Message signed and encrypted";
+        }
     }
 }

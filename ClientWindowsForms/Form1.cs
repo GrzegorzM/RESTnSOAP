@@ -266,5 +266,23 @@ namespace ClientWindowsForms
         }
 
         #endregion
+
+        private void buttonGetMessage_Click(object sender, EventArgs e)
+        {
+            HelloServiceClient client = new HelloServiceClient("WSHttpBinding_IHelloService");
+            MessageBox.Show(client.GetMessageWithoutAnyProtection());
+        }
+
+        private void buttonGetSignedMessage_Click(object sender, EventArgs e)
+        {
+            HelloServiceClient client = new HelloServiceClient("WSHttpBinding_IHelloService");
+            MessageBox.Show(client.GetSignedMessage());
+        }
+
+        private void buttonGetSignedEncryptedMessage_Click(object sender, EventArgs e)
+        {
+            HelloServiceClient client = new HelloServiceClient("WSHttpBinding_IHelloService");
+            MessageBox.Show(client.GetSignedAndEncryptedMessage());
+        }
     }
 }

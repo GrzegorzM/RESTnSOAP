@@ -60,6 +60,9 @@
             this.buttonProcessReportReentrant = new System.Windows.Forms.Button();
             this.textBoxProgressReentrant = new System.Windows.Forms.TextBox();
             this.buttonDoWork = new System.Windows.Forms.Button();
+            this.buttonGetMessage = new System.Windows.Forms.Button();
+            this.buttonGetSignedMessage = new System.Windows.Forms.Button();
+            this.buttonGetSignedEncryptedMessage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -345,11 +348,44 @@
             this.buttonDoWork.UseVisualStyleBackColor = true;
             this.buttonDoWork.Click += new System.EventHandler(this.buttonDoWork_Click);
             // 
+            // buttonGetMessage
+            // 
+            this.buttonGetMessage.Location = new System.Drawing.Point(771, 132);
+            this.buttonGetMessage.Name = "buttonGetMessage";
+            this.buttonGetMessage.Size = new System.Drawing.Size(248, 23);
+            this.buttonGetMessage.TabIndex = 30;
+            this.buttonGetMessage.Text = "Get Message - Not Signed and Not Encrypted";
+            this.buttonGetMessage.UseVisualStyleBackColor = true;
+            this.buttonGetMessage.Click += new System.EventHandler(this.buttonGetMessage_Click);
+            // 
+            // buttonGetSignedMessage
+            // 
+            this.buttonGetSignedMessage.Location = new System.Drawing.Point(771, 161);
+            this.buttonGetSignedMessage.Name = "buttonGetSignedMessage";
+            this.buttonGetSignedMessage.Size = new System.Drawing.Size(248, 23);
+            this.buttonGetSignedMessage.TabIndex = 31;
+            this.buttonGetSignedMessage.Text = "Get Message - Signed but Not Encrypted";
+            this.buttonGetSignedMessage.UseVisualStyleBackColor = true;
+            this.buttonGetSignedMessage.Click += new System.EventHandler(this.buttonGetSignedMessage_Click);
+            // 
+            // buttonGetSignedEncryptedMessage
+            // 
+            this.buttonGetSignedEncryptedMessage.Location = new System.Drawing.Point(771, 190);
+            this.buttonGetSignedEncryptedMessage.Name = "buttonGetSignedEncryptedMessage";
+            this.buttonGetSignedEncryptedMessage.Size = new System.Drawing.Size(248, 23);
+            this.buttonGetSignedEncryptedMessage.TabIndex = 32;
+            this.buttonGetSignedEncryptedMessage.Text = "Get Message - Signed and Encrypted";
+            this.buttonGetSignedEncryptedMessage.UseVisualStyleBackColor = true;
+            this.buttonGetSignedEncryptedMessage.Click += new System.EventHandler(this.buttonGetSignedEncryptedMessage_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 450);
+            this.Controls.Add(this.buttonGetSignedEncryptedMessage);
+            this.Controls.Add(this.buttonGetSignedMessage);
+            this.Controls.Add(this.buttonGetMessage);
             this.Controls.Add(this.buttonDoWork);
             this.Controls.Add(this.textBoxProgressReentrant);
             this.Controls.Add(this.buttonProcessReportReentrant);
@@ -421,6 +457,9 @@
         private System.Windows.Forms.Button buttonProcessReportReentrant;
         private System.Windows.Forms.TextBox textBoxProgressReentrant;
         private System.Windows.Forms.Button buttonDoWork;
+        private System.Windows.Forms.Button buttonGetMessage;
+        private System.Windows.Forms.Button buttonGetSignedMessage;
+        private System.Windows.Forms.Button buttonGetSignedEncryptedMessage;
     }
 }
 
