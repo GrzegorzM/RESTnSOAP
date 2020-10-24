@@ -265,6 +265,14 @@ namespace ClientWindowsForms
             }
         }
 
+
+        private void buttonAuthentication_Click(object sender, EventArgs e)
+        {
+            InstanceContext instanceContext = new InstanceContext(this);
+            SimpleServiceClient client = new SimpleServiceClient(instanceContext);
+            MessageBox.Show(client.GetUserName());
+        }
+
         #endregion
 
         private void buttonGetMessage_Click(object sender, EventArgs e)

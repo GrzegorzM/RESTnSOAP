@@ -63,6 +63,7 @@
             this.buttonGetMessage = new System.Windows.Forms.Button();
             this.buttonGetSignedMessage = new System.Windows.Forms.Button();
             this.buttonGetSignedEncryptedMessage = new System.Windows.Forms.Button();
+            this.buttonAuthentication = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -378,11 +379,22 @@
             this.buttonGetSignedEncryptedMessage.UseVisualStyleBackColor = true;
             this.buttonGetSignedEncryptedMessage.Click += new System.EventHandler(this.buttonGetSignedEncryptedMessage_Click);
             // 
+            // buttonAuthentication
+            // 
+            this.buttonAuthentication.Location = new System.Drawing.Point(771, 241);
+            this.buttonAuthentication.Name = "buttonAuthentication";
+            this.buttonAuthentication.Size = new System.Drawing.Size(130, 23);
+            this.buttonAuthentication.TabIndex = 33;
+            this.buttonAuthentication.Text = "Authentication WCF";
+            this.buttonAuthentication.UseVisualStyleBackColor = true;
+            this.buttonAuthentication.Click += new System.EventHandler(this.buttonAuthentication_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 450);
+            this.Controls.Add(this.buttonAuthentication);
             this.Controls.Add(this.buttonGetSignedEncryptedMessage);
             this.Controls.Add(this.buttonGetSignedMessage);
             this.Controls.Add(this.buttonGetMessage);
@@ -460,6 +472,7 @@
         private System.Windows.Forms.Button buttonGetMessage;
         private System.Windows.Forms.Button buttonGetSignedMessage;
         private System.Windows.Forms.Button buttonGetSignedEncryptedMessage;
+        private System.Windows.Forms.Button buttonAuthentication;
     }
 }
 

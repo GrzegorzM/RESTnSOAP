@@ -101,5 +101,14 @@ namespace WCFproject
             Thread.Sleep(1000);
             Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} processing request @ {DateTime.Now}");
         }
+
+        public string GetUserName()
+        {
+            Console.WriteLine($"Is Authenticated: {ServiceSecurityContext.Current.PrimaryIdentity.IsAuthenticated}");
+            Console.WriteLine($"Authentication Type: {ServiceSecurityContext.Current.PrimaryIdentity.AuthenticationType}");
+            Console.WriteLine($"Username: {ServiceSecurityContext.Current.PrimaryIdentity.Name}");
+
+            return $"Authenticated Username: {ServiceSecurityContext.Current.PrimaryIdentity.Name}";
+        }
     }
 }

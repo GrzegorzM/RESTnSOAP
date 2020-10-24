@@ -50,6 +50,12 @@ namespace ClientWindowsForms.SimpleService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/DoWork")]
         System.Threading.Tasks.Task DoWorkAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetUserName", ReplyAction="http://tempuri.org/ISimpleService/GetUserNameResponse")]
+        string GetUserName();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetUserName", ReplyAction="http://tempuri.org/ISimpleService/GetUserNameResponse")]
+        System.Threading.Tasks.Task<string> GetUserNameAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -133,6 +139,14 @@ namespace ClientWindowsForms.SimpleService {
         
         public System.Threading.Tasks.Task DoWorkAsync() {
             return base.Channel.DoWorkAsync();
+        }
+        
+        public string GetUserName() {
+            return base.Channel.GetUserName();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetUserNameAsync() {
+            return base.Channel.GetUserNameAsync();
         }
     }
 }

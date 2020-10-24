@@ -35,5 +35,8 @@ namespace WCFproject
 
         [OperationContract(IsOneWay = true)]
         void DoWork();
+
+        [OperationContract]
+        string GetUserName();
     }
 }
