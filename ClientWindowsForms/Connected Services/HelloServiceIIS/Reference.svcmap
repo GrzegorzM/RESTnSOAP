@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="864bda1f-5c3a-4ec9-a8fa-f358c08d16bd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="951b7603-528b-466b-9262-75f8777daa3b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8084/HelloService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://desktop-a32ufaf:8084/HelloServiceIIS.svc/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="HelloService.disco" MetadataType="Disco" ID="30ef6e7c-a192-4e35-88bd-c05a6e852fba" SourceId="1" SourceUrl="http://desktop-a32ufaf:8084/HelloService.svc?disco" />
-    <MetadataFile FileName="HelloService.xsd" MetadataType="Schema" ID="b169513a-60fc-4bc6-8967-5e3011c0074f" SourceId="1" SourceUrl="http://desktop-a32ufaf:8084/HelloService.svc?xsd=xsd0" />
-    <MetadataFile FileName="HelloService1.xsd" MetadataType="Schema" ID="629eb00c-9bfc-4320-9bfe-e86616fc8acb" SourceId="1" SourceUrl="http://desktop-a32ufaf:8084/HelloService.svc?xsd=xsd1" />
-    <MetadataFile FileName="HelloService.wsdl" MetadataType="Wsdl" ID="f47183d1-7777-4297-a824-3d92f7bd5e99" SourceId="1" SourceUrl="http://desktop-a32ufaf:8084/HelloService.svc?wsdl" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b696a4e3-5628-433b-8044-699b229040c2" SourceId="1" SourceUrl="http://desktop-a32ufaf:8084/HelloServiceIIS.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a9a03336-07c5-45cb-aa64-127ac0f12f24" SourceId="1" SourceUrl="http://desktop-a32ufaf:8084/HelloServiceIIS.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="fd1fe20f-e316-4bb8-bda1-05b95cef1276" SourceId="1" SourceUrl="http://desktop-a32ufaf:8084/HelloServiceIIS.svc/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

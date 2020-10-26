@@ -292,5 +292,15 @@ namespace ClientWindowsForms
             HelloServiceClient client = new HelloServiceClient("WSHttpBinding_IHelloService");
             MessageBox.Show(client.GetSignedAndEncryptedMessage());
         }
+
+        private void buttonCallService_Click(object sender, EventArgs e)
+        {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; }; // Workaround for a self-signed certificate.
+
+            HelloServiceIIS.HelloServiceClient client = new HelloServiceIIS.HelloServiceClient("WSHttpBinding_IHelloService1");
+            client.ClientCredentials.UserName.UserName = "WindowsLoginUsername";
+            client.ClientCredentials.UserName.Password = "WindowsLoginPassword";
+            MessageBox.Show(client.GetMessage("World!"));
+        }
     }
 }

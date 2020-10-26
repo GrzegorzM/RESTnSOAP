@@ -126,11 +126,11 @@
     <None Include="Connected Services\DownloadService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\HelloServiceIIS\HelloService.wsdl" />
-    <None Include="Connected Services\HelloServiceIIS\HelloService.xsd">
+    <None Include="Connected Services\HelloServiceIIS\service.wsdl" />
+    <None Include="Connected Services\HelloServiceIIS\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\HelloServiceIIS\HelloService1.xsd">
+    <None Include="Connected Services\HelloServiceIIS\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\HelloService\HelloService.wsdl" />
@@ -200,21 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\CalculatorService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\HelloServiceIIS\HelloService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\HelloServiceIIS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\HelloServiceIIS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\HelloServiceIIS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -290,6 +275,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\HelloService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HelloServiceIIS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HelloServiceIIS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HelloServiceIIS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

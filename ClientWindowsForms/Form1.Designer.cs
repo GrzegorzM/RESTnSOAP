@@ -64,6 +64,7 @@
             this.buttonGetSignedMessage = new System.Windows.Forms.Button();
             this.buttonGetSignedEncryptedMessage = new System.Windows.Forms.Button();
             this.buttonAuthentication = new System.Windows.Forms.Button();
+            this.buttonCallService = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -389,11 +390,22 @@
             this.buttonAuthentication.UseVisualStyleBackColor = true;
             this.buttonAuthentication.Click += new System.EventHandler(this.buttonAuthentication_Click);
             // 
+            // buttonCallService
+            // 
+            this.buttonCallService.Location = new System.Drawing.Point(771, 282);
+            this.buttonCallService.Name = "buttonCallService";
+            this.buttonCallService.Size = new System.Drawing.Size(248, 23);
+            this.buttonCallService.TabIndex = 34;
+            this.buttonCallService.Text = "Call Service wsHttpBinding Transport Security";
+            this.buttonCallService.UseVisualStyleBackColor = true;
+            this.buttonCallService.Click += new System.EventHandler(this.buttonCallService_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 450);
+            this.Controls.Add(this.buttonCallService);
             this.Controls.Add(this.buttonAuthentication);
             this.Controls.Add(this.buttonGetSignedEncryptedMessage);
             this.Controls.Add(this.buttonGetSignedMessage);
@@ -473,6 +485,7 @@
         private System.Windows.Forms.Button buttonGetSignedMessage;
         private System.Windows.Forms.Button buttonGetSignedEncryptedMessage;
         private System.Windows.Forms.Button buttonAuthentication;
+        private System.Windows.Forms.Button buttonCallService;
     }
 }
 

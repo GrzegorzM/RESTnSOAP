@@ -20,6 +20,24 @@ namespace ClientWindowsForms.HelloServiceIIS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetMessage", ReplyAction="http://tempuri.org/IHelloService/GetMessageResponse")]
         System.Threading.Tasks.Task<string> GetMessageAsync(string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetMessageWithoutAnyProtection", ReplyAction="http://tempuri.org/IHelloService/GetMessageWithoutAnyProtectionResponse")]
+        string GetMessageWithoutAnyProtection();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetMessageWithoutAnyProtection", ReplyAction="http://tempuri.org/IHelloService/GetMessageWithoutAnyProtectionResponse")]
+        System.Threading.Tasks.Task<string> GetMessageWithoutAnyProtectionAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetSignedMessage", ReplyAction="http://tempuri.org/IHelloService/GetSignedMessageResponse")]
+        string GetSignedMessage();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetSignedMessage", ReplyAction="http://tempuri.org/IHelloService/GetSignedMessageResponse")]
+        System.Threading.Tasks.Task<string> GetSignedMessageAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetSignedAndEncryptedMessage", ReplyAction="http://tempuri.org/IHelloService/GetSignedAndEncryptedMessageResponse")]
+        string GetSignedAndEncryptedMessage();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHelloService/GetSignedAndEncryptedMessage", ReplyAction="http://tempuri.org/IHelloService/GetSignedAndEncryptedMessageResponse")]
+        System.Threading.Tasks.Task<string> GetSignedAndEncryptedMessageAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +73,30 @@ namespace ClientWindowsForms.HelloServiceIIS {
         
         public System.Threading.Tasks.Task<string> GetMessageAsync(string Name) {
             return base.Channel.GetMessageAsync(Name);
+        }
+        
+        public string GetMessageWithoutAnyProtection() {
+            return base.Channel.GetMessageWithoutAnyProtection();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetMessageWithoutAnyProtectionAsync() {
+            return base.Channel.GetMessageWithoutAnyProtectionAsync();
+        }
+        
+        public string GetSignedMessage() {
+            return base.Channel.GetSignedMessage();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetSignedMessageAsync() {
+            return base.Channel.GetSignedMessageAsync();
+        }
+        
+        public string GetSignedAndEncryptedMessage() {
+            return base.Channel.GetSignedAndEncryptedMessage();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetSignedAndEncryptedMessageAsync() {
+            return base.Channel.GetSignedAndEncryptedMessageAsync();
         }
     }
 }
