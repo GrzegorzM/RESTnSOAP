@@ -302,5 +302,11 @@ namespace ClientWindowsForms
             client.ClientCredentials.UserName.Password = "WindowsLoginPassword";
             MessageBox.Show(client.GetMessage("World!"));
         }
+
+        private void buttonCallServiceTCP_Click(object sender, EventArgs e)
+        {
+            HelloServiceClient client = new HelloServiceClient("NetTcpBinding_IHelloService1");
+            MessageBox.Show(client.GetMessage("World!"));
+        }
     }
 }

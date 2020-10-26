@@ -65,6 +65,7 @@
             this.buttonGetSignedEncryptedMessage = new System.Windows.Forms.Button();
             this.buttonAuthentication = new System.Windows.Forms.Button();
             this.buttonCallService = new System.Windows.Forms.Button();
+            this.buttonCallServiceTCP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessage
@@ -400,11 +401,22 @@
             this.buttonCallService.UseVisualStyleBackColor = true;
             this.buttonCallService.Click += new System.EventHandler(this.buttonCallService_Click);
             // 
+            // buttonCallServiceTCP
+            // 
+            this.buttonCallServiceTCP.Location = new System.Drawing.Point(771, 311);
+            this.buttonCallServiceTCP.Name = "buttonCallServiceTCP";
+            this.buttonCallServiceTCP.Size = new System.Drawing.Size(248, 23);
+            this.buttonCallServiceTCP.TabIndex = 35;
+            this.buttonCallServiceTCP.Text = "Call Service netTCPBinding Message Security";
+            this.buttonCallServiceTCP.UseVisualStyleBackColor = true;
+            this.buttonCallServiceTCP.Click += new System.EventHandler(this.buttonCallServiceTCP_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 450);
+            this.Controls.Add(this.buttonCallServiceTCP);
             this.Controls.Add(this.buttonCallService);
             this.Controls.Add(this.buttonAuthentication);
             this.Controls.Add(this.buttonGetSignedEncryptedMessage);
@@ -486,6 +498,7 @@
         private System.Windows.Forms.Button buttonGetSignedEncryptedMessage;
         private System.Windows.Forms.Button buttonAuthentication;
         private System.Windows.Forms.Button buttonCallService;
+        private System.Windows.Forms.Button buttonCallServiceTCP;
     }
 }
 
